@@ -1,0 +1,2 @@
+Compile the program into an executable jar as follows:
+jar cvmf MANIFEST.mf MetricReporter.jar MetricReporter.class MetricReporter$Metric.class metrics.properties CSV_Configs
