@@ -90,8 +90,8 @@ public class MetricReporter {
         startDT = LocalDateTime.parse(startTimeMetric, formatter);
         endDT = startDT.plusHours(1);
 
-        long startEpoch = startDT.atZone(ZoneId.of("America/New_York")).get(ChronoField.MILLI_OF_SECOND);
-        long endEpoch = endDT.atZone(ZoneId.of("America/New_York")).get(ChronoField.MILLI_OF_SECOND);
+        long startEpoch = startDT.atZone(ZoneId.of("America/New_York")).toInstant().toEpochMilli();
+        long endEpoch = endDT.atZone(ZoneId.of("America/New_York")).toInstant().toEpochMilli();
         timeParamString = "&time-range-type=BETWEEN_TIMES&start-time=" + startEpoch + "&end-time=" + endEpoch;
     }
 
