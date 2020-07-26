@@ -169,7 +169,7 @@ public class MetricReporter {
     public static float GetTestValue(String metric, String metricPath) throws Exception {
         String commandBase = metricProperties.getProperty("commandBase");
         String token = new String(Base64.getDecoder().decode(metricProperties.getProperty("token")));
-        String command = commandBase + token + " "  + metricPath;
+        String command = commandBase + token + " \""  + metricPath + "\"";
 
         Process process = Runtime.getRuntime().exec(command);
         BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
@@ -267,7 +267,7 @@ public class MetricReporter {
      * Prints the metric's test value
      */
     public static void PrintMetricTestValue(Metric metric) {
-        System.out.print(metric.testValue + ",");
+        System.out.printf("%.2f,", metric.testValue);
     }
     /*
      * Prints the difference between the metric's baseline value and test value
@@ -276,7 +276,7 @@ public class MetricReporter {
         if (Float.isNaN(diff)) {
             System.out.print(metricName + " is N/A to calculate,");
         } else {
-            System.out.printf("%f2,", diff);
+            System.out.printf("%.2f,", diff);
         }
     }
     /*
