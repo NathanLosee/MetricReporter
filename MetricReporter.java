@@ -110,6 +110,8 @@ public class MetricReporter {
             // This if allows the use of empty lines in the CSV for grouping related data
             if (!metricRow.equals("")) {
                 String[] metricData = metricRow.split(",");
+
+                System.out.println("Gathering metrics for: " + metricData[0]);
     
                 Metric newMetric = new Metric();
                 metrics.put(metricData[0], newMetric);
