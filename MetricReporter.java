@@ -98,7 +98,14 @@ public class MetricReporter {
      * Create the metrics LinkedHashMap and populate it with the baseline and test values, and other reporting data
      */
     public static void InitializeMetrics() throws Exception {
-        BufferedReader csvReader = new BufferedReader(new FileReader(metricProperties.getProperty("csv_" + metricCSV)));
+        BufferedReader csvReader;
+        // Need to determine if running from a jar and pull the CSV accordingly
+        String resourcePath = MetricReporter.class.getResource("MetricReporter.class").toString();
+        if (resourcePath.startsWith("jar:")) {
+            csvReader = new BufferedReader(new InputStreamReader(MetricReporter.class.getResourceAsStream(metricProperties.getProperty("csv_" + metricCSV))));
+        } else {
+            csvReader = new BufferedReader(new FileReader(metricProperties.getProperty("csv_" + metricCSV)));
+        }
         // Skip header row
         csvReader.readLine();
 
