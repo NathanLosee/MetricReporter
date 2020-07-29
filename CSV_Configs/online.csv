@@ -1,4 +1,4 @@
-METRIC,BASE_VALUE,METRIC_PATH,ERROR_THRESHOLD,WARNING_THRESHOLD,
+METRIC,BASE_VALUE,METRIC_PATH,ERROR_THRESHOLD,WARNING_THRESHOLD
 
 submitOrder,455,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/OLO-STAGE/metric-data?metric-path=Service%20Endpoints%7CRWD%7COrder%20Checkout.%2Forder%2Fcheckout%2FsubmitOrder%7CAverage%20Response%20Time%20%28ms%29,100.0,40.0,SubmitOrder response time (ms)
 checkOut,275,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/OLO-STAGE/metric-data?metric-path=Service%20Endpoints%7CRWD%7COrder%20Checkout.%2Forder%2Fcheckout%2Fstart%7CAverage%20Response%20Time%20%28ms%29,100.0,35.0,Proceed_CheckOut response time (ms)
