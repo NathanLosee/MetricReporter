@@ -164,6 +164,10 @@ public class MetricReporter {
             metrics.get(metricData[0]).baseValue = Derived_Error(metricData[2], true);
             metrics.get(metricData[0]).testValue = Derived_Error(metricData[2], false);
             break;
+        case "Derived_Error2":
+            metrics.get(metricData[0]).baseValue = Derived_Error2(metricData[2], true);
+            metrics.get(metricData[0]).testValue = Derived_Error2(metricData[2], false);
+            break;
         default:
             metrics.get(metricData[0]).baseValue = Integer.parseInt(metricData[1]);
             metrics.get(metricData[0]).testValue = GetTestValue(metricData[0], metricData[2] + timeParamString);
@@ -341,14 +345,43 @@ public class MetricReporter {
         String callsMetric = derivedMetrics[0];
         String errorsMetric = derivedMetrics[1];
 
+        float errorsMetricValue, callsMetricValue;
         if (isBase) {
-            float errorsMetricValue = metrics.get(errorsMetric).baseValue;
-            float callsMetricValue = metrics.get(callsMetric).baseValue;
-            return (errorsMetricValue / callsMetricValue) * 100;
+            errorsMetricValue = metrics.get(errorsMetric).baseValue;
+            callsMetricValue = metrics.get(callsMetric).baseValue;
         } else {
-            float errorsMetricValue = metrics.get(errorsMetric).testValue;
-            float callsMetricValue = metrics.get(callsMetric).testValue;
-            return (errorsMetricValue / callsMetricValue) * 100;
+            errorsMetricValue = metrics.get(errorsMetric).testValue;
+            callsMetricValue = metrics.get(callsMetric).testValue;
         }
+
+        return (errorsMetricValue / callsMetricValue) * 100;
+    }
+    /*
+     * Function for percentage values derived from ratio of errors to calls, ignores NaN errors
+     * REQUIRES: Two metrics - number of calls made, number of errors made
+     */
+    public static float Derived_Error2(String derivedMetricsString, boolean isBase) {
+        String[] derivedMetrics = derivedMetricsString.split(":");
+        String callsMetric = derivedMetrics[0];
+        String errorsMetric = derivedMetrics[1];
+
+        float errorsMetricValue, callsMetricValue;
+        if (isBase) {
+            errorsMetricValue = metrics.get(errorsMetric).baseValue;
+            if (Float.isNaN(errorsMetricValue)) {
+                errorsMetricValue = 0;
+                metrics.get(errorsMetric).baseValue = 0;
+            }
+            callsMetricValue = metrics.get(callsMetric).baseValue;
+        } else {
+            errorsMetricValue = metrics.get(errorsMetric).testValue;
+            if (Float.isNaN(errorsMetricValue)) {
+                errorsMetricValue = 0;
+                metrics.get(errorsMetric).testValue = 0;
+            }
+            callsMetricValue = metrics.get(callsMetric).testValue;
+        }
+
+        return (errorsMetricValue / callsMetricValue) * 100;
     }
 }
