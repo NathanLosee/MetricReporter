@@ -1,109 +1,168 @@
-METRIC,BASE_VALUE,METRIC_PATH,ERROR_THRESHOLD,WARNING_THRESHOLD,METRIC_HEADER
-
-serverOverallCPU,1,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Application%20Infrastructure%20Performance%7CSERVER%7CIndividual%20Nodes%7C0186.str00186%7CHardware%20Resources%7CCPU%7C%25Busy,50,100,header
-serverJavaCPU,1,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Application%20Infrastructure%20Performance%7CSERVER%7CIndividual%20Nodes%7C0186.str00186%7CJVM%7CProcess%20CPU%20Usage%20%25,50,100,header
-serverMemory,1,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Application%20Infrastructure%20Performance%7CSERVER%7CIndividual%20Nodes%7C0186.str00186%7CHardware%20Resources%7CMemory%7CUsed%20%25,50,100,header
-serverDiskReadOps,1,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Application%20Infrastructure%20Performance%7CSERVER%7CIndividual%20Nodes%7C0186.str00186%7CHardware%20Resources%7CDisks%7CReads%2Fsec,50,100,header
-serverDiskReadKbs,1,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Application%20Infrastructure%20Performance%7CSERVER%7CIndividual%20Nodes%7C0186.str00186%7CHardware%20Resources%7CDisks%7CKB%20read%2Fsec,50,100,header
-serverDiskWriteOps,1,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Application%20Infrastructure%20Performance%7CSERVER%7CIndividual%20Nodes%7C0186.str00186%7CHardware%20Resources%7CDisks%7CWrites%2Fsec,50,100,header
-serverDiskWriteKbs,1,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Application%20Infrastructure%20Performance%7CSERVER%7CIndividual%20Nodes%7C0186.str00186%7CHardware%20Resources%7CDisks%7CKB%20written%2Fsec,50,100,header
-gddOverallCPU,1,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Application%20Infrastructure%20Performance%7CTERMINAL%7CIndividual%20Nodes%7C0186.DriverDispatch1%7CHardware%20Resources%7CCPU%7C%25Busy,50,100,header
-gddJavaCPU,1,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Application%20Infrastructure%20Performance%7CTERMINAL%7CIndividual%20Nodes%7C0186.DriverDispatch1%7CJVM%7CProcess%20CPU%20Usage%20%25,50,100,header
-gddMemory,1,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Application%20Infrastructure%20Performance%7CTERMINAL%7CIndividual%20Nodes%7C0186.DriverDispatch1%7CHardware%20Resources%7CMemory%7CUsed%20%25,50,100,header
-gddDiskReadOps,1,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Application%20Infrastructure%20Performance%7CTERMINAL%7CIndividual%20Nodes%7C0186.DriverDispatch1%7CHardware%20Resources%7CDisks%7CReads%2Fsec,50,100,header
-gddDiskReadKbs,1,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Application%20Infrastructure%20Performance%7CTERMINAL%7CIndividual%20Nodes%7C0186.DriverDispatch1%7CHardware%20Resources%7CDisks%7CKB%20read%2Fsec,50,100,header
-gddDiskWriteOps,1,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Application%20Infrastructure%20Performance%7CTERMINAL%7CIndividual%20Nodes%7C0186.DriverDispatch1%7CHardware%20Resources%7CDisks%7CWrites%2Fsec,50,100,header
-gddDiskWriteKbs,1,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Application%20Infrastructure%20Performance%7CTERMINAL%7CIndividual%20Nodes%7C0186.DriverDispatch1%7CHardware%20Resources%7CDisks%7CKB%20written%2Fsec,50,100,header
-
-serverHeap,1,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Application%20Infrastructure%20Performance%7CSERVER%7CIndividual%20Nodes%7C0186.str00186%7CJVM%7CMemory%7CHeap%7CUsed%20%25,50,100,header
-serverThreads,1,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Application%20Infrastructure%20Performance%7CSERVER%7CIndividual%20Nodes%7C0186.str00186%7CJVM%7CThreads%7CCurrent%20No.%20of%20Threads,50,100,header
-serverMajorGC,1,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Application%20Infrastructure%20Performance%7CSERVER%7CIndividual%20Nodes%7C0186.str00186%7CJVM%7CGarbage%20Collection%7CNumber%20of%20Major%20Collections%20Per%20Min,50,100,header
-serverMinorGC,1,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Application%20Infrastructure%20Performance%7CSERVER%7CIndividual%20Nodes%7C0186.str00186%7CJVM%7CGarbage%20Collection%7CNumber%20of%20Minor%20Collections%20Per%20Min,50,100,header
-serverGCTime,1,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Application%20Infrastructure%20Performance%7CSERVER%7CIndividual%20Nodes%7C0186.str00186%7CJVM%7CGarbage%20Collection%7CGC%20Time%20Spent%20Per%20Min%20%28ms%29,50,100,header
-serverGCTimePerc,Derived_GC,serverGCTime,50,100,header
-gddHeap,1,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Application%20Infrastructure%20Performance%7CTERMINAL%7CIndividual%20Nodes%7C0186.DriverDispatch1%7CJVM%7CMemory%7CHeap%7CUsed%20%25,50,100,header
-gddThreads,1,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Application%20Infrastructure%20Performance%7CTERMINAL%7CIndividual%20Nodes%7C0186.DriverDispatch1%7CJVM%7CThreads%7CCurrent%20No.%20of%20Threads,50,100,header
-gddMajorGC,1,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Application%20Infrastructure%20Performance%7CTERMINAL%7CIndividual%20Nodes%7C0186.DriverDispatch1%7CJVM%7CGarbage%20Collection%7CNumber%20of%20Major%20Collections%20Per%20Min,50,100,header
-gddMinorGC,1,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Application%20Infrastructure%20Performance%7CTERMINAL%7CIndividual%20Nodes%7C0186.DriverDispatch1%7CJVM%7CGarbage%20Collection%7CNumber%20of%20Minor%20Collections%20Per%20Min,50,100,header
-gddGCTime,1,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Application%20Infrastructure%20Performance%7CTERMINAL%7CIndividual%20Nodes%7C0186.DriverDispatch1%7CJVM%7CGarbage%20Collection%7CGC%20Time%20Spent%20Per%20Min%20%28ms%29,50,100,header
-gddGCTimePerc,Derived_GC,gddGCTime,50,100,header
-
-serverTransCalls,1,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Overall%20Application%20Performance%7CSERVER%7CIndividual%20Nodes%7C0186.str00186%7CCalls%20per%20Minute,50,100,header
-serverTransErrors,1,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Overall%20Application%20Performance%7CSERVER%7CIndividual%20Nodes%7C0186.str00186%7CErrors%20per%20Minute,50,100,header
-serverTransErrorPerc,Derived_Error2,serverTransCalls:serverTransErrors,50,100,header
-databaseCalls,1,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Backends%7CDiscovered%20backend%20call%20-%20PROFIT-PostgreSQL-LOCALHOST-9.2.18%7CCalls%20per%20Minute,50,100,header
-databaseResponseTime,1,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Backends%7CDiscovered%20backend%20call%20-%20PROFIT-PostgreSQL-LOCALHOST-9.2.18%7CAverage%20Response%20Time%20%28ms%29,50,100,header
-
-commonResponseTime,1,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Business%20Transaction%20Performance%7CBusiness%20Transactions%7CSERVER%7CCommon%7CAverage%20Response%20Time%20%28ms%29,50,100,header
-commonCalls,1,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Business%20Transaction%20Performance%7CBusiness%20Transactions%7CSERVER%7CCommon%7CCalls%20per%20Minute,50,100,header
-commonErrors,1,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Business%20Transaction%20Performance%7CBusiness%20Transactions%7CSERVER%7CCommon%7CErrors%20per%20Minute,50,100,header
-commonErrorPerc,Derived_Error2,commonCalls:commonErrors,50,100,header
-corpServicesResponseTime,1,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Business%20Transaction%20Performance%7CBusiness%20Transactions%7CSERVER%7C%2FCorporateServicesEndPoint%7CAverage%20Response%20Time%20%28ms%29,50,100,header
-corpServicesCalls,1,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Business%20Transaction%20Performance%7CBusiness%20Transactions%7CSERVER%7C%2FCorporateServicesEndPoint%7CCalls%20per%20Minute,50,100,header
-corpServicesErrors,1,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Business%20Transaction%20Performance%7CBusiness%20Transactions%7CSERVER%7C%2FCorporateServicesEndPoint%7CErrors%20per%20Minute,50,100,header
-corpServicesErrorPerc,Derived_Error2,corpServicesCalls:corpServicesErrors,50,100,header
-makelineResponseTime,1,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Business%20Transaction%20Performance%7CBusiness%20Transactions%7CSERVER%7CMakeline%7CAverage%20Response%20Time%20%28ms%29,50,100,header
-makelineCalls,1,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Business%20Transaction%20Performance%7CBusiness%20Transactions%7CSERVER%7CMakeline%7CCalls%20per%20Minute,50,100,header
-makelineErrors,1,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Business%20Transaction%20Performance%7CBusiness%20Transactions%7CSERVER%7CMakeline%7CErrors%20per%20Minute,50,100,header
-makelineErrorPerc,Derived_Error2,makelineCalls:makelineErrors,50,100,header
-mappingResponseTime,1,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Business%20Transaction%20Performance%7CBusiness%20Transactions%7CSERVER%7CMapping%7CAverage%20Response%20Time%20%28ms%29,50,100,header
-mappingCalls,1,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Business%20Transaction%20Performance%7CBusiness%20Transactions%7CSERVER%7CMapping%7CCalls%20per%20Minute,50,100,header
-mappingErrors,1,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Business%20Transaction%20Performance%7CBusiness%20Transactions%7CSERVER%7CMapping%7CErrors%20per%20Minute,50,100,header
-mappingErrorPerc,Derived_Error2,mappingCalls:mappingErrors,50,100,header
-miscResponseTime,1,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Business%20Transaction%20Performance%7CBusiness%20Transactions%7CSERVER%7CMisc%7CAverage%20Response%20Time%20%28ms%29,50,100,header
-miscCalls,1,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Business%20Transaction%20Performance%7CBusiness%20Transactions%7CSERVER%7CMisc%7CCalls%20per%20Minute,50,100,header
-miscErrors,1,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Business%20Transaction%20Performance%7CBusiness%20Transactions%7CSERVER%7CMisc%7CErrors%20per%20Minute,50,100,header
-miscErrorPerc,Derived_Error2,miscCalls:miscErrors,50,100,header
-orderentryResponseTime,1,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Business%20Transaction%20Performance%7CBusiness%20Transactions%7CSERVER%7COrderEntry%7CAverage%20Response%20Time%20%28ms%29,50,100,header
-orderentryCalls,1,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Business%20Transaction%20Performance%7CBusiness%20Transactions%7CSERVER%7COrderEntry%7CCalls%20per%20Minute,50,100,header
-orderentryErrors,1,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Business%20Transaction%20Performance%7CBusiness%20Transactions%7CSERVER%7COrderEntry%7CErrors%20per%20Minute,50,100,header
-orderentryErrorPerc,Derived_Error2,orderentryCalls:orderentryErrors,50,100,header
-orderentryBrowseResponseTime,1,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Business%20Transaction%20Performance%7CBusiness%20Transactions%7CSERVER%7COrderEntry%2FBrowseOrder%7CAverage%20Response%20Time%20%28ms%29,50,100,header
-orderentryBrowseCalls,1,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Business%20Transaction%20Performance%7CBusiness%20Transactions%7CSERVER%7COrderEntry%2FBrowseOrder%7CCalls%20per%20Minute,50,100,header
-orderentryBrowseErrors,1,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Business%20Transaction%20Performance%7CBusiness%20Transactions%7CSERVER%7COrderEntry%2FBrowseOrder%7CErrors%20per%20Minute,50,100,header
-orderentryBrowseErrorPerc,Derived_Error2,orderentryBrowseCalls:orderentryBrowseErrors,50,100,header
-orderentryCustomerResponseTime,1,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Business%20Transaction%20Performance%7CBusiness%20Transactions%7CSERVER%7COrderEntry%2FCustomer%7CAverage%20Response%20Time%20%28ms%29,50,100,header
-orderentryCustomerCalls,1,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Business%20Transaction%20Performance%7CBusiness%20Transactions%7CSERVER%7COrderEntry%2FCustomer%7CCalls%20per%20Minute,50,100,header
-orderentryCustomerErrors,1,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Business%20Transaction%20Performance%7CBusiness%20Transactions%7CSERVER%7COrderEntry%2FCustomer%7CErrors%20per%20Minute,50,100,header
-orderentryCustomerErrorPerc,Derived_Error2,orderentryCustomerCalls:orderentryCustomerErrors,50,100,header
-orderentryLoyaltyResponseTime,1,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Business%20Transaction%20Performance%7CBusiness%20Transactions%7CSERVER%7COrderEntry%2FLoyalty%7CAverage%20Response%20Time%20%28ms%29,50,100,header
-orderentryLoyaltyCalls,1,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Business%20Transaction%20Performance%7CBusiness%20Transactions%7CSERVER%7COrderEntry%2FLoyalty%7CCalls%20per%20Minute,50,100,header
-orderentryLoyaltyErrors,1,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Business%20Transaction%20Performance%7CBusiness%20Transactions%7CSERVER%7COrderEntry%2FLoyalty%7CErrors%20per%20Minute,50,100,header
-orderentryLoyaltyErrorPerc,Derived_Error2,orderentryLoyaltyCalls:orderentryLoyaltyErrors,50,100,header
-orderentryPaymentResponseTime,1,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Business%20Transaction%20Performance%7CBusiness%20Transactions%7CSERVER%7COrderEntry%2FPayment%7CAverage%20Response%20Time%20%28ms%29,50,100,header
-orderentryPaymentCalls,1,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Business%20Transaction%20Performance%7CBusiness%20Transactions%7CSERVER%7COrderEntry%2FPayment%7CCalls%20per%20Minute,50,100,header
-orderentryPaymentErrors,1,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Business%20Transaction%20Performance%7CBusiness%20Transactions%7CSERVER%7COrderEntry%2FPayment%7CErrors%20per%20Minute,50,100,header
-orderentryPaymentErrorPerc,Derived_Error2,orderentryPaymentCalls:orderentryPaymentErrors,50,100,header
-orderentryProductResponseTime,1,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Business%20Transaction%20Performance%7CBusiness%20Transactions%7CSERVER%7COrderEntry%2FProduct%7CAverage%20Response%20Time%20%28ms%29,50,100,header
-orderentryProductCalls,1,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Business%20Transaction%20Performance%7CBusiness%20Transactions%7CSERVER%7COrderEntry%2FProduct%7CCalls%20per%20Minute,50,100,header
-orderentryProductErrors,1,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Business%20Transaction%20Performance%7CBusiness%20Transactions%7CSERVER%7COrderEntry%2FProduct%7CErrors%20per%20Minute,50,100,header
-orderentryProductErrorPerc,Derived_Error2,orderentryProductCalls:orderentryProductErrors,50,100,header
-productModResponseTime,1,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Business%20Transaction%20Performance%7CBusiness%20Transactions%7CSERVER%7C%2Fproductmodifications%2F.GET%7CAverage%20Response%20Time%20%28ms%29,50,100,header
-productModCalls,1,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Business%20Transaction%20Performance%7CBusiness%20Transactions%7CSERVER%7C%2Fproductmodifications%2F.GET%7CCalls%20per%20Minute,50,100,header
-productModErrors,1,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Business%20Transaction%20Performance%7CBusiness%20Transactions%7CSERVER%7C%2Fproductmodifications%2F.GET%7CErrors%20per%20Minute,50,100,header
-productModErrorPerc,Derived_Error2,productModCalls:productModErrors,50,100,header
-profitDispatchResponseTime,1,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Business%20Transaction%20Performance%7CBusiness%20Transactions%7CSERVER%7CProfitDispatchServices%7CAverage%20Response%20Time%20%28ms%29,50,100,header
-profitDispatchCalls,1,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Business%20Transaction%20Performance%7CBusiness%20Transactions%7CSERVER%7CProfitDispatchServices%7CCalls%20per%20Minute,50,100,header
-profitDispatchErrors,1,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Business%20Transaction%20Performance%7CBusiness%20Transactions%7CSERVER%7CProfitDispatchServices%7CErrors%20per%20Minute,50,100,header
-profitDispatchErrorPerc,Derived_Error2,profitDispatchCalls:profitDispatchErrors,50,100,header
-systemResponseTime,1,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Business%20Transaction%20Performance%7CBusiness%20Transactions%7CSERVER%7CSystem%7CAverage%20Response%20Time%20%28ms%29,50,100,header
-systemCalls,1,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Business%20Transaction%20Performance%7CBusiness%20Transactions%7CSERVER%7CSystem%7CCalls%20per%20Minute,50,100,header
-systemErrors,1,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Business%20Transaction%20Performance%7CBusiness%20Transactions%7CSERVER%7CSystem%7CErrors%20per%20Minute,50,100,header
-systemErrorPerc,Derived_Error2,systemCalls:systemErrors,50,100,header
-timeclockResponseTime,1,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Business%20Transaction%20Performance%7CBusiness%20Transactions%7CSERVER%7CTimeClock%7CAverage%20Response%20Time%20%28ms%29,50,100,header
-timeclockCalls,1,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Business%20Transaction%20Performance%7CBusiness%20Transactions%7CSERVER%7CTimeClock%7CCalls%20per%20Minute,50,100,header
-timeclockErrors,1,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Business%20Transaction%20Performance%7CBusiness%20Transactions%7CSERVER%7CTimeClock%7CErrors%20per%20Minute,50,100,header
-timeclockErrorPerc,Derived_Error2,timeclockCalls:timeclockErrors,50,100,header
-
-remoteLoyaltyResponseTime,1,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Overall%20Application%20Performance%7CSERVER%7CExternal%20Calls%7CCall-HTTP%20to%20External%20Application%20-%20LOYALTY-STAGE%7CAverage%20Response%20Time%20%28ms%29,50,100,header
-remoteLoyaltyCalls,1,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Overall%20Application%20Performance%7CSERVER%7CExternal%20Calls%7CCall-HTTP%20to%20External%20Application%20-%20LOYALTY-STAGE%7CCalls%20per%20Minute,50,100,header
-remoteLoyaltyErrors,1,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Overall%20Application%20Performance%7CSERVER%7CExternal%20Calls%7CCall-HTTP%20to%20External%20Application%20-%20LOYALTY-STAGE%7CErrors%20per%20Minute,50,100,header
-remoteLoyaltyErrorPerc,Derived_Error2,remoteLoyaltyCalls:remoteLoyaltyErrors,50,100,header
-remoteMappingResponseTime,1,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Overall%20Application%20Performance%7CSERVER%7CExternal%20Calls%7CCall-HTTP%20to%20External%20Application%20-%20MAPPING-STAGING%7CAverage%20Response%20Time%20%28ms%29,50,100,header
-remoteMappingCalls,1,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Overall%20Application%20Performance%7CSERVER%7CExternal%20Calls%7CCall-HTTP%20to%20External%20Application%20-%20MAPPING-STAGING%7CCalls%20per%20Minute,50,100,header
-remoteMappingErrors,1,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Overall%20Application%20Performance%7CSERVER%7CExternal%20Calls%7CCall-HTTP%20to%20External%20Application%20-%20MAPPING-STAGING%7CErrors%20per%20Minute,50,100,header
-remoteMappingErrorPerc,Derived_Error2,remoteMappingCalls:remoteMappingErrors,50,100,header
-remoteProfanityResponseTime,1,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Backends%7CDiscovered%20backend%20call%20-%20languagefilter-qa.papajohns.com%3A443%7CAverage%20Response%20Time%20%28ms%29,50,100,header
-remoteProfanityCalls,1,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Backends%7CDiscovered%20backend%20call%20-%20languagefilter-qa.papajohns.com%3A443%7CCalls%20per%20Minute,50,100,header
-remoteProfanityErrors,1,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Backends%7CDiscovered%20backend%20call%20-%20languagefilter-qa.papajohns.com%3A443%7CErrors%20per%20Minute,50,100,header
-remoteProfanityErrorPerc,Derived_Error2,remoteProfanityCalls:remoteProfanityErrors,50,100,header
+METRIC,METRIC_PATH,ERROR_THRESHOLD,WARNING_THRESHOLD,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,
+serverOverallCPU,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Application%20Infrastructure%20Performance%7CSERVER%7CIndividual%20Nodes%7C0186.str00186%7CHardware%20Resources%7CCPU%7C%25Busy,50,100,,,,,,,,,,,,,
+serverJavaCPU,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Application%20Infrastructure%20Performance%7CSERVER%7CIndividual%20Nodes%7C0186.str00186%7CJVM%7CProcess%20CPU%20Usage%20%25,50,100,,,,,,,,,,,,,
+serverMemory,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Application%20Infrastructure%20Performance%7CSERVER%7CIndividual%20Nodes%7C0186.str00186%7CHardware%20Resources%7CMemory%7CUsed%20%25,50,100,,,,,,,,,,,,,
+serverDiskReadOps,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Application%20Infrastructure%20Performance%7CSERVER%7CIndividual%20Nodes%7C0186.str00186%7CHardware%20Resources%7CDisks%7CReads%2Fsec,50,100,,,,,,,,,,,,,
+serverDiskReadKbs,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Application%20Infrastructure%20Performance%7CSERVER%7CIndividual%20Nodes%7C0186.str00186%7CHardware%20Resources%7CDisks%7CKB%20read%2Fsec,50,100,,,,,,,,,,,,,
+serverDiskWriteOps,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Application%20Infrastructure%20Performance%7CSERVER%7CIndividual%20Nodes%7C0186.str00186%7CHardware%20Resources%7CDisks%7CWrites%2Fsec,50,100,,,,,,,,,,,,,
+serverDiskWriteKbs,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Application%20Infrastructure%20Performance%7CSERVER%7CIndividual%20Nodes%7C0186.str00186%7CHardware%20Resources%7CDisks%7CKB%20written%2Fsec,50,100,,,,,,,,,,,,,
+gddOverallCPU,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Application%20Infrastructure%20Performance%7CTERMINAL%7CIndividual%20Nodes%7C0186.DriverDispatch1%7CHardware%20Resources%7CCPU%7C%25Busy,50,100,,,,,,,,,,,,,
+gddJavaCPU,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Application%20Infrastructure%20Performance%7CTERMINAL%7CIndividual%20Nodes%7C0186.DriverDispatch1%7CJVM%7CProcess%20CPU%20Usage%20%25,50,100,,,,,,,,,,,,,
+gddMemory,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Application%20Infrastructure%20Performance%7CTERMINAL%7CIndividual%20Nodes%7C0186.DriverDispatch1%7CHardware%20Resources%7CMemory%7CUsed%20%25,50,100,,,,,,,,,,,,,
+gddDiskReadOps,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Application%20Infrastructure%20Performance%7CTERMINAL%7CIndividual%20Nodes%7C0186.DriverDispatch1%7CHardware%20Resources%7CDisks%7CReads%2Fsec,50,100,,,,,,,,,,,,,
+gddDiskReadKbs,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Application%20Infrastructure%20Performance%7CTERMINAL%7CIndividual%20Nodes%7C0186.DriverDispatch1%7CHardware%20Resources%7CDisks%7CKB%20read%2Fsec,50,100,,,,,,,,,,,,,
+gddDiskWriteOps,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Application%20Infrastructure%20Performance%7CTERMINAL%7CIndividual%20Nodes%7C0186.DriverDispatch1%7CHardware%20Resources%7CDisks%7CWrites%2Fsec,50,100,,,,,,,,,,,,,
+gddDiskWriteKbs,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Application%20Infrastructure%20Performance%7CTERMINAL%7CIndividual%20Nodes%7C0186.DriverDispatch1%7CHardware%20Resources%7CDisks%7CKB%20written%2Fsec,50,100,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,
+serverHeap,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Application%20Infrastructure%20Performance%7CSERVER%7CIndividual%20Nodes%7C0186.str00186%7CJVM%7CMemory%7CHeap%7CUsed%20%25,50,100,,,,,,,,,,,,,
+serverThreads,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Application%20Infrastructure%20Performance%7CSERVER%7CIndividual%20Nodes%7C0186.str00186%7CJVM%7CThreads%7CCurrent%20No.%20of%20Threads,50,100,,,,,,,,,,,,,
+serverMajorGC,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Application%20Infrastructure%20Performance%7CSERVER%7CIndividual%20Nodes%7C0186.str00186%7CJVM%7CGarbage%20Collection%7CNumber%20of%20Major%20Collections%20Per%20Min,50,100,,,,,,,,,,,,,
+serverMinorGC,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Application%20Infrastructure%20Performance%7CSERVER%7CIndividual%20Nodes%7C0186.str00186%7CJVM%7CGarbage%20Collection%7CNumber%20of%20Minor%20Collections%20Per%20Min,50,100,,,,,,,,,,,,,
+serverGCTime,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Application%20Infrastructure%20Performance%7CSERVER%7CIndividual%20Nodes%7C0186.str00186%7CJVM%7CGarbage%20Collection%7CGC%20Time%20Spent%20Per%20Min%20%28ms%29,50,100,,,,,,,,,,,,,
+serverGCTimePerc,serverGCTime,50,100,,,,,,,,,,,,,
+gddHeap,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Application%20Infrastructure%20Performance%7CTERMINAL%7CIndividual%20Nodes%7C0186.DriverDispatch1%7CJVM%7CMemory%7CHeap%7CUsed%20%25,50,100,,,,,,,,,,,,,
+gddThreads,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Application%20Infrastructure%20Performance%7CTERMINAL%7CIndividual%20Nodes%7C0186.DriverDispatch1%7CJVM%7CThreads%7CCurrent%20No.%20of%20Threads,50,100,,,,,,,,,,,,,
+gddMajorGC,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Application%20Infrastructure%20Performance%7CTERMINAL%7CIndividual%20Nodes%7C0186.DriverDispatch1%7CJVM%7CGarbage%20Collection%7CNumber%20of%20Major%20Collections%20Per%20Min,50,100,,,,,,,,,,,,,
+gddMinorGC,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Application%20Infrastructure%20Performance%7CTERMINAL%7CIndividual%20Nodes%7C0186.DriverDispatch1%7CJVM%7CGarbage%20Collection%7CNumber%20of%20Minor%20Collections%20Per%20Min,50,100,,,,,,,,,,,,,
+gddGCTime,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Application%20Infrastructure%20Performance%7CTERMINAL%7CIndividual%20Nodes%7C0186.DriverDispatch1%7CJVM%7CGarbage%20Collection%7CGC%20Time%20Spent%20Per%20Min%20%28ms%29,50,100,,,,,,,,,,,,,
+gddGCTimePerc,gddGCTime,50,100,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,
+serverTransCalls,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Overall%20Application%20Performance%7CSERVER%7CIndividual%20Nodes%7C0186.str00186%7CCalls%20per%20Minute,50,100,,,,,,,,,,,,,
+serverTransErrors,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Overall%20Application%20Performance%7CSERVER%7CIndividual%20Nodes%7C0186.str00186%7CErrors%20per%20Minute,50,100,,,,,,,,,,,,,
+serverTransErrorPerc,serverTransCalls:serverTransErrors,50,100,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,
+databaseCalls,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Backends%7CDiscovered%20backend%20call%20-%20PROFIT-PostgreSQL-LOCALHOST-9.2.18%7CCalls%20per%20Minute,50,100,,,,,,,,,,,,,
+databaseResponseTime,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Backends%7CDiscovered%20backend%20call%20-%20PROFIT-PostgreSQL-LOCALHOST-9.2.18%7CAverage%20Response%20Time%20%28ms%29,50,100,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,
+commonResponseTime,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Business%20Transaction%20Performance%7CBusiness%20Transactions%7CSERVER%7CCommon%7CAverage%20Response%20Time%20%28ms%29,50,100,,,,,,,,,,,,,
+commonCalls,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Business%20Transaction%20Performance%7CBusiness%20Transactions%7CSERVER%7CCommon%7CCalls%20per%20Minute,50,100,,,,,,,,,,,,,
+commonErrors,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Business%20Transaction%20Performance%7CBusiness%20Transactions%7CSERVER%7CCommon%7CErrors%20per%20Minute,50,100,,,,,,,,,,,,,
+commonErrorPerc,commonCalls:commonErrors,50,100,,,,,,,,,,,,,
+corpServicesResponseTime,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Business%20Transaction%20Performance%7CBusiness%20Transactions%7CSERVER%7C%2FCorporateServicesEndPoint%7CAverage%20Response%20Time%20%28ms%29,50,100,,,,,,,,,,,,,
+corpServicesCalls,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Business%20Transaction%20Performance%7CBusiness%20Transactions%7CSERVER%7C%2FCorporateServicesEndPoint%7CCalls%20per%20Minute,50,100,,,,,,,,,,,,,
+corpServicesErrors,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Business%20Transaction%20Performance%7CBusiness%20Transactions%7CSERVER%7C%2FCorporateServicesEndPoint%7CErrors%20per%20Minute,50,100,,,,,,,,,,,,,
+corpServicesErrorPerc,corpServicesCalls:corpServicesErrors,50,100,,,,,,,,,,,,,
+makelineResponseTime,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Business%20Transaction%20Performance%7CBusiness%20Transactions%7CSERVER%7CMakeline%7CAverage%20Response%20Time%20%28ms%29,50,100,,,,,,,,,,,,,
+makelineCalls,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Business%20Transaction%20Performance%7CBusiness%20Transactions%7CSERVER%7CMakeline%7CCalls%20per%20Minute,50,100,,,,,,,,,,,,,
+makelineErrors,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Business%20Transaction%20Performance%7CBusiness%20Transactions%7CSERVER%7CMakeline%7CErrors%20per%20Minute,50,100,,,,,,,,,,,,,
+makelineErrorPerc,makelineCalls:makelineErrors,50,100,,,,,,,,,,,,,
+mappingResponseTime,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Business%20Transaction%20Performance%7CBusiness%20Transactions%7CSERVER%7CMapping%7CAverage%20Response%20Time%20%28ms%29,50,100,,,,,,,,,,,,,
+mappingCalls,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Business%20Transaction%20Performance%7CBusiness%20Transactions%7CSERVER%7CMapping%7CCalls%20per%20Minute,50,100,,,,,,,,,,,,,
+mappingErrors,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Business%20Transaction%20Performance%7CBusiness%20Transactions%7CSERVER%7CMapping%7CErrors%20per%20Minute,50,100,,,,,,,,,,,,,
+mappingErrorPerc,mappingCalls:mappingErrors,50,100,,,,,,,,,,,,,
+miscResponseTime,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Business%20Transaction%20Performance%7CBusiness%20Transactions%7CSERVER%7CMisc%7CAverage%20Response%20Time%20%28ms%29,50,100,,,,,,,,,,,,,
+miscCalls,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Business%20Transaction%20Performance%7CBusiness%20Transactions%7CSERVER%7CMisc%7CCalls%20per%20Minute,50,100,,,,,,,,,,,,,
+miscErrors,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Business%20Transaction%20Performance%7CBusiness%20Transactions%7CSERVER%7CMisc%7CErrors%20per%20Minute,50,100,,,,,,,,,,,,,
+miscErrorPerc,miscCalls:miscErrors,50,100,,,,,,,,,,,,,
+orderentryResponseTime,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Business%20Transaction%20Performance%7CBusiness%20Transactions%7CSERVER%7COrderEntry%7CAverage%20Response%20Time%20%28ms%29,50,100,,,,,,,,,,,,,
+orderentryCalls,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Business%20Transaction%20Performance%7CBusiness%20Transactions%7CSERVER%7COrderEntry%7CCalls%20per%20Minute,50,100,,,,,,,,,,,,,
+orderentryErrors,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Business%20Transaction%20Performance%7CBusiness%20Transactions%7CSERVER%7COrderEntry%7CErrors%20per%20Minute,50,100,,,,,,,,,,,,,
+orderentryErrorPerc,orderentryCalls:orderentryErrors,50,100,,,,,,,,,,,,,
+orderentryBrowseResponseTime,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Business%20Transaction%20Performance%7CBusiness%20Transactions%7CSERVER%7COrderEntry%2FBrowseOrder%7CAverage%20Response%20Time%20%28ms%29,50,100,,,,,,,,,,,,,
+orderentryBrowseCalls,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Business%20Transaction%20Performance%7CBusiness%20Transactions%7CSERVER%7COrderEntry%2FBrowseOrder%7CCalls%20per%20Minute,50,100,,,,,,,,,,,,,
+orderentryBrowseErrors,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Business%20Transaction%20Performance%7CBusiness%20Transactions%7CSERVER%7COrderEntry%2FBrowseOrder%7CErrors%20per%20Minute,50,100,,,,,,,,,,,,,
+orderentryBrowseErrorPerc,orderentryBrowseCalls:orderentryBrowseErrors,50,100,,,,,,,,,,,,,
+orderentryCustomerResponseTime,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Business%20Transaction%20Performance%7CBusiness%20Transactions%7CSERVER%7COrderEntry%2FCustomer%7CAverage%20Response%20Time%20%28ms%29,50,100,,,,,,,,,,,,,
+orderentryCustomerCalls,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Business%20Transaction%20Performance%7CBusiness%20Transactions%7CSERVER%7COrderEntry%2FCustomer%7CCalls%20per%20Minute,50,100,,,,,,,,,,,,,
+orderentryCustomerErrors,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Business%20Transaction%20Performance%7CBusiness%20Transactions%7CSERVER%7COrderEntry%2FCustomer%7CErrors%20per%20Minute,50,100,,,,,,,,,,,,,
+orderentryCustomerErrorPerc,orderentryCustomerCalls:orderentryCustomerErrors,50,100,,,,,,,,,,,,,
+orderentryLoyaltyResponseTime,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Business%20Transaction%20Performance%7CBusiness%20Transactions%7CSERVER%7COrderEntry%2FLoyalty%7CAverage%20Response%20Time%20%28ms%29,50,100,,,,,,,,,,,,,
+orderentryLoyaltyCalls,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Business%20Transaction%20Performance%7CBusiness%20Transactions%7CSERVER%7COrderEntry%2FLoyalty%7CCalls%20per%20Minute,50,100,,,,,,,,,,,,,
+orderentryLoyaltyErrors,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Business%20Transaction%20Performance%7CBusiness%20Transactions%7CSERVER%7COrderEntry%2FLoyalty%7CErrors%20per%20Minute,50,100,,,,,,,,,,,,,
+orderentryLoyaltyErrorPerc,orderentryLoyaltyCalls:orderentryLoyaltyErrors,50,100,,,,,,,,,,,,,
+orderentryPaymentResponseTime,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Business%20Transaction%20Performance%7CBusiness%20Transactions%7CSERVER%7COrderEntry%2FPayment%7CAverage%20Response%20Time%20%28ms%29,50,100,,,,,,,,,,,,,
+orderentryPaymentCalls,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Business%20Transaction%20Performance%7CBusiness%20Transactions%7CSERVER%7COrderEntry%2FPayment%7CCalls%20per%20Minute,50,100,,,,,,,,,,,,,
+orderentryPaymentErrors,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Business%20Transaction%20Performance%7CBusiness%20Transactions%7CSERVER%7COrderEntry%2FPayment%7CErrors%20per%20Minute,50,100,,,,,,,,,,,,,
+orderentryPaymentErrorPerc,orderentryPaymentCalls:orderentryPaymentErrors,50,100,,,,,,,,,,,,,
+orderentryProductResponseTime,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Business%20Transaction%20Performance%7CBusiness%20Transactions%7CSERVER%7COrderEntry%2FProduct%7CAverage%20Response%20Time%20%28ms%29,50,100,,,,,,,,,,,,,
+orderentryProductCalls,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Business%20Transaction%20Performance%7CBusiness%20Transactions%7CSERVER%7COrderEntry%2FProduct%7CCalls%20per%20Minute,50,100,,,,,,,,,,,,,
+orderentryProductErrors,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Business%20Transaction%20Performance%7CBusiness%20Transactions%7CSERVER%7COrderEntry%2FProduct%7CErrors%20per%20Minute,50,100,,,,,,,,,,,,,
+orderentryProductErrorPerc,orderentryProductCalls:orderentryProductErrors,50,100,,,,,,,,,,,,,
+productModResponseTime,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Business%20Transaction%20Performance%7CBusiness%20Transactions%7CSERVER%7C%2Fproductmodifications%2F.GET%7CAverage%20Response%20Time%20%28ms%29,50,100,,,,,,,,,,,,,
+productModCalls,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Business%20Transaction%20Performance%7CBusiness%20Transactions%7CSERVER%7C%2Fproductmodifications%2F.GET%7CCalls%20per%20Minute,50,100,,,,,,,,,,,,,
+productModErrors,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Business%20Transaction%20Performance%7CBusiness%20Transactions%7CSERVER%7C%2Fproductmodifications%2F.GET%7CErrors%20per%20Minute,50,100,,,,,,,,,,,,,
+productModErrorPerc,productModCalls:productModErrors,50,100,,,,,,,,,,,,,
+profitDispatchResponseTime,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Business%20Transaction%20Performance%7CBusiness%20Transactions%7CSERVER%7CProfitDispatchServices%7CAverage%20Response%20Time%20%28ms%29,50,100,,,,,,,,,,,,,
+profitDispatchCalls,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Business%20Transaction%20Performance%7CBusiness%20Transactions%7CSERVER%7CProfitDispatchServices%7CCalls%20per%20Minute,50,100,,,,,,,,,,,,,
+profitDispatchErrors,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Business%20Transaction%20Performance%7CBusiness%20Transactions%7CSERVER%7CProfitDispatchServices%7CErrors%20per%20Minute,50,100,,,,,,,,,,,,,
+profitDispatchErrorPerc,profitDispatchCalls:profitDispatchErrors,50,100,,,,,,,,,,,,,
+systemResponseTime,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Business%20Transaction%20Performance%7CBusiness%20Transactions%7CSERVER%7CSystem%7CAverage%20Response%20Time%20%28ms%29,50,100,,,,,,,,,,,,,
+systemCalls,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Business%20Transaction%20Performance%7CBusiness%20Transactions%7CSERVER%7CSystem%7CCalls%20per%20Minute,50,100,,,,,,,,,,,,,
+systemErrors,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Business%20Transaction%20Performance%7CBusiness%20Transactions%7CSERVER%7CSystem%7CErrors%20per%20Minute,50,100,,,,,,,,,,,,,
+systemErrorPerc,systemCalls:systemErrors,50,100,,,,,,,,,,,,,
+timeclockResponseTime,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Business%20Transaction%20Performance%7CBusiness%20Transactions%7CSERVER%7CTimeClock%7CAverage%20Response%20Time%20%28ms%29,50,100,,,,,,,,,,,,,
+timeclockCalls,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Business%20Transaction%20Performance%7CBusiness%20Transactions%7CSERVER%7CTimeClock%7CCalls%20per%20Minute,50,100,,,,,,,,,,,,,
+timeclockErrors,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Business%20Transaction%20Performance%7CBusiness%20Transactions%7CSERVER%7CTimeClock%7CErrors%20per%20Minute,50,100,,,,,,,,,,,,,
+timeclockErrorPerc,timeclockCalls:timeclockErrors,50,100,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,
+remoteLoyaltyResponseTime,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Overall%20Application%20Performance%7CSERVER%7CExternal%20Calls%7CCall-HTTP%20to%20External%20Application%20-%20LOYALTY-STAGE%7CAverage%20Response%20Time%20%28ms%29,50,100,,,,,,,,,,,,,
+remoteLoyaltyCalls,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Overall%20Application%20Performance%7CSERVER%7CExternal%20Calls%7CCall-HTTP%20to%20External%20Application%20-%20LOYALTY-STAGE%7CCalls%20per%20Minute,50,100,,,,,,,,,,,,,
+remoteLoyaltyErrors,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Overall%20Application%20Performance%7CSERVER%7CExternal%20Calls%7CCall-HTTP%20to%20External%20Application%20-%20LOYALTY-STAGE%7CErrors%20per%20Minute,50,100,,,,,,,,,,,,,
+remoteLoyaltyErrorPerc,remoteLoyaltyCalls:remoteLoyaltyErrors,50,100,,,,,,,,,,,,,
+remoteMappingResponseTime,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Overall%20Application%20Performance%7CSERVER%7CExternal%20Calls%7CCall-HTTP%20to%20External%20Application%20-%20MAPPING-STAGING%7CAverage%20Response%20Time%20%28ms%29,50,100,,,,,,,,,,,,,
+remoteMappingCalls,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Overall%20Application%20Performance%7CSERVER%7CExternal%20Calls%7CCall-HTTP%20to%20External%20Application%20-%20MAPPING-STAGING%7CCalls%20per%20Minute,50,100,,,,,,,,,,,,,
+remoteMappingErrors,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Overall%20Application%20Performance%7CSERVER%7CExternal%20Calls%7CCall-HTTP%20to%20External%20Application%20-%20MAPPING-STAGING%7CErrors%20per%20Minute,50,100,,,,,,,,,,,,,
+remoteMappingErrorPerc,remoteMappingCalls:remoteMappingErrors,50,100,,,,,,,,,,,,,
+remoteProfanityResponseTime,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Backends%7CDiscovered%20backend%20call%20-%20languagefilter-qa.papajohns.com%3A443%7CAverage%20Response%20Time%20%28ms%29,50,100,,,,,,,,,,,,,
+remoteProfanityCalls,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Backends%7CDiscovered%20backend%20call%20-%20languagefilter-qa.papajohns.com%3A443%7CCalls%20per%20Minute,50,100,,,,,,,,,,,,,
+remoteProfanityErrors,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/FOCUS/metric-data?metric-path=Backends%7CDiscovered%20backend%20call%20-%20languagefilter-qa.papajohns.com%3A443%7CErrors%20per%20Minute,50,100,,,,,,,,,,,,,
+remoteProfanityErrorPerc,remoteProfanityCalls:remoteProfanityErrors,50,100,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,
+=====FORMAT=====,,,,,,,,,,,,,,,,
+HARDWARE,,,,,,,,,,,,,,,,
+METRIC,SERVER,,,,GDD,,,,,,,,,,,
+,Prev.,New,Diff,Analysis,Prev.,New,Diff,Analysis,,,,,,,,
+CPU Used AVG (%),{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},,,,,,,,
+Java CPU AVG (%),{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},,,,,,,,
+Memory Used AVG (%),{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},,,,,,,,
+Disk Read AVG op/s,{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},,,,,,,,
+Disk Read AVG kb/s,{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},,,,,,,,
+Disk Write AVG op/s,{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},,,,,,,,
+Disk Write AVG kb/s,{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},,,,,,,,
+,,,,,,,,,,,,,,,,
+JVM,,,,,,,,,,,,,,,,
+METRIC,SERVER,,,,GDD,,,,,,,,,,,
+,Prev.,New,Diff,Analysis,Prev.,New,Diff,Analysis,,,,,,,,
+Heap MAX (GB),8,,,,1,,,,,,,,,,,
+Heap Used AVG (%),{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},,,,,,,,
+Possible Threads MAX,2000,,,,8000,,,,,,,,,,,
+Active Threads AVG,{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},,,,,,,,
+Major GC (total),{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},,,,,,,,
+Minor GC AVG (no./min),{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},,,,,,,,
+GC CPU Time AVG (ms/min),{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},,,,,,,,
+GC CPU Time AVG (%),{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},,,,,,,,
+,,,,,,,,,,,,,,,,
+TRANSACTIONS - OVERALL,,,,,,,,,,,,,,,,
+METRIC,Prev.,New,Diff,Analysis,,,,,,,,,,,,
+Calls AVG (no./min),{metric},{metric},{metric},{metric},,,,,,,,,,,,
+Errors AVG (no./min),{metric},{metric},{metric},{metric},,,,,,,,,,,,
+Errors AVG (%),{metric},{metric},{metric},{metric},,,,,,,,,,,,
+,,,,,,,,,,,,,,,,
+DATABASE,,,,,,,,,,,,,,,,
+METRIC,Prev.,New,Diff,Analysis,,,,,,,,,,,,
+Calls AVG (no./min),{metric},{metric},{metric},{metric},,,,,,,,,,,,
+Response Time AVG (ms),{metric},{metric},{metric},{metric},,,,,,,,,,,,
+,,,,,,,,,,,,,,,,
+TRANSACTIONS,,,,,,,,,,,,,,,,
+Name,Calls AVG (no./min),,,,Response Time AVG (ms),,,,Errors AVG (no./min),,,,Errors AVG (%),,,
+,Prev,New,Diff,Analysis,Prev,New,Diff,Analysis,Prev,New,Diff,Analysis,Prev,New,Diff,Analysis
+Common,{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric}
+CorporateServices,{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric}
+Makeline,{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric}
+Mapping,{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric}
+Misc,{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric}
+Orderentry,{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric}
+Orderentry/browseorder,{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric}
+Orderentry/customer,{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric}
+Orderentry/loyalty,{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric}
+Orderentry/payment,{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric}
+Orderentry/product,{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric}
+ProductModifications/ProductBuilders,{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric}
+ProfitDispatchServices,{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric}
+System,{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric}
+TimeClock,{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric}
+REMOTE SERVICES,,,,,,,,,,,,,,,,
+SERVER -> LOYALTY_STAGE,{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric}
+SERVER -> MAPPING_STAGE,{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric}
+SERVER -> PROFANITY_QA,{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric},{metric}

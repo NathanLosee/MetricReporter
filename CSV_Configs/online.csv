@@ -59,4 +59,3 @@ mapErrorPerc,Derived_Error,mapCallMin:mapError,5.0,3.0,Mapping Error (%)
 mapResponse,102,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/MAPPING-STAGING/metric-data?metric-path=Overall%20Application%20Performance%7CAverage%20Response%20Time%20%28ms%29,50.0,20.0,Mapping avg response (ms)
 moResponse,70,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/OLO-STAGE/metric-data?metric-path=Information%20Points%7CPAYMENTS%20-%20Monetra%20Request%7CAverage%20Response%20Time%20%28ms%29,50.0,15.0,Monetra response (ms)
 
-simple_ESX,ESX CPU (%),55% - 63%,ESX Delta N/A,ESX data not compared
