@@ -1,61 +1,121 @@
 METRIC,BASE_VALUE,METRIC_PATH,ERROR_THRESHOLD,WARNING_THRESHOLD,METRIC_HEADER
 
-submitOrder,455,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/OLO-STAGE/metric-data?metric-path=Service%20Endpoints%7CRWD%7COrder%20Checkout.%2Forder%2Fcheckout%2FsubmitOrder%7CAverage%20Response%20Time%20%28ms%29,100.0,40.0,SubmitOrder response time (ms)
-checkOut,275,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/OLO-STAGE/metric-data?metric-path=Service%20Endpoints%7CRWD%7COrder%20Checkout.%2Forder%2Fcheckout%2Fstart%7CAverage%20Response%20Time%20%28ms%29,100.0,35.0,Proceed_CheckOut response time (ms)
-storeSearch,203,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/OLO-STAGE/metric-data?metric-path=Service%20Endpoints%7CRWD%7CstoresSearch%7CAverage%20Response%20Time%20%28ms%29,100.0,30.0,StoresSearch response time (ms)
-orderCancel,100,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/OLO-STAGE/metric-data?metric-path=Business%20Transaction%20Performance%7CBusiness%20Transactions%7CPOBSWSOLO%7CPjOnlineMaintenanceService.orderCancel%7CAverage%20Response%20Time%20%28ms%29,100.0,20.0,Order Cancel response time (ms)
-tipAdjust,100,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/OLO-STAGE/metric-data?metric-path=Business%20Transaction%20Performance%7CBusiness%20Transactions%7CPOBSWSOLO%7CPjOnlineMaintenanceService.addOnlineOrderTip%7CAverage%20Response%20Time%20%28ms%29,100.0,20.0,Tip Adjust response time (ms)
-createAccount,287,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/OLO-STAGE/metric-data?metric-path=Service%20Endpoints%7CRWD%7C%2Forder%2Fcreate-account-page%7CAverage%20Response%20Time%20%28ms%29,100.0,20.0,create-account (Registration) response time (ms)
-signIn,775,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/OLO-STAGE/metric-data?metric-path=Service%20Endpoints%7CRWD%7C%2Forder%2Fsignin-customer%7CAverage%20Response%20Time%20%28ms%29,100.0,35.0,sign-in response time (ms)
-menu,175,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/OLO-STAGE/metric-data?metric-path=Business%20Transaction%20Performance%7CBusiness%20Transactions%7CRWD%7C%2Forder%2Fmenu%7CAverage%20Response%20Time%20%28ms%29,100.0,20.0,menu response time (ms)
-viewCart,1003,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/OLO-STAGE/metric-data?metric-path=Service%20Endpoints%7CRWD%7C%2Forder%2Fview-cart%7CAverage%20Response%20Time%20%28ms%29,100.0,30.0,view-cart response time (ms)
+submitOrder,455,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/OLO-STAGE/metric-data?metric-path=Service%20Endpoints%7CRWD%7COrder%20Checkout.%2Forder%2Fcheckout%2FsubmitOrder%7CAverage%20Response%20Time%20%28ms%29,100,40
+checkOut,275,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/OLO-STAGE/metric-data?metric-path=Service%20Endpoints%7CRWD%7COrder%20Checkout.%2Forder%2Fcheckout%2Fstart%7CAverage%20Response%20Time%20%28ms%29,100,35
+storeSearch,203,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/OLO-STAGE/metric-data?metric-path=Service%20Endpoints%7CRWD%7CstoresSearch%7CAverage%20Response%20Time%20%28ms%29,100,30
+orderCancel,100,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/OLO-STAGE/metric-data?metric-path=Business%20Transaction%20Performance%7CBusiness%20Transactions%7CPOBSWSOLO%7CPjOnlineMaintenanceService.orderCancel%7CAverage%20Response%20Time%20%28ms%29,100,20
+tipAdjust,100,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/OLO-STAGE/metric-data?metric-path=Business%20Transaction%20Performance%7CBusiness%20Transactions%7CPOBSWSOLO%7CPjOnlineMaintenanceService.addOnlineOrderTip%7CAverage%20Response%20Time%20%28ms%29,100,20
+createAccount,287,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/OLO-STAGE/metric-data?metric-path=Service%20Endpoints%7CRWD%7C%2Forder%2Fcreate-account-page%7CAverage%20Response%20Time%20%28ms%29,100,20
+signIn,775,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/OLO-STAGE/metric-data?metric-path=Service%20Endpoints%7CRWD%7C%2Forder%2Fsignin-customer%7CAverage%20Response%20Time%20%28ms%29,100,35
+menu,175,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/OLO-STAGE/metric-data?metric-path=Business%20Transaction%20Performance%7CBusiness%20Transactions%7CRWD%7C%2Forder%2Fmenu%7CAverage%20Response%20Time%20%28ms%29,100,20
+viewCart,1003,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/OLO-STAGE/metric-data?metric-path=Service%20Endpoints%7CRWD%7C%2Forder%2Fview-cart%7CAverage%20Response%20Time%20%28ms%29,100,30
 
-rwdAvgCPU,78,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/OLO-STAGE/metric-data?metric-path=Application%20Infrastructure%20Performance%7CRWD%7CHardware%20Resources%7CCPU%7C%25Busy,10.0,3.0,RWD CPU (%)
-pobsAvgCPU,19,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/OLO-STAGE/metric-data?metric-path=Application%20Infrastructure%20Performance%7CPOBS%7CHardware%20Resources%7CCPU%7C%25Busy,10.0,3.0,POBS CPU (%)
-pobswsoloAvgCPU,5,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/OLO-STAGE/metric-data?metric-path=Application%20Infrastructure%20Performance%7CPOBSWSOLO%7CHardware%20Resources%7CCPU%7C%25Busy,10.0,2.0,POBSWSOLO CPU (%)
-rwdIOs,200,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/OLO-STAGE/metric-data?metric-path=Application%20Infrastructure%20Performance%7CRWD%7CHardware%20Resources%7CDisks%7CKB%20written%2Fsec,100.0,30.0,RWD I/O (KB/sec)
-pobsIOs,44,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/OLO-STAGE/metric-data?metric-path=Application%20Infrastructure%20Performance%7CPOBS%7CHardware%20Resources%7CDisks%7CKB%20written%2Fsec,100.0,20.0,POBS I/O (KB/sec)
-pobswsoloIOs,54,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/OLO-STAGE/metric-data?metric-path=Application%20Infrastructure%20Performance%7CPOBSWSOLO%7CHardware%20Resources%7CDisks%7CKB%20written%2Fsec,100.0,20.0,POBSWSOLO I/O (KB/sec)
+rwdAvgCPU,78,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/OLO-STAGE/metric-data?metric-path=Application%20Infrastructure%20Performance%7CRWD%7CHardware%20Resources%7CCPU%7C%25Busy,10,3
+pobsAvgCPU,19,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/OLO-STAGE/metric-data?metric-path=Application%20Infrastructure%20Performance%7CPOBS%7CHardware%20Resources%7CCPU%7C%25Busy,10,3
+pobswsoloAvgCPU,5,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/OLO-STAGE/metric-data?metric-path=Application%20Infrastructure%20Performance%7CPOBSWSOLO%7CHardware%20Resources%7CCPU%7C%25Busy,10,2
+rwdIOs,200,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/OLO-STAGE/metric-data?metric-path=Application%20Infrastructure%20Performance%7CRWD%7CHardware%20Resources%7CDisks%7CKB%20written%2Fsec,100,30
+pobsIOs,44,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/OLO-STAGE/metric-data?metric-path=Application%20Infrastructure%20Performance%7CPOBS%7CHardware%20Resources%7CDisks%7CKB%20written%2Fsec,100,20
+pobswsoloIOs,54,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/OLO-STAGE/metric-data?metric-path=Application%20Infrastructure%20Performance%7CPOBSWSOLO%7CHardware%20Resources%7CDisks%7CKB%20written%2Fsec,100,20
 
-rwdHeap,67,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/OLO-STAGE/metric-data?metric-path=Application%20Infrastructure%20Performance%7CRWD%7CJVM%7CMemory%7CHeap%7CUsed%20%25,10.0,6.0,RWD JVM Heap usage (%) of 30 GB
-rwdMinor,24,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/OLO-STAGE/metric-data?metric-path=Application%20Infrastructure%20Performance%7CRWD%7CJVM%7CGarbage%20Collection%7CNumber%20of%20Minor%20Collections%20Per%20Min,5.0,2.0,RWD minor GCs per min (per node)
-rwdMajor,9,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/OLO-STAGE/metric-data?metric-path=Application%20Infrastructure%20Performance%7CRWD%7CJVM%7CGarbage%20Collection%7CNumber%20of%20Major%20Collections%20Per%20Min,18.0,10.0,RWD major GCs (total duration & nodes = 9)
-rwdGCTime,1395,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/OLO-STAGE/metric-data?metric-path=Application%20Infrastructure%20Performance%7CRWD%7CJVM%7CGarbage%20Collection%7CGC%20Time%20Spent%20Per%20Min%20%28ms%29,120.0,60.0,RWD GC time per min (per node in ms)
-rwdGCTimePerc,Derived_GC,rwdGCTime,5.0,1.0,RWD GC Overhead (%)
-pobsHeap,66,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/OLO-STAGE/metric-data?metric-path=Application%20Infrastructure%20Performance%7CPOBS%7CJVM%7CMemory%7CHeap%7CUsed%20%25,10.0,6.0,POBS JVM Heap usage (%) of 16 GB
-pobsMinor,12,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/OLO-STAGE/metric-data?metric-path=Application%20Infrastructure%20Performance%7CPOBS%7CJVM%7CGarbage%20Collection%7CNumber%20of%20Minor%20Collections%20Per%20Min,5.0,2.0,POBS minor GCs per min (per node)
-pobsMajor,14,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/OLO-STAGE/metric-data?metric-path=Application%20Infrastructure%20Performance%7CPOBS%7CJVM%7CGarbage%20Collection%7CNumber%20of%20Major%20Collections%20Per%20Min,28.0,15.0,POBS major GCs (total duration & nodes = 14)
-pobsGCTime,397,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/OLO-STAGE/metric-data?metric-path=Application%20Infrastructure%20Performance%7CPOBS%7CJVM%7CGarbage%20Collection%7CGC%20Time%20Spent%20Per%20Min%20%28ms%29,120.0,60.0,POBS GC time per min (per node in ms)
-pobsGCTimePerc,Derived_GC,pobsGCTime,5.0,1.0,POBS GC Overhead (%)
-pobswsoloHeap,30,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/OLO-STAGE/metric-data?metric-path=Application%20Infrastructure%20Performance%7CPOBSWSOLO%7CJVM%7CMemory%7CHeap%7CUsed%20%25,10.0,6.0,POBSWSOLO JVM Heap usage (%) of 8 GB
-pobswsoloMinor,4,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/OLO-STAGE/metric-data?metric-path=Application%20Infrastructure%20Performance%7CPOBSWSOLO%7CJVM%7CGarbage%20Collection%7CNumber%20of%20Minor%20Collections%20Per%20Min,5.0,2.0,POBSWSOLO minor GCs per min (per node)
-pobswsoloMajor,0,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/OLO-STAGE/metric-data?metric-path=Application%20Infrastructure%20Performance%7CPOBSWSOLO%7CJVM%7CGarbage%20Collection%7CNumber%20of%20Major%20Collections%20Per%20Min,2.0,1.0,POBSWSOLO major GCs (total duration & nodes = 2)
-pobswsoloGCTime,105,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/OLO-STAGE/metric-data?metric-path=Application%20Infrastructure%20Performance%7CPOBSWSOLO%7CJVM%7CGarbage%20Collection%7CMinor%20Collection%20Time%20Spent%20Per%20Min%20%28ms%29,60.0,30.0,POBSWSOLO GC time per min (per node in ms)
-pobswsoloGCTimePerc,Derived_GC,pobswsoloGCTime,5.0,1.0,POBSWSOLO GC Overhead (%)
+rwdHeap,67,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/OLO-STAGE/metric-data?metric-path=Application%20Infrastructure%20Performance%7CRWD%7CJVM%7CMemory%7CHeap%7CUsed%20%25,10,6
+rwdMinor,24,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/OLO-STAGE/metric-data?metric-path=Application%20Infrastructure%20Performance%7CRWD%7CJVM%7CGarbage%20Collection%7CNumber%20of%20Minor%20Collections%20Per%20Min,5,2
+rwdMajor,9,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/OLO-STAGE/metric-data?metric-path=Application%20Infrastructure%20Performance%7CRWD%7CJVM%7CGarbage%20Collection%7CNumber%20of%20Major%20Collections%20Per%20Min,18,10
+rwdGCTime,1395,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/OLO-STAGE/metric-data?metric-path=Application%20Infrastructure%20Performance%7CRWD%7CJVM%7CGarbage%20Collection%7CGC%20Time%20Spent%20Per%20Min%20%28ms%29,120,60
+rwdGCTimePerc,Derived_GC,rwdGCTime,5,1
+pobsHeap,66,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/OLO-STAGE/metric-data?metric-path=Application%20Infrastructure%20Performance%7CPOBS%7CJVM%7CMemory%7CHeap%7CUsed%20%25,10,6
+pobsMinor,12,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/OLO-STAGE/metric-data?metric-path=Application%20Infrastructure%20Performance%7CPOBS%7CJVM%7CGarbage%20Collection%7CNumber%20of%20Minor%20Collections%20Per%20Min,5,2
+pobsMajor,14,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/OLO-STAGE/metric-data?metric-path=Application%20Infrastructure%20Performance%7CPOBS%7CJVM%7CGarbage%20Collection%7CNumber%20of%20Major%20Collections%20Per%20Min,28,15
+pobsGCTime,397,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/OLO-STAGE/metric-data?metric-path=Application%20Infrastructure%20Performance%7CPOBS%7CJVM%7CGarbage%20Collection%7CGC%20Time%20Spent%20Per%20Min%20%28ms%29,120,60
+pobsGCTimePerc,Derived_GC,pobsGCTime,5,1
+pobswsoloHeap,30,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/OLO-STAGE/metric-data?metric-path=Application%20Infrastructure%20Performance%7CPOBSWSOLO%7CJVM%7CMemory%7CHeap%7CUsed%20%25,10,6
+pobswsoloMinor,4,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/OLO-STAGE/metric-data?metric-path=Application%20Infrastructure%20Performance%7CPOBSWSOLO%7CJVM%7CGarbage%20Collection%7CNumber%20of%20Minor%20Collections%20Per%20Min,5,2
+pobswsoloMajor,0,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/OLO-STAGE/metric-data?metric-path=Application%20Infrastructure%20Performance%7CPOBSWSOLO%7CJVM%7CGarbage%20Collection%7CNumber%20of%20Major%20Collections%20Per%20Min,2,1
+pobswsoloGCTime,105,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/OLO-STAGE/metric-data?metric-path=Application%20Infrastructure%20Performance%7CPOBSWSOLO%7CJVM%7CGarbage%20Collection%7CMinor%20Collection%20Time%20Spent%20Per%20Min%20%28ms%29,60,30
+pobswsoloGCTimePerc,Derived_GC,pobswsoloGCTime,5,1
 
-rwdBusy,37,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/OLO-STAGE/metric-data?metric-path=Application%20Infrastructure%20Performance%7CRWD%7CJMX%7CWeb%20Container%20Runtime%7C%22http-nio-8080%22%7CBusy%20Threads,60.0,42.0,RWD Busy threads (Pool = 2500 - 4000)
-pobsBusy,7,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/OLO-STAGE/metric-data?metric-path=Application%20Infrastructure%20Performance%7CPOBS%7CJMX%7CWeb%20Container%20Runtime%7C%22http-nio-8080%22%7CBusy%20Threads,20.0,11.0,POBS Busy threads (Pool = 300 - 1000)
-pobswsoloBusy,2,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/OLO-STAGE/metric-data?metric-path=Application%20Infrastructure%20Performance%7CPOBSWSOLO%7CJMX%7CWeb%20Container%20Runtime%7C%22http-nio-172.25.60.111-8443%22%7CBusy%20Threads,10.0,4.0,POBSWSOLO Busy threads (Pool = 300 - 1000)
-pobsdbConnections,3,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/OLO-STAGE/metric-data?metric-path=Application%20Infrastructure%20Performance%7CPOBS%7CJMX%7CJDBC%20Connection%20Pools%7C%22jdbc%2Fpobo%22%7CActive%20Connections,9.0,5.0,POBS DB Connections Active (Min = 133 / Max = 133)
-pobswsolodbConnections,1,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/OLO-STAGE/metric-data?metric-path=Application%20Infrastructure%20Performance%7CPOBSWSOLO%7CJMX%7CJDBC%20Connection%20Pools%7C%22jdbc%2Fpobo%22%7CActive%20Connections,5.0,1.0,POBSWSOLO DB Connections Active (Min = 20 / Max = 20)
+rwdBusy,37,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/OLO-STAGE/metric-data?metric-path=Application%20Infrastructure%20Performance%7CRWD%7CJMX%7CWeb%20Container%20Runtime%7C%22http-nio-8080%22%7CBusy%20Threads,60,42
+pobsBusy,7,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/OLO-STAGE/metric-data?metric-path=Application%20Infrastructure%20Performance%7CPOBS%7CJMX%7CWeb%20Container%20Runtime%7C%22http-nio-8080%22%7CBusy%20Threads,20,11
+pobswsoloBusy,2,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/OLO-STAGE/metric-data?metric-path=Application%20Infrastructure%20Performance%7CPOBSWSOLO%7CJMX%7CWeb%20Container%20Runtime%7C%22http-nio-172.25.60.111-8443%22%7CBusy%20Threads,10,4
+pobsdbConnections,3,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/OLO-STAGE/metric-data?metric-path=Application%20Infrastructure%20Performance%7CPOBS%7CJMX%7CJDBC%20Connection%20Pools%7C%22jdbc%2Fpobo%22%7CActive%20Connections,9,5
+pobswsolodbConnections,1,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/OLO-STAGE/metric-data?metric-path=Application%20Infrastructure%20Performance%7CPOBSWSOLO%7CJMX%7CJDBC%20Connection%20Pools%7C%22jdbc%2Fpobo%22%7CActive%20Connections,5,1
 
-loyaltyHeap,25,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/LOYALTY-STAGE/metric-data?metric-path=Application%20Infrastructure%20Performance%7CLOYALTY-API%7CJVM%7CMemory%7CHeap%7CUsed%20%25,10.0,5.0,Loyalty JVM Heap usage (%) of 1 GB
-loyaltyMinor,17,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/LOYALTY-STAGE/metric-data?metric-path=Application%20Infrastructure%20Performance%7CLOYALTY-API%7CJVM%7CGarbage%20Collection%7CNumber%20of%20Minor%20Collections%20Per%20Min,5.0,2.0,Loyalty minor GCs per min (per node)
-loyaltyMajor,16,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/LOYALTY-STAGE/metric-data?metric-path=Application%20Infrastructure%20Performance%7CLOYALTY-API%7CJVM%7CGarbage%20Collection%7CNumber%20of%20Major%20Collections%20Per%20Min,32.0,17.0,Loyalty major GCs (total duration & nodes = 16)
-loyaltyGCTime,300,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/LOYALTY-STAGE/metric-data?metric-path=Application%20Infrastructure%20Performance%7CLOYALTY-API%7CJVM%7CGarbage%20Collection%7CGC%20Time%20Spent%20Per%20Min%20%28ms%29,60.0,30.0,Loyalty GC time per min (per node in ms)
-loyaltyGCTimePerc,Derived_GC,loyaltyGCTime,5.0,1.0,Loyalty GC Overhead (%)
+loyaltyHeap,25,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/LOYALTY-STAGE/metric-data?metric-path=Application%20Infrastructure%20Performance%7CLOYALTY-API%7CJVM%7CMemory%7CHeap%7CUsed%20%25,10,5
+loyaltyMinor,17,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/LOYALTY-STAGE/metric-data?metric-path=Application%20Infrastructure%20Performance%7CLOYALTY-API%7CJVM%7CGarbage%20Collection%7CNumber%20of%20Minor%20Collections%20Per%20Min,5,2
+loyaltyMajor,16,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/LOYALTY-STAGE/metric-data?metric-path=Application%20Infrastructure%20Performance%7CLOYALTY-API%7CJVM%7CGarbage%20Collection%7CNumber%20of%20Major%20Collections%20Per%20Min,32,17
+loyaltyGCTime,300,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/LOYALTY-STAGE/metric-data?metric-path=Application%20Infrastructure%20Performance%7CLOYALTY-API%7CJVM%7CGarbage%20Collection%7CGC%20Time%20Spent%20Per%20Min%20%28ms%29,60,30
+loyaltyGCTimePerc,Derived_GC,loyaltyGCTime,5,1
 
-onCallMin,90000,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/OLO-STAGE/metric-data?metric-path=Overall%20Application%20Performance%7CCalls%20per%20Minute,-5000.0,-2000.0,Online - Calls per min
-onError,49000,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/OLO-STAGE/metric-data?metric-path=Overall%20Application%20Performance%7CErrors%20per%20Minute,3500.0,1500.0,Online - Errors per min
-onErrorPerc,Derived_Error,onCallMin:onError,7.0,3.0,Online Error (%)
-onResponse,210,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/OLO-STAGE/metric-data?metric-path=Overall%20Application%20Performance%7CAverage%20Response%20Time%20%28ms%29,50.0,20.0,Online avg response (ms)
-loCallMin,21800,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/LOYALTY-STAGE/metric-data?metric-path=Overall%20Application%20Performance%7CCalls%20per%20Minute,-1500.0,-500.0,Loyalty - Calls per min
-loError,520,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/LOYALTY-STAGE/metric-data?metric-path=Overall%20Application%20Performance%7CErrors%20per%20Minute,300.0,150.0,Loyalty - Errors per min
-loErrorPerc,Derived_Error,loCallMin:loError,3.0,1.0,Loyalty Error (%)
-loResponse,132,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/LOYALTY-STAGE/metric-data?metric-path=Overall%20Application%20Performance%7CAverage%20Response%20Time%20%28ms%29,50.0,20.0,Loyalty avg response (ms)
-mapCallMin,7200,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/MAPPING-STAGING/metric-data?metric-path=Overall%20Application%20Performance%7CCalls%20per%20Minute,-1500.0,-500.0,Mapping - Calls per min
-mapError,5400,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/MAPPING-STAGING/metric-data?metric-path=Overall%20Application%20Performance%7CErrors%20per%20Minute,700.0,350.0,Mapping - Errors per min
-mapErrorPerc,Derived_Error,mapCallMin:mapError,5.0,3.0,Mapping Error (%)
-mapResponse,102,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/MAPPING-STAGING/metric-data?metric-path=Overall%20Application%20Performance%7CAverage%20Response%20Time%20%28ms%29,50.0,20.0,Mapping avg response (ms)
-moResponse,70,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/OLO-STAGE/metric-data?metric-path=Information%20Points%7CPAYMENTS%20-%20Monetra%20Request%7CAverage%20Response%20Time%20%28ms%29,50.0,15.0,Monetra response (ms)
+onCallMin,90000,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/OLO-STAGE/metric-data?metric-path=Overall%20Application%20Performance%7CCalls%20per%20Minute,-5000,-2000
+onError,49000,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/OLO-STAGE/metric-data?metric-path=Overall%20Application%20Performance%7CErrors%20per%20Minute,3500,1500
+onErrorPerc,Derived_Error,onCallMin:onError,7,3
+onResponse,210,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/OLO-STAGE/metric-data?metric-path=Overall%20Application%20Performance%7CAverage%20Response%20Time%20%28ms%29,50,20
+loCallMin,21800,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/LOYALTY-STAGE/metric-data?metric-path=Overall%20Application%20Performance%7CCalls%20per%20Minute,-1500,-500
+loError,520,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/LOYALTY-STAGE/metric-data?metric-path=Overall%20Application%20Performance%7CErrors%20per%20Minute,300,150
+loErrorPerc,Derived_Error,loCallMin:loError,3,1
+loResponse,132,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/LOYALTY-STAGE/metric-data?metric-path=Overall%20Application%20Performance%7CAverage%20Response%20Time%20%28ms%29,50,20
+mapCallMin,7200,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/MAPPING-STAGING/metric-data?metric-path=Overall%20Application%20Performance%7CCalls%20per%20Minute,-1500,-500
+mapError,5400,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/MAPPING-STAGING/metric-data?metric-path=Overall%20Application%20Performance%7CErrors%20per%20Minute,700,350
+mapErrorPerc,Derived_Error,mapCallMin:mapError,5,3
+mapResponse,102,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/MAPPING-STAGING/metric-data?metric-path=Overall%20Application%20Performance%7CAverage%20Response%20Time%20%28ms%29,50,20
+moResponse,70,https://papajohns-test.saas.appdynamics.com/controller/rest/applications/OLO-STAGE/metric-data?metric-path=Information%20Points%7CPAYMENTS%20-%20Monetra%20Request%7CAverage%20Response%20Time%20%28ms%29,50,15
 
+=====FORMAT=====
+Test Duration,{date},Diff Values,Stats (metrics) Summary
+SubmitOrder response time (ms),{metric},{metric},{metric}
+Proceed_CheckOut response time (ms),{metric},{metric},{metric}
+StoresSearch response time (ms),{metric},{metric},{metric}
+Order Cancel response time (ms),{metric},{metric},{metric}
+Tip Adjust response time (ms),{metric},{metric},{metric}
+create-account (Registration) response time (ms),{metric},{metric},{metric}
+sign-in response time (ms),{metric},{metric},{metric}
+menu response time (ms),{metric},{metric},{metric}
+view-cart response time (ms),{metric},{metric},{metric}
+
+RWD CPU (%),{metric},{metric},{metric}
+POBS CPU (%),{metric},{metric},{metric}
+POBSWSOLO CPU (%),{metric},{metric},{metric}
+RWD I/O (KB/sec),{metric},{metric},{metric}
+POBS I/O (KB/sec),{metric},{metric},{metric}
+POBSWSOLO I/O (KB/sec),{metric},{metric},{metric}
+
+RWD JVM Heap usage (%) of 30 GB,{metric},{metric},{metric}
+RWD minor GCs per min (per node),{metric},{metric},{metric}
+RWD major GCs (total duration & nodes = 9),{metric},{metric},{metric}
+RWD GC time per min (per node in ms),{metric},{metric},{metric}
+RWD GC Overhead (%),{metric},{metric},{metric}
+POBS JVM Heap usage (%) of 16 GB,{metric},{metric},{metric}
+POBS minor GCs per min (per node),{metric},{metric},{metric}
+POBS major GCs (total duration & nodes = 14),{metric},{metric},{metric}
+POBS GC time per min (per node in ms),{metric},{metric},{metric}
+POBS GC Overhead (%),{metric},{metric},{metric}
+POBSWSOLO JVM Heap usage (%) of 8 GB,{metric},{metric},{metric}
+POBSWSOLO minor GCs per min (per node),{metric},{metric},{metric}
+POBSWSOLO major GCs (total duration & nodes = 2),{metric},{metric},{metric}
+POBSWSOLO GC time per min (per node in ms),{metric},{metric},{metric}
+POBSWSOLO GC Overhead (%),{metric},{metric},{metric}
+
+RWD Busy threads (Pool = 2500 - 4000),{metric},{metric},{metric}
+POBS Busy threads (Pool = 300 - 1000),{metric},{metric},{metric}
+POBSWSOLO Busy threads (Pool = 300 - 1000),{metric},{metric},{metric}
+POBS DB Connections Active (Min = 133 / Max = 133),{metric},{metric},{metric}
+POBSWSOLO DB Connections Active (Min = 20 / Max = 20),{metric},{metric},{metric}
+
+Loyalty JVM Heap usage (%) of 1 GB,{metric},{metric},{metric}
+Loyalty minor GCs per min (per node),{metric},{metric},{metric}
+Loyalty major GCs (total duration & nodes = 16),{metric},{metric},{metric}
+Loyalty GC time per min (per node in ms),{metric},{metric},{metric}
+Loyalty GC Overhead (%),{metric},{metric},{metric}
+
+Online - Calls per min,{metric},{metric},{metric}
+Online - Errors per min,{metric},{metric},{metric}
+Online Error (%),{metric},{metric},{metric}
+Online avg response (ms),{metric},{metric},{metric}
+Loyalty - Calls per min,{metric},{metric},{metric}
+Loyalty - Errors per min,{metric},{metric},{metric}
+Loyalty Error (%),{metric},{metric},{metric}
+Loyalty avg response (ms),{metric},{metric},{metric}
+Mapping - Calls per min,{metric},{metric},{metric}
+Mapping - Errors per min,{metric},{metric},{metric}
+Mapping Error (%),{metric},{metric},{metric}
+Mapping avg response (ms),{metric},{metric},{metric}
+Monetra response (ms),{metric},{metric},{metric}

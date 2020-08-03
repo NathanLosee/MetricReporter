@@ -18,13 +18,13 @@ public class MetricReporter {
     public static class Metric {
         float baseValue;
         float testValue;
+        float diffValue;
         float[] thresholds;
-        String header;
-        String simpleRow;
 
         public Metric() {
             baseValue = Float.NaN;
             testValue = Float.NaN;
+            diffValue = Float.NaN;
         }
     }
 
@@ -36,6 +36,7 @@ public class MetricReporter {
 
     // Metric details are now managed in CSV files for easier editing
     public static String metricCSV;
+    public static StringBuilder resultsString;
 
     public static LocalDateTime startDT, endDT;
     public static String timeParamString;
@@ -48,10 +49,21 @@ public class MetricReporter {
         SetTime(inScanner);
         inScanner.close();
 
-        InitializeMetrics();
+        BufferedReader csvReader;
+        // Need to determine if running from a jar and grab the CSV accordingly
+        String resourcePath = MetricReporter.class.getResource("MetricReporter.class").toString();
+        String csvPath = metricProperties.getProperty("csv_" + metricCSV);
+        if (resourcePath.startsWith("jar:")) {
+            csvReader = new BufferedReader(new InputStreamReader(MetricReporter.class.getResourceAsStream(csvPath)));
+        } else {
+            csvReader = new BufferedReader(new FileReader(csvPath));
+        }
+        InitializeMetrics(csvReader);
+        ReadReportFormat(csvReader);
+        csvReader.close();
 
-        PrintResults(false);
-        PrintResults(true);
+        FormatResults();
+        PrintResults();
     }
 
     /*
@@ -93,25 +105,17 @@ public class MetricReporter {
         long endEpoch = endDT.atZone(ZoneId.of("America/New_York")).toInstant().toEpochMilli();
         timeParamString = "&time-range-type=BETWEEN_TIMES&start-time=" + startEpoch + "&end-time=" + endEpoch;
     }
-
+    
     /*
      * Create the metrics LinkedHashMap and populate it with the baseline and test values, and other reporting data
      */
-    public static void InitializeMetrics() throws Exception {
-        BufferedReader csvReader;
-        // Need to determine if running from a jar and pull the CSV accordingly
-        String resourcePath = MetricReporter.class.getResource("MetricReporter.class").toString();
-        if (resourcePath.startsWith("jar:")) {
-            csvReader = new BufferedReader(new InputStreamReader(MetricReporter.class.getResourceAsStream(metricProperties.getProperty("csv_" + metricCSV))));
-        } else {
-            csvReader = new BufferedReader(new FileReader(metricProperties.getProperty("csv_" + metricCSV)));
-        }
+    public static void InitializeMetrics(BufferedReader csvReader) throws Exception {
         // Skip header row
         csvReader.readLine();
 
         metrics = new LinkedHashMap<>();
         String metricRow;
-        while ((metricRow = csvReader.readLine()) != null) {
+        while (!(metricRow = csvReader.readLine()).equals("=====FORMAT=====")) {
 
             // This if allows the use of empty lines in the CSV for grouping related data
             if (!metricRow.equals("")) {
@@ -122,26 +126,11 @@ public class MetricReporter {
                 Metric newMetric = new Metric();
                 metrics.put(metricData[0], newMetric);
     
-                if (metricData[0].contains("simple_")) {
-                    SetSimpleMetric(metricData);
-                } else {
-                    SetMetricValues(metricData);
-                    SetMetricThresholds(metricData);
-                    SetMetricHeader(metricData);
-                }
+                SetMetricValues(metricData);
+                SetMetricThresholds(metricData);
             }
 
         }
-
-        csvReader.close();
-    }
-    /*
-     * Some metrics only require some simple text to be reported, they are specified in the CSV as follows:
-     *      METRIC (metricData[0]) will have the prefix 'simple_' to indentify it as a simple metric
-     *      The remaining columns are simple text for inputing into the report
-     */
-    public static void SetSimpleMetric(String[] metricData) {
-        metrics.get(metricData[0]).simpleRow = String.join(",", Arrays.copyOfRange(metricData, 1, metricData.length));
     }
     /*  
      * Some values are derived from other metrics rather than being set or retrieved explicitly
@@ -155,30 +144,36 @@ public class MetricReporter {
      *     METRIC_PATH (metricData[2]) is the URI path to retrieve the value via AppD REST API
      */
     public static void SetMetricValues(String[] metricData) throws Exception {
+        Metric metric = metrics.get(metricData[0]);
+
         switch (metricData[1]) {
         case "Derived_GC":
-            metrics.get(metricData[0]).baseValue = Derived_GC(metricData[2], true);
-            metrics.get(metricData[0]).testValue = Derived_GC(metricData[2], false);
+            metric.baseValue = Derived_GC(metricData[2], true);
+            metric.testValue = Derived_GC(metricData[2], false);
             break;
         case "Derived_Error":
-            metrics.get(metricData[0]).baseValue = Derived_Error(metricData[2], true);
-            metrics.get(metricData[0]).testValue = Derived_Error(metricData[2], false);
+            metric.baseValue = Derived_Error(metricData[2], true);
+            metric.testValue = Derived_Error(metricData[2], false);
             break;
         case "Derived_Error2":
-            metrics.get(metricData[0]).baseValue = Derived_Error2(metricData[2], true);
-            metrics.get(metricData[0]).testValue = Derived_Error2(metricData[2], false);
+            metric.baseValue = Derived_Error2(metricData[2], true);
+            metric.testValue = Derived_Error2(metricData[2], false);
             break;
         default:
-            metrics.get(metricData[0]).baseValue = Integer.parseInt(metricData[1]);
-            metrics.get(metricData[0]).testValue = GetTestValue(metricData[0], metricData[2] + timeParamString);
+            metric.baseValue = Integer.parseInt(metricData[1]);
+            metric.testValue = SetTestValue(metricData[0], metricData[2] + timeParamString);
             break;
+        }
+
+        if (!Float.isNaN(metric.baseValue) && !Float.isNaN(metric.testValue)) {
+            metric.diffValue = metric.testValue - metric.baseValue;
         }
     }
     /*
      * A command string is put together that will contain the credentials and metric path to retrieve
      * a test value from AppD REST API which is then executed, and the response is read and parsed
      */
-    public static float GetTestValue(String metric, String metricPath) throws Exception {
+    public static float SetTestValue(String metric, String metricPath) throws Exception {
         String commandBase = metricProperties.getProperty("commandBase");
         String token = new String(Base64.getDecoder().decode(metricProperties.getProperty("token")));
         String command = commandBase + token + " \""  + metricPath + "\"";
@@ -222,106 +217,113 @@ public class MetricReporter {
             Float.parseFloat(metricData[4])
         };
     }
-    /*
-     * Here we set the header column for the metric as specified in the CSV:
-     *      ROW_HEADER (metricData[5]) is the header to identify the metric row in the report
+
+    /* 
+     * Read the report format set in the CSV file
      */
-    public static void SetMetricHeader(String[] metricData) {
-        metrics.get(metricData[0]).header = metricData[5];
+    public static void ReadReportFormat(BufferedReader csvReader) throws Exception {
+        resultsString = new StringBuilder();
+        String formatLine;
+        while ((formatLine = csvReader.readLine()) != null) {
+            resultsString.append(formatLine + "\n");
+        }
     }
 
     /*
      * Prints the metric data out to the console/CSV report file
      */
-    public static void PrintResults(boolean printToFile) throws Exception {
-        // If we are printing to the CSV report file, set System.out to the file
-        if (printToFile) {
-            System.setOut(new PrintStream(new File("stats.csv")));
-        } // Else we are using the console
+    public static void FormatResults() throws Exception {
+        ReplaceDate();
 
-        // Table header row
-        System.out.print("Test Duration,");
-        System.out.print(
-            startDT.getDayOfMonth() + "-" +
-            startDT.getMonth().name().substring(0, 3) + "-" +
-            startDT.getYear() + " " +
-            startDT.toString().substring(11,16) + " - " +
-            endDT.toString().substring(11,16)
-        );
-        System.out.print(", Diff Values,");
-        System.out.println("Stats (metrics) Summary");
-
-        // Print out each of the metric rows
+        // Replace placeholders for each of the metrics
         metrics.forEach((metricName, metric) -> {
-            if (metricName.contains("simple_")) {
-                // No calculations needed, just printing
-                System.out.println(metric.simpleRow);
-            } else {
-                PrintMetricHeader(metric);
-                PrintMetricTestValue(metric);
-
-                float diff = Float.NaN;
-                if (!Float.isNaN(metric.testValue) && !Float.isNaN(metric.baseValue)) {
-                    diff = metric.testValue - metric.baseValue;
-                }
-                PrintMetricDiffValue(metricName, diff);
-                PrintMetricDiffAnalysis(metricName, metric, diff);
-            }
+            ReplaceMetricTestValue(metric);
+            ReplaceMetricDiffValue(metricName, metric);
+            ReplaceMetricDiffAnalysis(metricName, metric);
         });
     }
     /*
-     * Prints the metric's header
+     * Replaces the date placeholder in the report with the test data
      */
-    public static void PrintMetricHeader(Metric metric) {
-        System.out.print(metric.header + ",");
+    public static void ReplaceDate() {
+        String dateString = startDT.getDayOfMonth() + "-" +
+            startDT.getMonth().name().substring(0, 3) + "-" +
+            startDT.getYear() + " " +
+            startDT.toString().substring(11,16) + " - " +
+            endDT.toString().substring(11,16);
+        
+        int dateIndex = resultsString.indexOf("{date}");
+        resultsString.replace(dateIndex, dateIndex + "{date}".length(), dateString);
     }
     /*
-     * Prints the metric's test value
+     * Replaces the next metric placeholder in the report with the metric's test value
      */
-    public static void PrintMetricTestValue(Metric metric) {
-        System.out.printf("%.2f,", metric.testValue);
+    public static void ReplaceMetricTestValue(Metric metric) {
+        String valueString = String.format("%.2f", metric.testValue);
+
+        int metricIndex = resultsString.indexOf("{metric}");
+        resultsString.replace(metricIndex, metricIndex + "{metric}".length(), valueString);
     }
     /*
-     * Prints the difference between the metric's baseline value and test value
+     * Replaces the next metric placeholder in the report with the metric's diff value
      */
-    public static void PrintMetricDiffValue(String metricName, float diff) {
-        if (Float.isNaN(diff)) {
-            System.out.print(metricName + " is N/A to calculate,");
+    public static void ReplaceMetricDiffValue(String metricName, Metric metric) {
+        String valueString;
+        if (Float.isNaN(metric.diffValue)) {
+            valueString = "NaN";
         } else {
-            System.out.printf("%.2f,", diff);
+            valueString = String.format("%.2f", metric.diffValue);
         }
+        
+        int metricIndex = resultsString.indexOf("{metric}");
+        resultsString.replace(metricIndex, metricIndex + "{metric}".length(), valueString);
     }
     /*
-     * Prints the analysis on the metric's difference
+     * Replaces the next metric placeholder in the report with the metric's diff analysis
      */
-    public static void PrintMetricDiffAnalysis(String metricName, Metric metric, float diff) {
-        if (Float.isNaN(diff)) {
-            System.out.println("Cannot calculate diff");
+    public static void ReplaceMetricDiffAnalysis(String metricName, Metric metric) {
+        String valueString;
+        if (Float.isNaN(metric.diffValue)) {
+            valueString = "Cannot calculate diff";
         } else {
             // If the threshholds are positive, then we compare whether the diff is high
             if (metric.thresholds[0] > 0) {
-                if(diff >= metric.thresholds[0]) {
-                    System.out.println(metricName + " significantly increased - Alert");
-                } else if (diff >= metric.thresholds[1]) {
-                    System.out.println(metricName + " increased - CHECK");
-                } else if (diff < 0.0) {
-                    System.out.println(metricName + " decreased - good");
+                if(metric.diffValue >= metric.thresholds[0]) {
+                    valueString = "ALERT - significantly increased";
+                } else if (metric.diffValue >= metric.thresholds[1]) {
+                    valueString = "CHECK - increased";
+                } else if (metric.diffValue < 0.0) {
+                    valueString = "Good - decreased";
                 } else {
-                    System.out.println("comparable");
+                    valueString = "comparable";
                 }
             // If the threshholds are negative, then we compare whether the diff is low
             } else {
-                if(diff <= metric.thresholds[0]) {
-                    System.out.println(metricName + " significantly decreased - Alert");
-                } else if (diff <= metric.thresholds[1]) {
-                    System.out.println(metricName + " decreased - CHECK");
-                } else if (diff > 0.0) {
-                    System.out.println(metricName + " increased - good");
+                if(metric.diffValue <= metric.thresholds[0]) {
+                    valueString = "ALERT - significantly decreased";
+                } else if (metric.diffValue <= metric.thresholds[1]) {
+                    valueString = "CHECK - decreased";
+                } else if (metric.diffValue > 0.0) {
+                    valueString = "Good - increased";
                 } else {
-                    System.out.println("comparable");
+                    valueString = "comparable";
                 }
             }
         }
+        
+        int metricIndex = resultsString.indexOf("{metric}");
+        resultsString.replace(metricIndex, metricIndex + "{metric}".length(), valueString);
+    }
+
+    /*
+     * Prints results to console and file
+     */
+    public static void PrintResults() throws Exception {
+        // Print to console
+        System.out.println(resultsString);
+        // Print to file
+        System.setOut(new PrintStream(new File("stats.csv")));
+        System.out.println(resultsString);
     }
 
     /*
@@ -357,29 +359,33 @@ public class MetricReporter {
         return (errorsMetricValue / callsMetricValue) * 100;
     }
     /*
-     * Function for percentage values derived from ratio of errors to calls, ignores NaN errors
+     * Function for percentage values derived from ratio of errors to calls
+     * If errors value is NaN, set it to 0 and recalculate the diff
      * REQUIRES: Two metrics - number of calls made, number of errors made
      */
     public static float Derived_Error2(String derivedMetricsString, boolean isBase) {
         String[] derivedMetrics = derivedMetricsString.split(":");
-        String callsMetric = derivedMetrics[0];
-        String errorsMetric = derivedMetrics[1];
+        Metric callsMetric = metrics.get(derivedMetrics[0]);
+        Metric errorsMetric = metrics.get(derivedMetrics[1]);
 
         float errorsMetricValue, callsMetricValue;
         if (isBase) {
-            errorsMetricValue = metrics.get(errorsMetric).baseValue;
+            callsMetricValue = callsMetric.baseValue;
+            errorsMetricValue = errorsMetric.baseValue;
             if (Float.isNaN(errorsMetricValue)) {
                 errorsMetricValue = 0;
-                metrics.get(errorsMetric).baseValue = 0;
+                errorsMetric.baseValue = 0;
             }
-            callsMetricValue = metrics.get(callsMetric).baseValue;
         } else {
-            errorsMetricValue = metrics.get(errorsMetric).testValue;
+            callsMetricValue = callsMetric.testValue;
+            errorsMetricValue = errorsMetric.testValue;
             if (Float.isNaN(errorsMetricValue)) {
                 errorsMetricValue = 0;
-                metrics.get(errorsMetric).testValue = 0;
+                errorsMetric.testValue = 0;
+                if (!Float.isNaN(callsMetricValue)) {
+                    errorsMetric.diffValue = errorsMetric.testValue - errorsMetric.baseValue;
+                }
             }
-            callsMetricValue = metrics.get(callsMetric).testValue;
         }
 
         return (errorsMetricValue / callsMetricValue) * 100;
