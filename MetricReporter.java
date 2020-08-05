@@ -7,6 +7,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 import java.io.InputStream;
+import java.sql.Time;
 
 /*
 The purpose of this program is to get the metrics from AppD by hitting the REST APIs.Saves about 1 hour per test report preparation.
@@ -95,11 +96,13 @@ public class MetricReporter {
      */
     public static void SetTime(Scanner inScanner) {
         System.out.println("Enter the start Datetime in MM/dd/yyyy HH:mm format (24-hour) =");
-        String startTimeMetric = inScanner.nextLine();
+        String startTime = inScanner.nextLine();
+        System.out.println("Enter the duration in HH:mm format (24-hour) =");
+        String[] duration = inScanner.nextLine().split(":");
 
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy HH:mm");
-        startDT = LocalDateTime.parse(startTimeMetric, formatter);
-        endDT = startDT.plusHours(1);
+        DateTimeFormatter fullFormatter = DateTimeFormatter.ofPattern("MM/dd/yyyy HH:mm");
+        startDT = LocalDateTime.parse(startTime, fullFormatter);
+        endDT = startDT.plusHours(Long.parseLong(duration[0])).plusMinutes(Long.parseLong(duration[1]));
 
         long startEpoch = startDT.atZone(ZoneId.of("America/New_York")).toInstant().toEpochMilli();
         long endEpoch = endDT.atZone(ZoneId.of("America/New_York")).toInstant().toEpochMilli();
