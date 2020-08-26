@@ -5,9 +5,8 @@ import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
-
+import java.util.concurrent.Future;
 import java.io.InputStream;
-import java.sql.Time;
 
 /*
 The purpose of this program is to get the metrics from AppD by hitting the REST APIs.Saves about 1 hour per test report preparation.
@@ -21,6 +20,7 @@ public class MetricReporter {
         float testValue;
         float diffValue;
         float[] thresholds;
+        Thread valueThread;
 
         public Metric() {
             baseValue = Float.NaN;
@@ -119,7 +119,6 @@ public class MetricReporter {
         metrics = new LinkedHashMap<>();
         String metricRow;
         while (!(metricRow = csvReader.readLine()).equals("=====FORMAT=====")) {
-
             // This if allows the use of empty lines in the CSV for grouping related data
             if (!metricRow.equals("")) {
                 String[] metricData = metricRow.split(",");
@@ -128,12 +127,19 @@ public class MetricReporter {
     
                 Metric newMetric = new Metric();
                 metrics.put(metricData[0], newMetric);
-    
-                SetMetricValues(metricData);
-                SetMetricThresholds(metricData);
-            }
 
+                newMetric.valueThread = new Thread(() -> {
+                    SetMetricValues(metricData);
+                    SetMetricThresholds(metricData);
+                });
+                newMetric.valueThread.start();
+            }
         }
+        metrics.forEach((metricName, metric) -> {
+            try {
+                metric.valueThread.join();
+            } catch (Exception e) { }
+        });
     }
     /*  
      * Some values are derived from other metrics rather than being set or retrieved explicitly
@@ -146,19 +152,22 @@ public class MetricReporter {
      *     BASE_VALUE (metricData[1]) is the baseline value
      *     METRIC_PATH (metricData[2]) is the URI path to retrieve the value via AppD REST API
      */
-    public static void SetMetricValues(String[] metricData) throws Exception {
+    public static void SetMetricValues(String[] metricData) {
         Metric metric = metrics.get(metricData[0]);
 
         switch (metricData[1]) {
         case "Derived_GC":
+            Derived_Wait(metricData[2]);
             metric.baseValue = Derived_GC(metricData[2], true);
             metric.testValue = Derived_GC(metricData[2], false);
             break;
         case "Derived_Error":
+            Derived_Wait(metricData[2]);
             metric.baseValue = Derived_Error(metricData[2], true);
             metric.testValue = Derived_Error(metricData[2], false);
             break;
         case "Derived_Error2":
+            Derived_Wait(metricData[2]);
             metric.baseValue = Derived_Error2(metricData[2], true);
             metric.testValue = Derived_Error2(metricData[2], false);
             break;
@@ -176,38 +185,41 @@ public class MetricReporter {
      * A command string is put together that will contain the credentials and metric path to retrieve
      * a test value from AppD REST API which is then executed, and the response is read and parsed
      */
-    public static float SetTestValue(String metric, String metricPath) throws Exception {
-        String commandBase = metricProperties.getProperty("commandBase");
-        String token = new String(Base64.getDecoder().decode(metricProperties.getProperty("token")));
-        String command = commandBase + token + " \""  + metricPath + "\"";
-
-        Process process = Runtime.getRuntime().exec(command);
-        BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
-        StringBuilder response = new StringBuilder();
-        String lineCurl;
+    public static float SetTestValue(String metric, String metricPath) {
+        Process process = null;
+        BufferedReader reader = null;
         String valueString = "";
-
-        while ((lineCurl = reader.readLine()) != null) {
-            response.append(lineCurl);
-        }
-        
         try {
+            String commandBase = metricProperties.getProperty("commandBase");
+            String token = new String(Base64.getDecoder().decode(metricProperties.getProperty("token")));
+            String command = commandBase + token + " \""  + metricPath + "\"";
+
+            process = Runtime.getRuntime().exec(command);
+            reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
+
+            StringBuilder response = new StringBuilder();
+            String lineCurl;
+
+            while ((lineCurl = reader.readLine()) != null) {
+                response.append(lineCurl);
+            }
+        
             if (metric.contains("Major")) {
                 valueString = response.substring(response.indexOf(" <sum>") + 6, response.indexOf("</sum>"));
             } else {
                 valueString = response.substring(response.indexOf(" <value>") + 8, response.indexOf("</value>"));
             }
-        } catch (Exception e) {
 
-        } finally {
             process.destroy();
             reader.close();
-        }
 
-        if (valueString.equals("")) {
-            return Float.NaN;
-        }
-        return Integer.parseInt(valueString);
+            if (valueString.equals("")) {
+                return Float.NaN;
+            }
+
+            return Integer.parseInt(valueString);
+        } catch (Exception e) { }
+        return Float.NaN;
     }
     /*
      * Here we set the thresholds for quick analysis of differences between baseline and test values as specified in the CSV:
@@ -287,27 +299,27 @@ public class MetricReporter {
     public static void ReplaceMetricDiffAnalysis(String metricName, Metric metric) {
         String valueString;
         if (Float.isNaN(metric.diffValue)) {
-            valueString = "Cannot calculate diff";
+            valueString = "N/A - NaN diff";
         } else {
             // If the threshholds are positive, then we compare whether the diff is high
             if (metric.thresholds[0] > 0) {
                 if(metric.diffValue >= metric.thresholds[0]) {
-                    valueString = "ALERT - significantly increased";
+                    valueString = "ALERT";
                 } else if (metric.diffValue >= metric.thresholds[1]) {
-                    valueString = "CHECK - increased";
+                    valueString = "WARNING";
                 } else if (metric.diffValue < 0.0) {
-                    valueString = "Good - decreased";
+                    valueString = "Improved";
                 } else {
                     valueString = "comparable";
                 }
             // If the threshholds are negative, then we compare whether the diff is low
             } else {
                 if(metric.diffValue <= metric.thresholds[0]) {
-                    valueString = "ALERT - significantly decreased";
+                    valueString = "ALERT";
                 } else if (metric.diffValue <= metric.thresholds[1]) {
-                    valueString = "CHECK - decreased";
+                    valueString = "WARNING";
                 } else if (metric.diffValue > 0.0) {
-                    valueString = "Good - increased";
+                    valueString = "Improved";
                 } else {
                     valueString = "comparable";
                 }
@@ -329,6 +341,15 @@ public class MetricReporter {
         System.out.println(resultsString);
     }
 
+    public static void Derived_Wait(String derivedMetricsString) {
+        try {
+            String[] derivedMetrics = derivedMetricsString.split(":");
+            for (int i = 0; i < derivedMetrics.length; i++) {
+                metrics.get(derivedMetrics[0]).valueThread.join();
+            }
+        } catch (Exception e) { }
+    }
+
     /*
      * Function for percentage values derived from gcTime per minute
      * REQUIRES: One metric - amount of time in GC per minute
@@ -347,16 +368,16 @@ public class MetricReporter {
      */
     public static float Derived_Error(String derivedMetricsString, boolean isBase) {
         String[] derivedMetrics = derivedMetricsString.split(":");
-        String callsMetric = derivedMetrics[0];
-        String errorsMetric = derivedMetrics[1];
+        Metric callsMetric = metrics.get(derivedMetrics[0]);
+        Metric errorsMetric = metrics.get(derivedMetrics[1]);
 
         float errorsMetricValue, callsMetricValue;
         if (isBase) {
-            errorsMetricValue = metrics.get(errorsMetric).baseValue;
-            callsMetricValue = metrics.get(callsMetric).baseValue;
+            errorsMetricValue = errorsMetric.baseValue;
+            callsMetricValue = callsMetric.baseValue;
         } else {
-            errorsMetricValue = metrics.get(errorsMetric).testValue;
-            callsMetricValue = metrics.get(callsMetric).testValue;
+            errorsMetricValue = errorsMetric.testValue;
+            callsMetricValue = callsMetric.testValue;
         }
 
         return (errorsMetricValue / callsMetricValue) * 100;
