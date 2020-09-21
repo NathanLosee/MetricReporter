@@ -155,19 +155,17 @@ public class MetricReporter {
     public static void SetMetricValues(String[] metricData) {
         Metric metric = metrics.get(metricData[0]);
 
+        Derived_Wait(metricData[2]);
         switch (metricData[1]) {
         case "Derived_GC":
-            Derived_Wait(metricData[2]);
             metric.baseValue = Derived_GC(metricData[2], true);
             metric.testValue = Derived_GC(metricData[2], false);
             break;
         case "Derived_Error":
-            Derived_Wait(metricData[2]);
             metric.baseValue = Derived_Error(metricData[2], true);
             metric.testValue = Derived_Error(metricData[2], false);
             break;
         case "Derived_Error2":
-            Derived_Wait(metricData[2]);
             metric.baseValue = Derived_Error2(metricData[2], true);
             metric.testValue = Derived_Error2(metricData[2], false);
             break;
@@ -341,11 +339,16 @@ public class MetricReporter {
         System.out.println(resultsString);
     }
 
+    /*
+     * Function for having derived value threads wait for deriving values
+     */
     public static void Derived_Wait(String derivedMetricsString) {
         try {
             String[] derivedMetrics = derivedMetricsString.split(":");
-            for (int i = 0; i < derivedMetrics.length; i++) {
-                metrics.get(derivedMetrics[0]).valueThread.join();
+            if (metrics.containsKey(derivedMetrics[0])) {
+                for (int i = 0; i < derivedMetrics.length; i++) {
+                    metrics.get(derivedMetrics[0]).valueThread.join();
+                }
             }
         } catch (Exception e) { }
     }
