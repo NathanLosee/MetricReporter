@@ -1,0 +1,631 @@
+<body class="mceContentBody aui-theme-default wiki-content fullsize">
+	<p>&nbsp;</p>
+	<p>Test Duration: {startDate} - {endDate}</p>
+	<p>SUMMARY:</p>
+	<ul>
+		<li><p>Test Status: GREEN</p></li>
+		<li><p>Observed system and response time metrics are within acceptable limits.</p></li>
+		<li><p>Details of the metrics are provided below.</p></li>
+	</ul>
+	<table data-layout="default" class="confluenceTable">
+		<colgroup>
+			<col style="width: 280.0px;" />
+			<col style="width: 80.0px;" />
+			<col style="width: 80.0px;" />
+			<col style="width: 80.0px;" />
+			<col style="width: 80.0px;" />
+			<col style="width: 80.0px;" />
+			<col style="width: 80.0px;" />
+			<col style="width: 80.0px;" />
+			<col style="width: 80.0px;" />
+			<col style="width: 80.0px;" />
+			<col style="width: 80.0px;" />
+			<col style="width: 80.0px;" />
+			<col style="width: 80.0px;" />
+		</colgroup>
+		<tbody>
+			<tr>
+				<td data-highlight-colour="#4c9aff" rowspan="2" class="confluenceTd"><p><strong>METRIC</strong></p></td>
+				<td data-highlight-colour="#deebff" colspan="3" class="confluenceTd"><p><strong>SERVER</strong></p></td>
+				<td data-highlight-colour="#b3d4ff" colspan="3" class="confluenceTd"><p><strong>GDD</strong></p></td>
+				<td data-highlight-colour="#998dd9" colspan="6" rowspan="31" class="confluenceTd"><p /></td>
+			</tr>
+			<tr>
+				<td data-highlight-colour="#deebff" class="confluenceTd"><p><strong>New</strong></p></td>
+				<td data-highlight-colour="#deebff" class="confluenceTd"><p><strong>Diff</strong></p></td>
+				<td data-highlight-colour="#deebff" class="confluenceTd"><p><strong>Analysis</strong></p></td>
+				<td data-highlight-colour="#b3d4ff" class="confluenceTd"><p><strong>New</strong></p></td>
+				<td data-highlight-colour="#b3d4ff" class="confluenceTd"><p><strong>Diff</strong></p></td>
+				<td data-highlight-colour="#b3d4ff" class="confluenceTd"><p><strong>Analysis</strong></p></td>
+			</tr>
+			<tr>
+				<td data-highlight-colour="#4c9aff" colspan="7" class="confluenceTd"><p><strong>HARDWARE</strong></p></td>
+			</tr>
+			<tr>
+				<td data-highlight-colour="#79e2f2" class="confluenceTd"><p><strong>CPU Used AVG (%)</strong></p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>22</p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>0</p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>~~~</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>26.0</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>4.0</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>=!!=</p></td>
+			</tr>
+			<tr>
+				<td data-highlight-colour="#79e2f2" class="confluenceTd"><p><strong>Java CPU AVG (%)</strong></p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>11</p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>0</p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>~~~</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>17.0</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>2.0</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>=!!=</p></td>
+			</tr>
+			<tr>
+				<td data-highlight-colour="#79e2f2" class="confluenceTd"><p><strong>Memory Used AVG (%)</strong></p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>80</p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>7</p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>=!!=</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>82.0</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>0.0</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>~~~</p></td>
+			</tr>
+			<tr>
+				<td data-highlight-colour="#79e2f2" class="confluenceTd"><p><strong>Disk Read AVG op/s</strong></p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>4</p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>1</p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>~~~</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>4.0</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>0.0</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>~~~</p></td>
+			</tr>
+			<tr>
+				<td data-highlight-colour="#79e2f2" class="confluenceTd"><p><strong>Disk Read AVG kb/s</strong></p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>43</p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>12</p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>~~~</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>37.0</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>-4.0</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>~$~</p></td>
+			</tr>
+			<tr>
+				<td data-highlight-colour="#79e2f2" class="confluenceTd"><p><strong>Disk Write AVG op/s</strong></p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>5</p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>0</p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>~~~</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>1.0</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>0.0</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>~~~</p></td>
+			</tr>
+			<tr>
+				<td data-highlight-colour="#79e2f2" class="confluenceTd"><p><strong>Disk Write AVG kb/s</strong></p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>56</p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>4</p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>~~~</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>29.0</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>-2.0</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>~$~</p></td>
+			</tr>
+			<tr>
+				<td data-highlight-colour="#4c9aff" colspan="7" class="confluenceTd"><p><strong>JVM</strong></p></td>
+			</tr>
+			<tr>
+				<td data-highlight-colour="#79e2f2" class="confluenceTd"><p><strong>Heap MAX (GB)</strong></p></td>
+				<td data-highlight-colour="#e6fcff" colspan="3" class="confluenceTd"><p>8</p></td>
+				<td data-highlight-colour="#b3f5ff" colspan="3" class="confluenceTd"><p>1</p></td>
+			</tr>
+			<tr>
+				<td data-highlight-colour="#79e2f2" class="confluenceTd"><p><strong>Heap Used AVG (%)</strong></p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>62.0</p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>0.0</p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>~~~</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>66.0</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>1.0</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>~~~</p></td>
+			</tr>
+			<tr>
+				<td data-highlight-colour="#79e2f2" class="confluenceTd"><p><strong>Possible Threads MAX</strong></p></td>
+				<td data-highlight-colour="#e6fcff" colspan="3" class="confluenceTd"><p>2000</p></td>
+				<td data-highlight-colour="#b3f5ff" colspan="3" class="confluenceTd"><p>8000</p></td>
+			</tr>
+			<tr>
+				<td data-highlight-colour="#79e2f2" class="confluenceTd"><p><strong>Active Threads AVG</strong></p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>403.0</p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>-4.0</p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>~$~</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>53.0</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>1.0</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>~~~</p></td>
+			</tr>
+			<tr>
+				<td data-highlight-colour="#79e2f2" class="confluenceTd"><p><strong>Major GC (total)</strong></p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>6.0</p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>-1.0</p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>~$~</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>69.0</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>10.0</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>#!!#</p></td>
+			</tr>
+			<tr>
+				<td data-highlight-colour="#79e2f2" class="confluenceTd"><p><strong>Minor GC AVG (no./min)</strong></p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>5.0</p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>0.0</p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>~~~</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>23.0</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>2.0</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>~~~</p></td>
+			</tr>
+			<tr>
+				<td data-highlight-colour="#79e2f2" class="confluenceTd"><p><strong>GC CPU Time AVG (ms/min)</strong></p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>1146.0</p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>-25.0</p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>~$~</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>1736.0</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>213.0</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>=!!=</p></td>
+			</tr>
+			<tr>
+				<td data-highlight-colour="#79e2f2" class="confluenceTd"><p><strong>GC CPU Time AVG (%)</strong></p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>1.9</p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>0.0</p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>~$~</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>2.9</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>0.4</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>~~~</p></td>
+			</tr>
+			<tr>
+				<td data-highlight-colour="#998dd9" colspan="4" class="confluenceTd"><p /></td>
+				<td data-highlight-colour="#998dd9" colspan="3" rowspan="12" class="confluenceTd"><p /></td>
+			</tr>
+			<tr>
+				<td data-highlight-colour="#4c9aff" colspan="4" class="confluenceTd"><p><strong>TRANSACTIONS - OVERALL</strong></p></td>
+			</tr>
+			<tr>
+				<td data-highlight-colour="#4c9aff" class="confluenceTd"><p><strong>METRIC</strong></p></td>
+				<td data-highlight-colour="#deebff" class="confluenceTd"><p><strong>New</strong></p></td>
+				<td data-highlight-colour="#deebff" class="confluenceTd"><p><strong>Diff</strong></p></td>
+				<td data-highlight-colour="#deebff" class="confluenceTd"><p><strong>Analysis</strong></p></td>
+			</tr>
+			<tr>
+				<td data-highlight-colour="#79e2f2" class="confluenceTd"><p><strong>Calls AVG (no./min)</strong></p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>2807.0</p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>195.0</p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>~~~</p></td>
+			</tr>
+			<tr>
+				<td data-highlight-colour="#79e2f2" class="confluenceTd"><p><strong>Errors AVG (no./min)</strong></p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>6.0</p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>0.0</p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>~~~</p></td>
+			</tr>
+			<tr>
+				<td data-highlight-colour="#79e2f2" class="confluenceTd"><p><strong>Errors AVG (%)</strong></p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>0.2</p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>0.0</p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>~$~</p></td>
+			</tr>
+			<tr>
+				<td data-highlight-colour="#998dd9" colspan="4" class="confluenceTd"><p /></td>
+			</tr>
+			<tr>
+				<td data-highlight-colour="#4c9aff" colspan="4" class="confluenceTd"><p><strong>DATABASE</strong></p></td>
+			</tr>
+			<tr>
+				<td data-highlight-colour="#4c9aff" class="confluenceTd"><p><strong>METRIC</strong></p></td>
+				<td data-highlight-colour="#deebff" class="confluenceTd"><p><strong>New</strong></p></td>
+				<td data-highlight-colour="#deebff" class="confluenceTd"><p><strong>Diff</strong></p></td>
+				<td data-highlight-colour="#deebff" class="confluenceTd"><p><strong>Analysis</strong></p></td>
+			</tr>
+			<tr>
+				<td data-highlight-colour="#79e2f2" class="confluenceTd"><p><strong>Calls AVG (no./min)</strong></p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>58206.0</p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>-26434.0</p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>~$~</p></td>
+			</tr>
+			<tr>
+				<td data-highlight-colour="#79e2f2" class="confluenceTd"><p><strong>Response Time AVG (ms)</strong></p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>1.0</p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>1.0</p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>~~~</p></td>
+			</tr>
+			<tr>
+				<td data-highlight-colour="#998dd9" colspan="4" class="confluenceTd"><p /></td>
+			</tr>
+			<tr>
+				<td data-highlight-colour="#4c9aff" class="confluenceTd"><p><strong>TRANSACTIONS</strong></p></td>
+				<td data-highlight-colour="#deebff" colspan="3" class="confluenceTd"><p><strong>Calls AVG (no./min)</strong></p></td>
+				<td data-highlight-colour="#b3d4ff" colspan="3" class="confluenceTd"><p><strong>Response Time AVG (ms)</strong></p></td>
+				<td data-highlight-colour="#deebff" colspan="3" class="confluenceTd"><p><strong>Errors AVG (no./min)</strong></p></td>
+				<td data-highlight-colour="#b3d4ff" colspan="3" class="confluenceTd"><p><strong>Errors AVG (%)</strong></p></td>
+			</tr>
+			<tr>
+				<td data-highlight-colour="#4c9aff" class="confluenceTd"><p><strong>Name</strong></p></td>
+				<td data-highlight-colour="#deebff" class="confluenceTd"><p><strong>New</strong></p></td>
+				<td data-highlight-colour="#deebff" class="confluenceTd"><p><strong>Diff</strong></p></td>
+				<td data-highlight-colour="#deebff" class="confluenceTd"><p><strong>Analysis</strong></p></td>
+				<td data-highlight-colour="#b3d4ff" class="confluenceTd"><p><strong>New</strong></p></td>
+				<td data-highlight-colour="#b3d4ff" class="confluenceTd"><p><strong>Diff</strong></p></td>
+				<td data-highlight-colour="#b3d4ff" class="confluenceTd"><p><strong>Analysis</strong></p></td>
+				<td data-highlight-colour="#deebff" class="confluenceTd"><p><strong>New</strong></p></td>
+				<td data-highlight-colour="#deebff" class="confluenceTd"><p><strong>Diff</strong></p></td>
+				<td data-highlight-colour="#deebff" class="confluenceTd"><p><strong>Analysis</strong></p></td>
+				<td data-highlight-colour="#b3d4ff" class="confluenceTd"><p><strong>New</strong></p></td>
+				<td data-highlight-colour="#b3d4ff" class="confluenceTd"><p><strong>Diff</strong></p></td>
+				<td data-highlight-colour="#b3d4ff" class="confluenceTd"><p><strong>Analysis</strong></p></td>
+			</tr>
+			<tr>
+				<td data-highlight-colour="#79e2f2" class="confluenceTd"><p><strong>Common</strong></p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>4.0</p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>0.0</p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>~~~</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>95.0</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>-1.0</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>~$~</p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>0.0</p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>0.0</p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>~~~</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>0.0</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>0.0</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>~~~</p></td>
+			</tr>
+			<tr>
+				<td data-highlight-colour="#79e2f2" class="confluenceTd"><p><strong>CorporateServices</strong></p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>0.0</p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>0.0</p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>~~~</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>0.0</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>0.0</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>~~~</p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>0.0</p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>0.0</p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>~~~</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>0.0</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>0.0</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>~~~</p></td>
+			</tr>
+			<tr>
+				<td data-highlight-colour="#79e2f2" class="confluenceTd"><p><strong>Makeline</strong></p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>0.0</p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>0.0</p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>~~~</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>0.0</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>0.0</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>~~~</p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>0.0</p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>0.0</p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>~~~</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>0.0</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>0.0</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>~~~</p></td>
+			</tr>
+			<tr>
+				<td data-highlight-colour="#79e2f2" class="confluenceTd"><p><strong>Mapping</strong></p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>25.0</p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>4.0</p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>~~~</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>224.0</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>9.0</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>~~~</p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>1.0</p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>0.0</p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>~~~</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>0.5</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>0.0</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>~$~</p></td>
+			</tr>
+			<tr>
+				<td data-highlight-colour="#79e2f2" class="confluenceTd"><p><strong>Misc</strong></p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>101.0</p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>13.0</p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>=!!=</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>4.0</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>0.0</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>~~~</p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>0.0</p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>0.0</p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>~~~</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>0.0</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>0.0</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>~~~</p></td>
+			</tr>
+			<tr>
+				<td data-highlight-colour="#79e2f2" class="confluenceTd"><p><strong>Orderentry</strong></p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>7.0</p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>-1.0</p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>~$~</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>22.0</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>0.0</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>~~~</p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>0.0</p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>0.0</p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>~~~</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>0.0</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>0.0</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>~~~</p></td>
+			</tr>
+			<tr>
+				<td data-highlight-colour="#79e2f2" class="confluenceTd"><p><strong>Orderentry/browseorder</strong></p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>214.0</p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>31.0</p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>=!!=</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>27.0</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>0.0</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>~~~</p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>0.0</p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>0.0</p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>~~~</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>0.0</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>0.0</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>~~~</p></td>
+			</tr>
+			<tr>
+				<td data-highlight-colour="#79e2f2" class="confluenceTd"><p><strong>Orderentry/customer</strong></p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>91.0</p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>-1.0</p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>~$~</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>250.0</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>0.0</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>~~~</p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>1.0</p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>0.0</p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>~~~</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>0.4</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>0.0</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>~~~</p></td>
+			</tr>
+			<tr>
+				<td data-highlight-colour="#79e2f2" class="confluenceTd"><p><strong>Orderentry/loyalty</strong></p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>279.0</p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>-48.0</p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>~$~</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>3.0</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>0.0</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>~~~</p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>0.0</p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>0.0</p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>~~~</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>0.0</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>0.0</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>~~~</p></td>
+			</tr>
+			<tr>
+				<td data-highlight-colour="#79e2f2" class="confluenceTd"><p><strong>Orderentry/payment</strong></p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>79.0</p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>-5.0</p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>~$~</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>66.0</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>-3.0</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>~$~</p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>0.0</p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>0.0</p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>~~~</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>0.0</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>0.0</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>~~~</p></td>
+			</tr>
+			<tr>
+				<td data-highlight-colour="#79e2f2" class="confluenceTd"><p><strong>Orderentry/product</strong></p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>51.0</p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>-7.0</p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>~$~</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>49.0</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>-2.0</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>~$~</p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>0.0</p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>0.0</p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>~~~</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>0.0</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>0.0</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>~~~</p></td>
+			</tr>
+			<tr>
+				<td data-highlight-colour="#79e2f2" class="confluenceTd"><p><strong>ProductModifications/ProductBuilders</strong></p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>2.0</p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>0.0</p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>~~~</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>4.0</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>0.0</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>~~~</p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>0.0</p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>0.0</p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>~~~</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>0.0</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>0.0</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>~~~</p></td>
+			</tr>
+			<tr>
+				<td data-highlight-colour="#79e2f2" class="confluenceTd"><p><strong>ProfitDispatchServices</strong></p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>NaN</p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>NaN</p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>NaN</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>NaN</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>NaN</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>NaN</p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>0.0</p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>NaN</p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>NaN</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>NaN</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>NaN</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>NaN</p></td>
+			</tr>
+			<tr>
+				<td data-highlight-colour="#79e2f2" class="confluenceTd"><p><strong>System</strong></p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>1.0</p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>0.0</p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>~~~</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>31.0</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>-1.0</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>~$~</p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>NaN</p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>0.0</p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>~~~</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>0.0</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>0.0</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>~~~</p></td>
+			</tr>
+			<tr>
+				<td data-highlight-colour="#79e2f2" class="confluenceTd"><p><strong>TimeClock</strong></p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>0.0</p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>0.0</p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>~~~</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>0.0</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>0.0</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>~~~</p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>NaN</p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>0.0</p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>~~~</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>0.0</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>0.0</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>~~~</p></td>
+			</tr>
+			<tr>
+				<td data-highlight-colour="#4c9aff" colspan="13" class="confluenceTd"><p><strong>REMOTE SERVICES</strong></p></td>
+			</tr>
+			<tr>
+				<td data-highlight-colour="#79e2f2" class="confluenceTd"><p><strong>SERVER -&gt; LOYALTY_STAGE</strong></p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>118.0</p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>-28.0</p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>~$~</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>5.0</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>0.0</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>~~~</p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>0.0</p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>0.0</p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>~~~</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>0.0</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>0.0</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>~~~</p></td>
+			</tr>
+			<tr>
+				<td data-highlight-colour="#79e2f2" class="confluenceTd"><p><strong>SERVER -&gt; MAPPING_STAGE</strong></p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>205.0</p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>65.0</p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>=!!=</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>6.0</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>1.0</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>=!!=</p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>0.0</p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>0.0</p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>~~~</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>0.0</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>0.0</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>~~~</p></td>
+			</tr>
+			<tr>
+				<td data-highlight-colour="#79e2f2" class="confluenceTd"><p><strong>SERVER -&gt; PROFANITY_QA</strong></p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>66.0</p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>7.0</p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>~~~</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>4.0</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>0.0</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>~~~</p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>0.0</p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>0.0</p></td>
+				<td data-highlight-colour="#e6fcff" class="confluenceTd"><p>~~~</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>0.0</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>0.0</p></td>
+				<td data-highlight-colour="#b3f5ff" class="confluenceTd"><p>~~~</p></td>
+			</tr>
+		</tbody>
+	</table>
+	<table class="wysiwyg-macro" data-macro-name="chart" data-macro-id="e5af9181-d439-4aa6-8a29-a0a3cf3df5d9" data-macro-parameters="borderColor=black|dateFormat=hh:mm|timePeriod=Minute|timeSeries=true|title=SERVER - CPU %Busy|type=xyArea|width=1000" data-macro-schema-version="1" style="background-image: url(/wiki/plugins/servlet/confluence/placeholder/macro-heading?definition=e2NoYXJ0OnRpbWVTZXJpZXM9dHJ1ZXxib3JkZXJDb2xvcj1ibGFja3xkYXRlRm9ybWF0PWhoOm1tfHRpbWVQZXJpb2Q9TWludXRlfHdpZHRoPTEwMDB8dGl0bGU9U0VSVkVSIC0gQ1BVICVCdXN5fHR5cGU9eHlBcmVhfQ&amp;locale=en_US&amp;version=2); background-repeat: no-repeat;" data-macro-body-type="RICH_TEXT">
+		<tr>
+			<td class="wysiwyg-macro-body">
+				<table data-layout="default" class="confluenceTable">
+					<tbody>
+						<tr>
+							<th class="confluenceTh"><p><strong>SERVER - CPU %Busy</strong></p></th>
+							<th class="confluenceTh"><p><strong>11:10</strong></p></th>
+							<th class="confluenceTh"><p><strong>11:11</strong></p></th>
+							<th class="confluenceTh"><p><strong>11:12</strong></p></th>
+							<th class="confluenceTh"><p><strong>11:13</strong></p></th>
+							<th class="confluenceTh"><p><strong>11:14</strong></p></th>
+							<th class="confluenceTh"><p><strong>11:15</strong></p></th>
+							<th class="confluenceTh"><p><strong>11:16</strong></p></th>
+							<th class="confluenceTh"><p><strong>11:17</strong></p></th>
+							<th class="confluenceTh"><p><strong>11:18</strong></p></th>
+							<th class="confluenceTh"><p><strong>11:19</strong></p></th>
+						</tr>
+						<tr>
+							<td class="confluenceTd"><p>Overall</p></td>
+							<td class="confluenceTd"><p>9</p></td>
+							<td class="confluenceTd"><p>9</p></td>
+							<td class="confluenceTd"><p>7</p></td>
+							<td class="confluenceTd"><p>9</p></td>
+							<td class="confluenceTd"><p>6</p></td>
+							<td class="confluenceTd"><p>7</p></td>
+							<td class="confluenceTd"><p>8</p></td>
+							<td class="confluenceTd"><p>6</p></td>
+							<td class="confluenceTd"><p>7</p></td>
+							<td class="confluenceTd"><p>6</p></td>
+						<tr>
+						<tr>
+							<td class="confluenceTd"><p>Java</p></td>
+							<td class="confluenceTd"><p>2</p></td>
+							<td class="confluenceTd"><p>3</p></td>
+							<td class="confluenceTd"><p>4</p></td>
+							<td class="confluenceTd"><p>4</p></td>
+							<td class="confluenceTd"><p>3</p></td>
+							<td class="confluenceTd"><p>5</p></td>
+							<td class="confluenceTd"><p>2</p></td>
+							<td class="confluenceTd"><p>3</p></td>
+							<td class="confluenceTd"><p>2</p></td>
+							<td class="confluenceTd"><p>5</p></td>
+						<tr>
+					</tbody>
+				</table>
+			</td>
+		</tr>
+	</table>
+	<table class="wysiwyg-macro" data-macro-name="chart" data-macro-id="e5af9181-d439-4aa6-8a29-a0a3cf3df5d9" data-macro-parameters="borderColor=black|dateFormat=hh:mm|timePeriod=Minute|timeSeries=true|title=GDD - CPU %Busy|type=xyArea|width=1000" data-macro-schema-version="1" style="background-image: url(/wiki/plugins/servlet/confluence/placeholder/macro-heading?definition=e2NoYXJ0OnRpbWVTZXJpZXM9dHJ1ZXxib3JkZXJDb2xvcj1ibGFja3xkYXRlRm9ybWF0PWhoOm1tfHRpbWVQZXJpb2Q9TWludXRlfHdpZHRoPTEwMDB8dGl0bGU9U0VSVkVSIC0gQ1BVICVCdXN5fHR5cGU9eHlBcmVhfQ&amp;locale=en_US&amp;version=2); background-repeat: no-repeat;" data-macro-body-type="RICH_TEXT">
+		<tr>
+			<td class="wysiwyg-macro-body">
+				<table data-layout="default" class="confluenceTable">
+					<tbody>
+						<tr>
+							<th class="confluenceTh"><p><strong>GDD - CPU %Busy</strong></p></th>
+							<th class="confluenceTh"><p><strong>11:10</strong></p></th>
+							<th class="confluenceTh"><p><strong>11:11</strong></p></th>
+							<th class="confluenceTh"><p><strong>11:12</strong></p></th>
+							<th class="confluenceTh"><p><strong>11:13</strong></p></th>
+							<th class="confluenceTh"><p><strong>11:14</strong></p></th>
+							<th class="confluenceTh"><p><strong>11:15</strong></p></th>
+							<th class="confluenceTh"><p><strong>11:16</strong></p></th>
+							<th class="confluenceTh"><p><strong>11:17</strong></p></th>
+							<th class="confluenceTh"><p><strong>11:18</strong></p></th>
+							<th class="confluenceTh"><p><strong>11:19</strong></p></th>
+						</tr>
+						<tr>
+							<td class="confluenceTd"><p>Overall</p></td>
+							<td class="confluenceTd"><p>9</p></td>
+							<td class="confluenceTd"><p>9</p></td>
+							<td class="confluenceTd"><p>7</p></td>
+							<td class="confluenceTd"><p>9</p></td>
+							<td class="confluenceTd"><p>6</p></td>
+							<td class="confluenceTd"><p>7</p></td>
+							<td class="confluenceTd"><p>8</p></td>
+							<td class="confluenceTd"><p>6</p></td>
+							<td class="confluenceTd"><p>7</p></td>
+							<td class="confluenceTd"><p>6</p></td>
+						<tr>
+						<tr>
+							<td class="confluenceTd"><p>Java</p></td>
+							<td class="confluenceTd"><p>2</p></td>
+							<td class="confluenceTd"><p>3</p></td>
+							<td class="confluenceTd"><p>4</p></td>
+							<td class="confluenceTd"><p>4</p></td>
+							<td class="confluenceTd"><p>3</p></td>
+							<td class="confluenceTd"><p>5</p></td>
+							<td class="confluenceTd"><p>2</p></td>
+							<td class="confluenceTd"><p>3</p></td>
+							<td class="confluenceTd"><p>2</p></td>
+							<td class="confluenceTd"><p>5</p></td>
+						<tr>
+					</tbody>
+				</table>
+			</td>
+		</tr>
+	</table>
+	<p>No DB data for this test due to an issue with the AppDynamics Database Agent on the performance box.</p>
+	<p />
+	<p>Test 172 | Release 20.14 | Build 1 | Focus 3.69.0-02 | Baseline 3 = LEFT SIDE</p>
+	<p>Test 161 | Release 20.12 | Point Release | Focus 3.67.0-41 | Baseline 3 = RIGHT SIDE</p>
+</body>
