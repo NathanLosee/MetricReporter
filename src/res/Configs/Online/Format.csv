@@ -1,0 +1,59 @@
+Test Duration,{date},Diff Values,Stats (metrics) Summary
+SubmitOrder response time (ms),{submitOrder_test},{submitOrder_diff},{submitOrder_anls}
+Proceed_CheckOut response time (ms),{checkOut_test},{checkOut_diff},{checkOut_anls}
+StoresSearch response time (ms),{storeSearch_test},{storeSearch_diff},{storeSearch_anls}
+Order Cancel response time (ms),{orderCancel_test},{orderCancel_diff},{orderCancel_anls}
+Tip Adjust response time (ms),{tipAdjust_test},{tipAdjust_diff},{tipAdjust_anls}
+create-account (Registration) response time (ms),{createAccount_test},{createAccount_diff},{createAccount_anls}
+sign-in response time (ms),{signIn_test},{signIn_diff},{signIn_anls}
+menu response time (ms),{menu_test},{menu_diff},{menu_anls}
+view-cart response time (ms),{viewCart_test},{viewCart_diff},{viewCart_anls}
+
+RWD CPU (%),{rwdAvgCPU_test},{rwdAvgCPU_diff},{rwdAvgCPU_anls}
+POBS CPU (%),{pobsAvgCPU_test},{pobsAvgCPU_diff},{pobsAvgCPU_anls}
+POBSWSOLO CPU (%),{pobswsoloAvgCPU_test},{pobswsoloAvgCPU_diff},{pobswsoloAvgCPU_anls}
+RWD I/O (KB/sec),{rwdIOs_test},{rwdIOs_diff},{rwdIOs_anls}
+POBS I/O (KB/sec),{pobsIOs_test},{pobsIOs_diff},{pobsIOs_anls}
+POBSWSOLO I/O (KB/sec),{pobswsoloIOs_test},{pobswsoloIOs_diff},{pobswsoloIOs_anls}
+
+RWD JVM Heap usage (%) of 30 GB,{rwdHeap_test},{rwdHeap_diff},{rwdHeap_anls}
+RWD minor GCs per min (per node),{rwdMinor_test},{rwdMinor_diff},{rwdMinor_anls}
+RWD major GCs (total duration & nodes = 9),{rwdMajor_test},{rwdMajor_diff},{rwdMajor_anls}
+RWD GC time per min (per node in ms),{rwdGCTime_test},{rwdGCTime_diff},{rwdGCTime_anls}
+RWD GC Overhead (%),{rwdGCTimePerc_test},{rwdGCTimePerc_diff},{rwdGCTimePerc_anls}
+POBS JVM Heap usage (%) of 16 GB,{pobsHeap_test},{pobsHeap_diff},{pobsHeap_anls}
+POBS minor GCs per min (per node),{pobsMinor_test},{pobsMinor_diff},{pobsMinor_anls}
+POBS major GCs (total duration & nodes = 14),{pobsMajor_test},{pobsMajor_diff},{pobsMajor_anls}
+POBS GC time per min (per node in ms),{pobsGCTime_test},{pobsGCTime_diff},{pobsGCTime_anls}
+POBS GC Overhead (%),{pobsGCTimePerc_test},{pobsGCTimePerc_diff},{pobsGCTimePerc_anls}
+POBSWSOLO JVM Heap usage (%) of 8 GB,{pobswsoloHeap_test},{pobswsoloHeap_diff},{pobswsoloHeap_anls}
+POBSWSOLO minor GCs per min (per node),{pobswsoloMinor_test},{pobswsoloMinor_diff},{pobswsoloMinor_anls}
+POBSWSOLO major GCs (total duration & nodes = 2),{pobswsoloMajor_test},{pobswsoloMajor_diff},{pobswsoloMajor_anls}
+POBSWSOLO GC time per min (per node in ms),{pobswsoloGCTime_test},{pobswsoloGCTime_diff},{pobswsoloGCTime_anls}
+POBSWSOLO GC Overhead (%),{pobswsoloGCTimePerc_test},{pobswsoloGCTimePerc_diff},{pobswsoloGCTimePerc_anls}
+
+RWD Busy threads (Pool = 2500 - 4000),{rwdBusy_test},{rwdBusy_diff},{rwdBusy_anls}
+POBS Busy threads (Pool = 300 - 1000),{pobsBusy_test},{pobsBusy_diff},{pobsBusy_anls}
+POBSWSOLO Busy threads (Pool = 300 - 1000),{pobswsoloBusy_test},{pobswsoloBusy_diff},{pobswsoloBusy_anls}
+POBS DB Connections Active (Min = 133 / Max = 133),{pobsdbConnections_test},{pobsdbConnections_diff},{pobsdbConnections_anls}
+POBSWSOLO DB Connections Active (Min = 20 / Max = 20),{pobswsolodbConnections_test},{pobswsolodbConnections_diff},{pobswsolodbConnections_anls}
+
+Loyalty JVM Heap usage (%) of 1 GB,{loyaltyHeap_test},{loyaltyHeap_diff},{loyaltyHeap_anls}
+Loyalty minor GCs per min (per node),{loyaltyMinor_test},{loyaltyMinor_diff},{loyaltyMinor_anls}
+Loyalty major GCs (total duration & nodes = 16),{loyaltyMajor_test},{loyaltyMajor_diff},{loyaltyMajor_anls}
+Loyalty GC time per min (per node in ms),{loyaltyGCTime_test},{loyaltyGCTime_diff},{loyaltyGCTime_anls}
+Loyalty GC Overhead (%),{loyaltyGCTimePerc_test},{loyaltyGCTimePerc_diff},{loyaltyGCTimePerc_anls}
+
+Online - Calls per min,{onCallMin_test},{onCallMin_diff},{onCallMin_anls}
+Online - Errors per min,{onError_test},{onError_diff},{onError_anls}
+Online Error (%),{onErrorPerc_test},{onErrorPerc_diff},{onErrorPerc_anls}
+Online avg response (ms),{onResponse_test},{onResponse_diff},{onResponse_anls}
+Loyalty - Calls per min,{loCallMin_test},{loCallMin_diff},{loCallMin_anls}
+Loyalty - Errors per min,{loError_test},{loError_diff},{loError_anls}
+Loyalty Error (%),{loErrorPerc_test},{loErrorPerc_diff},{loErrorPerc_anls}
+Loyalty avg response (ms),{loResponse_test},{loResponse_diff},{loResponse_anls}
+Mapping - Calls per min,{mapCallMin_test},{mapCallMin_diff},{mapCallMin_anls}
+Mapping - Errors per min,{mapError_test},{mapError_diff},{mapError_anls}
+Mapping Error (%),{mapErrorPerc_test},{mapErrorPerc_diff},{mapErrorPerc_anls}
+Mapping avg response (ms),{mapResponse_test},{mapResponse_diff},{mapResponse_anls}
+Monetra response (ms),{moResponse_test},{moResponse_diff},{moResponse_anls}
