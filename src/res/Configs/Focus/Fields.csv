@@ -108,3 +108,8 @@ remoteProfanityResponseTime,59,SINGLE,FOCUS,Backends%7CDiscovered%20backend%20ca
 remoteProfanityCalls,4,SINGLE,FOCUS,Backends%7CDiscovered%20backend%20call%20-%20languagefilter-qa.papajohns.com%3A443%7CCalls%20per%20Minute,4,2
 remoteProfanityErrors,0,SINGLE,FOCUS,Backends%7CDiscovered%20backend%20call%20-%20languagefilter-qa.papajohns.com%3A443%7CErrors%20per%20Minute,2,1
 remoteProfanityErrorPerc,Derived_Error2,SINGLE,N/A,remoteProfanityCalls:remoteProfanityErrors,0.02,0.01
+
+serverOverallCPULapse,0,LAPSE,FOCUS,Application%20Infrastructure%20Performance%7CSERVER%7CIndividual%20Nodes%7C0186.str00186%7CHardware%20Resources%7CCPU%7C%25Busy,0.02,0.01
+gddOverallCPULapse,0,LAPSE,FOCUS,Application%20Infrastructure%20Performance%7CTERMINAL%7CIndividual%20Nodes%7C0186.DriverDispatch1%7CHardware%20Resources%7CCPU%7C%25Busy,0.02,0.01
+serverJavaCPULapse,0,LAPSE,FOCUS,Application%20Infrastructure%20Performance%7CSERVER%7CIndividual%20Nodes%7C0186.str00186%7CJVM%7CProcess%20CPU%20Usage%20%25,0.02,0.01
+gddJavaCPULapse,0,LAPSE,FOCUS,Application%20Infrastructure%20Performance%7CTERMINAL%7CIndividual%20Nodes%7C0186.DriverDispatch1%7CJVM%7CProcess%20CPU%20Usage%20%25,0.02,0.01
