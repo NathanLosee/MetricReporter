@@ -1,1 +1,1 @@
-java -cp MetricReporter.jar;./lib/* com.MetricReporter.MetricReporter "Focus" "09/24/2020-15:20" "60" "Confluence" "Test 175 | Release 20.14 | Build 2 | Focus 3.69.0-09 | Baseline 3" "true"
+java -cp MetricReporter.jar;./lib/* com.MetricReporter.MetricReporter "Focus" "10/08/2020-13:40" "60" "Confluence" "Test 181 | Release 20.15 | Build 2 | Focus 3.70.0-06 | Baseline 3 Results" "true"

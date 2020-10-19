@@ -41,12 +41,15 @@ public class MetricWriter {
             resultsBuilder.append(line + "\n");
         }
         exportString = resultsBuilder.toString();
+
+        reader.close();
     }
 
     /*
      * Prints the metric data out to the console/CSV report file
      */
     public static void FormatResults() throws Exception {
+        ReplaceTitle();
         ReplaceDate();
         ReplaceTimeLapse();
 
@@ -64,6 +67,13 @@ public class MetricWriter {
                 ReplaceMetricDiffAnalysis(metricName, metric);
             }
         });
+    }
+
+    /*
+     * Replaces the title placeholders in the report with the title
+     */
+    public static void ReplaceTitle() {
+        exportString = exportString.replaceAll("\\{title\\}", ProgramData.exportName);
     }
 
     /*
@@ -178,19 +188,75 @@ public class MetricWriter {
 
         if (ProgramData.exportType.equals("CSV")) {
             // Print to file
-            System.setOut(new PrintStream(new File(ProgramData.exportName + ".csv")));
-            System.out.println(exportString);
+            File exportFile = new File(ProgramData.exportName + ".csv");
+            if (exportFile.exists()) {
+                System.out.println("File already exists.");
+                if (ProgramData.overwrite) {
+                    System.out.println("Overwriting.");
+                    System.setOut(new PrintStream(new File(ProgramData.exportName + ".csv")));
+                    System.out.println(exportString);
+                }
+            } else {
+                System.out.println("File does not exist, creating.");
+                System.setOut(new PrintStream(new File(ProgramData.exportName + ".csv")));
+                System.out.println(exportString);
+            }
         } else {
+            String username = ProgramData.metricProperties.getProperty("atlaUsername");
+            String password = ProgramData.metricProperties.getProperty("atlaToken");
+            String authCode = Base64.getEncoder().encodeToString((username + ":" + password).getBytes());
+
             // Send to Confluence
-            CreateNewConfluencePage();
+            HttpResponse<JsonNode> response =  Unirest.get("https://pjolodevkb.atlassian.net/wiki/rest/api/content")
+                .queryString("type", "page")
+                .queryString("title", ProgramData.exportName)
+                .queryString("expand", "version")
+                .header("Content-Type", "application/json")
+                .header("Authorization", "Basic " + authCode)
+                .asJson();
+            JSONArray results = response.getBody().getObject().getJSONArray("results");
+            if (results.length() > 0) {
+                System.out.println("Page already exists.");
+                if (ProgramData.overwrite) {
+                    System.out.println("Overwriting page.");
+                    String existingID = results.getJSONObject(0).getString("id");
+                    System.out.println(results.getJSONObject(0));
+                    int versionNum = results.getJSONObject(0).getJSONObject("version").getInt("number");
+                    ReplaceConfluencePage(authCode, existingID, versionNum);
+                }
+            }
+            else {
+                System.out.println("Page does not exist, creating.");
+                CreateNewConfluencePage(authCode);
+            }
+            
         }
     }
 
-    private static void CreateNewConfluencePage() throws Exception {
-        String username = ProgramData.metricProperties.getProperty("atlaUsername");
-        String password = ProgramData.metricProperties.getProperty("atlaToken");
-        String authCode = Base64.getEncoder().encodeToString((username + ":" + password).getBytes());
+    private static void ReplaceConfluencePage(String authCode, String existingID, int versionNum) throws Exception {
+        JSONObject pageContent = new JSONObject();
+        pageContent.put("type", "page");
+        pageContent.put("title", ProgramData.exportName);
+        JSONObject version = new JSONObject();
+        version.put("number", versionNum + 1);
+        pageContent.put("version", version);
+        JSONObject body = new JSONObject();
+        JSONObject storage = new JSONObject();
+        storage.put("value", exportString);
+        storage.put("representation", "storage");
+        body.put("storage", storage);
+        pageContent.put("body", body);
 
+        HttpResponse<String> response = Unirest.put("https://pjolodevkb.atlassian.net/wiki/rest/api/content/{contentID}")
+                .routeParam("contentID", existingID)
+                .header("Content-Type", "application/json")
+                .header("Authorization", "Basic " + authCode)
+                .body(pageContent)
+                .asString();
+        System.out.println(response.getBody());
+    }
+
+    private static void CreateNewConfluencePage(String authCode) throws Exception {
         String contentID;
         if (ProgramData.config.equals("Focus")) {
             contentID = ProgramData.metricProperties.getProperty("confContentID_Focus");
@@ -216,10 +282,11 @@ public class MetricWriter {
         body.put("storage", storage);
         pageContent.put("body", body);
 
-        Unirest.post("https://pjolodevkb.atlassian.net/wiki/rest/api/content")
+        HttpResponse<JsonNode> response = Unirest.post("https://pjolodevkb.atlassian.net/wiki/rest/api/content")
                 .header("Content-Type", "application/json")
                 .header("Authorization", "Basic " + authCode)
                 .body(pageContent)
                 .asJson();
+        System.out.println(response.getBody());
     }
 }

@@ -6,6 +6,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - ImageTest",
+            "request": "launch",
+            "mainClass": "com.MetricReporter.ImageTest",
+            "projectName": "MetricReporter_27649f13"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - ConfluenceUploader",
+            "request": "launch",
+            "mainClass": "com.MetricReporter.ConfluenceUploader",
+            "projectName": "MetricReporter_27649f13"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - temp",
             "request": "launch",
             "mainClass": "com.MetricReporter.temp",
