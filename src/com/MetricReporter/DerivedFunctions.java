@@ -31,8 +31,10 @@ public class DerivedFunctions {
     public static void Wait(String derivedMetricsString) {
         try {
             String[] derivedMetrics = derivedMetricsString.split(":");
-            if (ProgramData.metrics.containsKey(derivedMetrics[0])) {
-                ProgramData.metrics.get(derivedMetrics[0]).valueThread.join();
+            for (String metric : derivedMetrics) {
+                if (ProgramData.metrics.containsKey(metric)) {
+                    ProgramData.metrics.get(metric).valueThread.join();
+                }
             }
         } catch (Exception e) { }
     }

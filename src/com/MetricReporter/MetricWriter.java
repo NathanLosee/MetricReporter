@@ -183,9 +183,6 @@ public class MetricWriter {
      * Prints results to console and file/Confluence
      */
     public static void PrintResults() throws Exception {
-        // Print to console
-        System.out.println(exportString);
-
         if (ProgramData.exportType.equals("CSV")) {
             // Print to file
             File exportFile = new File(ProgramData.exportName + ".csv");
@@ -220,7 +217,6 @@ public class MetricWriter {
                 if (ProgramData.overwrite) {
                     System.out.println("Overwriting page.");
                     String existingID = results.getJSONObject(0).getString("id");
-                    System.out.println(results.getJSONObject(0));
                     int versionNum = results.getJSONObject(0).getJSONObject("version").getInt("number");
                     ReplaceConfluencePage(authCode, existingID, versionNum);
                 }
@@ -253,7 +249,6 @@ public class MetricWriter {
                 .header("Authorization", "Basic " + authCode)
                 .body(pageContent)
                 .asString();
-        System.out.println(response.getBody());
     }
 
     private static void CreateNewConfluencePage(String authCode) throws Exception {
@@ -287,6 +282,5 @@ public class MetricWriter {
                 .header("Authorization", "Basic " + authCode)
                 .body(pageContent)
                 .asJson();
-        System.out.println(response.getBody());
     }
 }

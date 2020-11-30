@@ -93,6 +93,12 @@ public class MetricReader {
         DerivedFunctions.Wait(data[4]);
         if (data[1].contains("Derived")) {
             DerivedFunctions.DeriveValues(metric, data);
+            if (Float.isNaN(metric.values[0])) {
+                metric.values[0] = 0;
+            }
+            if (Float.isNaN(metric.values[1])) {
+                metric.values[1] = 0;
+            }
         } else {
             if (data[2].equals("LAPSE")) {
                 metric.values = SetLapseValues(data[0], data[3], data[4]);
