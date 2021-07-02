@@ -13,9 +13,10 @@ public class MetricReporter {
             ProgramData.config = args[0];
             ProgramData.startDateTime = args[1];
             ProgramData.durationString = args[2];
-            ProgramData.exportType = args[3];
+            ProgramData.testType = args[3];
             ProgramData.exportName = args[4];
             ProgramData.overwriteString = args[5];
+            ProgramData.baselineName = args[6];
             if (CheckArguments()) {
                 MetricReader.GatherMetrics();
                 MetricWriter.ReportMetrics();
@@ -65,9 +66,8 @@ public class MetricReporter {
     }
 
     private static boolean CheckExportType() {
-        if (!ProgramData.exportType.equals("CSV") && 
-            !ProgramData.exportType.equals("Confluence")) {
-            System.out.println("Invalid export type provided. Please use \"CSV\" or \"Confluence\".");
+        if (MetricWriter.class.getResource("/res/Configs/" + ProgramData.config + "/Formats/" + ProgramData.testType + ".html") == null) {
+            System.out.println("Unsupported test type provided.");
             return false;
         }
         return true;

@@ -26,12 +26,7 @@ public class MetricWriter {
      * Read the report format set in the CSV/HTML file
      */
     public static void ReadReportFormat() throws Exception {
-        String resource;
-        if (ProgramData.exportType.equals("CSV")) {
-            resource = "/res/Configs/" + ProgramData.config + "/Format.csv";
-        } else {
-            resource = "/res/Configs/" + ProgramData.config + "/Format.html";
-        }
+        String resource = "/res/Configs/" + ProgramData.config + "/Formats/" + ProgramData.testType + ".html";
         InputStream stream = MetricWriter.class.getResourceAsStream(resource);
         BufferedReader reader = new BufferedReader(new InputStreamReader(stream));
 
@@ -51,9 +46,11 @@ public class MetricWriter {
     public static void FormatResults() throws Exception {
         ReplaceTitle();
         ReplaceDate();
+        ReplaceTimeSegments();
         ReplaceTimeLapse();
 
         // Replace placeholders for each of the metrics
+        StringBuilder hiddenValues = new StringBuilder();
         ProgramData.metrics.forEach((metricName, metric) -> {
             if (metric.type.equals("LAPSE")) {
                 try {
@@ -62,11 +59,13 @@ public class MetricWriter {
                     e.printStackTrace();
                 }
             } else {
-                ReplaceMetricTestValue(metricName, metric);
+                ReplaceMetricTestValue(metricName, metric, hiddenValues);
                 ReplaceMetricDiffValue(metricName, metric);
                 ReplaceMetricDiffAnalysis(metricName, metric);
             }
         });
+        
+        ReplaceHiddenValues(hiddenValues);
     }
 
     /*
@@ -74,6 +73,7 @@ public class MetricWriter {
      */
     public static void ReplaceTitle() {
         exportString = exportString.replaceAll("\\{title\\}", ProgramData.exportName);
+        exportString = exportString.replaceAll("\\{baseline\\}", ProgramData.baselineName);
     }
 
     /*
@@ -85,6 +85,42 @@ public class MetricWriter {
                 + ProgramData.startDT.toString().substring(11, 16) + " - "
                 + ProgramData.startDT.plusMinutes(ProgramData.duration).toString().substring(11, 16);
         exportString = exportString.replace("{date}", dateString);
+    }
+
+    /*
+     * Replaces the time segment placeholders in the report with appropriate times
+     */
+    public static void ReplaceTimeSegments() {
+        if (exportString.contains("{timeSegment1}")) {
+            String timeSegment1 = ProgramData.startDT.toString().substring(11, 16) + " - "
+                + ProgramData.startDT.plusMinutes(20).toString().substring(11, 16)
+                + " (20 min)";
+            exportString = exportString.replace("{timeSegment1}", timeSegment1);
+        }
+        if (exportString.contains("{timeSegment2}")) {
+            String timeSegment2 = ProgramData.startDT.plusMinutes(20).toString().substring(11, 16) + " - "
+                + ProgramData.startDT.plusMinutes(60).toString().substring(11, 16)
+                + " (40 min)";
+            exportString = exportString.replace("{timeSegment2}", timeSegment2);
+        }
+        if (exportString.contains("{timeSegment3}")) {
+            String timeSegment3 = ProgramData.startDT.plusMinutes(60).toString().substring(11, 16) + " - "
+                + ProgramData.startDT.plusMinutes(100).toString().substring(11, 16)
+                + " (40 min)";
+            exportString = exportString.replace("{timeSegment3}", timeSegment3);
+        }
+        if (exportString.contains("{timeSegment4}")) {
+            String timeSegment4 = ProgramData.startDT.plusMinutes(100).toString().substring(11, 16) + " - "
+                + ProgramData.startDT.plusMinutes(140).toString().substring(11, 16)
+                + " (40 min)";
+            exportString = exportString.replace("{timeSegment4}", timeSegment4);
+        }
+        if (exportString.contains("{timeSegment5}")) {
+            String timeSegment5 = ProgramData.startDT.plusMinutes(140).toString().substring(11, 16) + " - "
+                + ProgramData.startDT.plusMinutes(180).toString().substring(11, 16)
+                + " (40 min)";
+            exportString = exportString.replace("{timeSegment5}", timeSegment5);
+        }
     }
     
     /*
@@ -111,121 +147,106 @@ public class MetricWriter {
      * Replaces the lapse placeholder in the report with the data for the metric
      */
     public static void ReplaceMetricLapse(String metricName, Metric metric) throws Exception {
-        Pattern pattern = Pattern.compile("(?m)^.+?\\{" + metricName + "\\}.+?$");
-        Matcher matcher = pattern.matcher(exportString);
-        matcher.find();
-        String group = matcher.group();
-        String[] metriclapse = new String[metric.values.length];
-        for (int i = 0; i < metric.values.length; i++) {
-            metriclapse[i] = group.replace("{" + metricName + "}", "" + metric.values[i]);
+        if (exportString.contains("{" + metricName + "}")) {
+            Pattern pattern = Pattern.compile("(?m)^.+?\\{" + metricName + "\\}.+?$");
+            Matcher matcher = pattern.matcher(exportString);
+            matcher.find();
+            String group = matcher.group();
+            String[] metriclapse = new String[metric.values.length];
+            for (int i = 0; i < metric.values.length; i++) {
+                metriclapse[i] = group.replace("{" + metricName + "}", "" + metric.values[i]);
+            }
+            String replacement = String.join("\n", metriclapse);
+            exportString = exportString.replaceFirst(pattern.pattern(), replacement);
         }
-        String replacement = String.join("\n", metriclapse);
-        exportString = exportString.replaceFirst(pattern.pattern(), replacement);
     }
 
     /*
      * Replaces the next metric placeholder in the report with the metric's test value
      */
-    public static void ReplaceMetricTestValue(String metricName, Metric metric) {
-        String valueString = String.format("%.2f", metric.values[1]);
-        exportString = exportString.replace("{" + metricName + "_test}", valueString);
+    public static void ReplaceMetricTestValue(String metricName, Metric metric, StringBuilder hiddenValues) {
+        if (exportString.contains("{" + metricName + "_test}")) {
+            String valueString = String.format("%.2f", metric.values[1]);
+            exportString = exportString.replace("{" + metricName + "_test}", valueString);
+            hiddenValues.append(metricName + ":" + valueString + ";");
+        }
     }
     
     /*
      * Replaces the next metric placeholder in the report with the metric's diff value
      */
     public static void ReplaceMetricDiffValue(String metricName, Metric metric) {
-        String valueString;
-        if (Float.isNaN(metric.values[2])) {
-            valueString = "NaN";
-        } else {
-            valueString = String.format("%.2f", metric.values[2]);
+        if (exportString.contains("{" + metricName + "_diff}")) {
+            String valueString;
+            if (Float.isNaN(metric.values[2])) {
+                valueString = "NaN";
+            } else {
+                valueString = String.format("%.2f", metric.values[2]);
+            }
+            exportString = exportString.replace("{" + metricName + "_diff}", valueString);
         }
-        exportString = exportString.replace("{" + metricName + "_diff}", valueString);
     }
     
     /*
      * Replaces the next metric placeholder in the report with the metric's diff analysis
      */
     public static void ReplaceMetricDiffAnalysis(String metricName, Metric metric) {
-        String valueString;
-        if (Float.isNaN(metric.values[2])) {
-            valueString = "---";
-        } else {
-            // If the threshholds are positive, then we compare whether the diff is high
-            if (metric.thresholds[0] > 0) {
-                if(metric.values[2] >= metric.thresholds[0]) {
-                    valueString = "#!!#";
-                } else if (metric.values[2] >= metric.thresholds[1]) {
-                    valueString = "~!!~";
-                } else if (metric.values[2] < 0.0) {
-                    valueString = "~$~";
-                } else {
-                    valueString = "~~~";
-                }
-            // If the threshholds are negative, then we compare whether the diff is low
+        if (exportString.contains("{" + metricName + "_anls}")) {
+            String valueString;
+            if (Float.isNaN(metric.values[2])) {
+                valueString = "---";
             } else {
-                if(metric.values[2] <= metric.thresholds[0]) {
-                    valueString = "#!!#";
-                } else if (metric.values[2] <= metric.thresholds[1]) {
-                    valueString = "~!!~";
-                } else if (metric.values[2] > 0.0) {
-                    valueString = "~$~";
+                if(metric.values[2] > metric.thresholds[3]) {
+                    valueString = "#bf2600";
+                } else if (metric.values[2] > metric.thresholds[2]) {
+                    valueString = "#ffc400";
+                } else if (metric.values[2] < metric.thresholds[0]) {
+                    valueString = "#0747a6";
+                } else if (metric.values[2] < metric.thresholds[1]) {
+                    valueString = "#006644";
                 } else {
-                    valueString = "~~~";
+                    valueString = "#ffffff";
                 }
             }
+            exportString = exportString.replace("{"+metricName+"_anls}", valueString);
         }
-        exportString = exportString.replace("{"+metricName+"_anls}", valueString);
+    }
+
+    /*
+     * Replaces the date placeholder in the report with the test date
+     */
+    public static void ReplaceHiddenValues(StringBuilder hiddenValues) {
+        exportString = exportString.replace("{hiddenValues}", hiddenValues.toString());
     }
 
     /*
      * Prints results to console and file/Confluence
      */
     public static void PrintResults() throws Exception {
-        if (ProgramData.exportType.equals("CSV")) {
-            // Print to file
-            File exportFile = new File(ProgramData.exportName + ".csv");
-            if (exportFile.exists()) {
-                System.out.println("File already exists.");
-                if (ProgramData.overwrite) {
-                    System.out.println("Overwriting.");
-                    System.setOut(new PrintStream(new File(ProgramData.exportName + ".csv")));
-                    System.out.println(exportString);
-                }
-            } else {
-                System.out.println("File does not exist, creating.");
-                System.setOut(new PrintStream(new File(ProgramData.exportName + ".csv")));
-                System.out.println(exportString);
-            }
-        } else {
-            String username = ProgramData.metricProperties.getProperty("atlaUsername");
-            String password = ProgramData.metricProperties.getProperty("atlaToken");
-            String authCode = Base64.getEncoder().encodeToString((username + ":" + password).getBytes());
+        String username = ProgramData.metricProperties.getProperty("atlaUsername");
+        String password = ProgramData.metricProperties.getProperty("atlaToken");
+        String authCode = Base64.getEncoder().encodeToString((username + ":" + password).getBytes());
 
-            // Send to Confluence
-            HttpResponse<JsonNode> response =  Unirest.get("https://pjolodevkb.atlassian.net/wiki/rest/api/content")
-                .queryString("type", "page")
-                .queryString("title", ProgramData.exportName)
-                .queryString("expand", "version")
-                .header("Content-Type", "application/json")
-                .header("Authorization", "Basic " + authCode)
-                .asJson();
-            JSONArray results = response.getBody().getObject().getJSONArray("results");
-            if (results.length() > 0) {
-                System.out.println("Page already exists.");
-                if (ProgramData.overwrite) {
-                    System.out.println("Overwriting page.");
-                    String existingID = results.getJSONObject(0).getString("id");
-                    int versionNum = results.getJSONObject(0).getJSONObject("version").getInt("number");
-                    ReplaceConfluencePage(authCode, existingID, versionNum);
-                }
+        HttpResponse<JsonNode> response =  Unirest.get("https://pjolodevkb.atlassian.net/wiki/rest/api/content")
+            .queryString("type", "page")
+            .queryString("title", ProgramData.exportName)
+            .queryString("expand", "version")
+            .header("Content-Type", "application/json")
+            .header("Authorization", "Basic " + authCode)
+            .asJson();
+        JSONArray results = response.getBody().getObject().getJSONArray("results");
+        if (results.length() > 0) {
+            System.out.println("Page already exists.");
+            if (ProgramData.overwrite) {
+                System.out.println("Overwriting page.");
+                String existingID = results.getJSONObject(0).getString("id");
+                int versionNum = results.getJSONObject(0).getJSONObject("version").getInt("number");
+                ReplaceConfluencePage(authCode, existingID, versionNum);
             }
-            else {
-                System.out.println("Page does not exist, creating.");
-                CreateNewConfluencePage(authCode);
-            }
-            
+        }
+        else {
+            System.out.println("Page does not exist, creating.");
+            CreateNewConfluencePage(authCode);
         }
     }
 
@@ -249,6 +270,9 @@ public class MetricWriter {
                 .header("Authorization", "Basic " + authCode)
                 .body(pageContent)
                 .asString();
+        if (response.getStatus() > 299) {
+            System.out.println(response.getBody().toString());
+        }
     }
 
     private static void CreateNewConfluencePage(String authCode) throws Exception {
@@ -282,5 +306,8 @@ public class MetricWriter {
                 .header("Authorization", "Basic " + authCode)
                 .body(pageContent)
                 .asJson();
+        if (response.getStatus() > 299) {
+            System.out.println(response.getBody().toString());
+        }
     }
 }

@@ -13,6 +13,7 @@ public class DerivedFunctions {
      *     METRIC_PATH (metricData[2]) is the URI path to retrieve the value via AppD REST API
      */
     public static void DeriveValues(Metric metric, String[] data){
+        DerivedFunctions.Wait(data[4]);
         switch (data[1]) {
         case "Derived_GC":
             metric.values[0] = GCPercentage(data[4], true);
@@ -32,9 +33,9 @@ public class DerivedFunctions {
         try {
             String[] derivedMetrics = derivedMetricsString.split(":");
             for (String metric : derivedMetrics) {
-                if (ProgramData.metrics.containsKey(metric)) {
-                    ProgramData.metrics.get(metric).valueThread.join();
-                }
+                while (!ProgramData.metrics.containsKey(metric)) { }
+                while (ProgramData.metrics.get(metric).valueThread == null) { }
+                ProgramData.metrics.get(metric).valueThread.join();
             }
         } catch (Exception e) { }
     }

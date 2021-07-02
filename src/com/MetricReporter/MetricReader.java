@@ -33,7 +33,7 @@ public class MetricReader {
     /*
      * Load the properties from metrics.properties
      */
-    public static void LoadMetricProperties() {
+    private static void LoadMetricProperties() {
         try {
             ProgramData.metricProperties = new Properties();
             InputStream fin = MetricWriter.class.getResourceAsStream(ProgramData.metricPropertiesFile);
@@ -48,12 +48,14 @@ public class MetricReader {
     /*
      * Create the metrics LinkedHashMap and populate it with the baseline and test values, and other reporting data
      */
-    public static void InitializeMetrics() throws Exception {
+    private static void InitializeMetrics() throws Exception {
         String resource = "/res/Configs/" + ProgramData.config + "/Fields.csv";
         InputStream stream = MetricWriter.class.getResourceAsStream(resource);
         BufferedReader reader = new BufferedReader(new InputStreamReader(stream));
         // Skip header row
         reader.readLine();
+
+        final String confluenceBody = ReadConfluenceBody();
 
         ProgramData.metrics = new LinkedHashMap<>();
         String line;
@@ -73,7 +75,7 @@ public class MetricReader {
                     newMetric.values[2] = Float.NaN;
                 }
                 newMetric.valueThread = new Thread(() -> {
-                    SetMetricValues(data);
+                    SetMetricValues(data, confluenceBody);
                     SetMetricThresholds(data);
                 });
                 newMetric.valueThread.start();
@@ -84,26 +86,65 @@ public class MetricReader {
                 metric.valueThread.join();
             } catch (Exception e) { }
         });
+
+        reader.close();
+    }
+
+    private static String ReadConfluenceBody() throws Exception {
+        if (ProgramData.baselineName == "none") {
+            System.out.println("Page does not exist. Using config baseline data.");
+            return null;
+        }
+
+        String username = ProgramData.metricProperties.getProperty("atlaUsername");
+        String password = ProgramData.metricProperties.getProperty("atlaToken");
+        String authCode = Base64.getEncoder().encodeToString((username + ":" + password).getBytes());
+
+        HttpResponse<JsonNode> response = Unirest.get("https://pjolodevkb.atlassian.net/wiki/rest/api/content")
+            .queryString("type", "page")
+            .queryString("title", ProgramData.baselineName)
+            .queryString("expand", "body.storage")
+            .header("Content-Type", "application/json")
+            .header("Authorization", "Basic " + authCode)
+            .asJson();
+        JSONArray results = response.getBody().getObject().getJSONArray("results");
+        if (results.length() > 0) {
+            System.out.println("Found baseline page.");
+            return results.getJSONObject(0).getJSONObject("body")
+                .getJSONObject("storage").getString("value");
+        }
+        else {
+            System.out.println("Page does not exist. Using config baseline data.");
+            return null;
+        }
     }
     
-    public static void SetMetricValues(String[] data) {
+    private static void SetMetricValues(String[] data, String confluenceBody) {
         Metric metric = ProgramData.metrics.get(data[0]);
         metric.type = data[2];
 
-        DerivedFunctions.Wait(data[4]);
-        if (data[1].contains("Derived")) {
-            DerivedFunctions.DeriveValues(metric, data);
-            if (Float.isNaN(metric.values[0])) {
-                metric.values[0] = 0;
-            }
-            if (Float.isNaN(metric.values[1])) {
-                metric.values[1] = 0;
-            }
+        if (data[2].equals("LAPSE")) {
+            metric.values = SetLapseValues(data[0], data[3], data[4]);
         } else {
-            if (data[2].equals("LAPSE")) {
-                metric.values = SetLapseValues(data[0], data[3], data[4]);
+            if (data[1].contains("Derived")) {
+                DerivedFunctions.DeriveValues(metric, data);
+                if (Float.isNaN(metric.values[0])) {
+                    metric.values[0] = 0;
+                }
+                if (Float.isNaN(metric.values[1])) {
+                    metric.values[1] = 0;
+                }
             } else {
-                metric.values[0] = Integer.parseInt(data[1]);
+                if (confluenceBody != null && confluenceBody.indexOf(data[0]) != -1) {
+                    int indexOfMetric = confluenceBody.indexOf(data[0]);
+                    String valueString = confluenceBody.substring(
+                        indexOfMetric,
+                        confluenceBody.indexOf(';', indexOfMetric))
+                        .split(":")[1];
+                    metric.values[0] = (int)Float.parseFloat(valueString);
+                } else {
+                    metric.values[0] = Integer.parseInt(data[1]);
+                }
                 metric.values[1] = SetTestValue(data[0], data[2], data[3], data[4]);
                 if (Float.isNaN(metric.values[0])) {
                     metric.values[0] = 0;
@@ -111,8 +152,8 @@ public class MetricReader {
                 if (Float.isNaN(metric.values[1])) {
                     metric.values[1] = 0;
                 }
-                metric.values[2] = metric.values[1] - metric.values[0];
             }
+            metric.values[2] = metric.values[1] - metric.values[0];
         }
     }
 
@@ -120,7 +161,7 @@ public class MetricReader {
      * An HttpRequest is put together that will contain the credentials and metric path to retrieve
      * a test value from AppD REST API which is then executed, and the response is read and parsed
      */
-    public static float[] SetLapseValues(String metric, String app, String metricPath) {
+    private static float[] SetLapseValues(String metric, String app, String metricPath) {
         try {
             String username = ProgramData.metricProperties.getProperty("appdUsername");
             String password = ProgramData.metricProperties.getProperty("appdToken");
@@ -132,7 +173,7 @@ public class MetricReader {
             HttpRequest request = Unirest
                     .get("https://papajohns-test.saas.appdynamics.com/controller/rest/applications/{APP}/metric-data")
                     .routeParam("APP", app)
-                    .queryString("metric-path", ReplaceURlCodes(metricPath))
+                    .queryString("metric-path", ReplaceURLCodes(metricPath))
                     .queryString("time-range-type", "BETWEEN_TIMES")
                     .queryString("start-time", startEpoch)
                     .queryString("end-time", endEpoch)
@@ -148,9 +189,16 @@ public class MetricReader {
                 return null;
             }
             JSONArray metricValues = outerObject.getJSONArray("metricValues");
-            float[] returnValues = new float[metricValues.length()];
+            float[] returnValues = new float[(int) ProgramData.duration];
+            for (int i = 0; i < returnValues.length; i++) {
+                returnValues[i] = 0.0f;
+            }
+            long currentTime = startEpoch;
+            int returnIndex = 0;
             for (int i = 0; i < metricValues.length(); i++) {
-                returnValues[i] = metricValues.getJSONObject(i).getFloat("value");
+                while (currentTime + (returnIndex * 60000) != metricValues.getJSONObject(i).getLong("startTimeInMillis"))
+                    returnIndex++;
+                returnValues[returnIndex] = metricValues.getJSONObject(i).getFloat("value");
             }
             return returnValues;
         } catch (Exception e) {
@@ -162,7 +210,7 @@ public class MetricReader {
      * An HttpRequest is put together that will contain the credentials and metric path to retrieve
      * a test value from AppD REST API which is then executed, and the response is read and parsed
      */
-    public static float SetTestValue(String metric, String metricType, String app, String metricPath) {
+    private static float SetTestValue(String metric, String metricType, String app, String metricPath) {
         try {
             String username = ProgramData.metricProperties.getProperty("appdUsername");
             String password = ProgramData.metricProperties.getProperty("appdToken");
@@ -174,7 +222,7 @@ public class MetricReader {
             HttpRequest request = Unirest
                     .get("https://papajohns-test.saas.appdynamics.com/controller/rest/applications/{APP}/metric-data")
                     .routeParam("APP", app)
-                    .queryString("metric-path", ReplaceURlCodes(metricPath))
+                    .queryString("metric-path", ReplaceURLCodes(metricPath))
                     .queryString("time-range-type", "BETWEEN_TIMES")
                     .queryString("start-time", startEpoch)
                     .queryString("end-time", endEpoch)
@@ -205,7 +253,7 @@ public class MetricReader {
     /*
      * Replaces the URL codes in the metric path so the HttpRequest reads them properly
      */
-    public static String ReplaceURlCodes(String path) {
+    private static String ReplaceURLCodes(String path) {
         for (String code : ProgramData.urlCodes.keySet()) {
             path = path.replace(code, ProgramData.urlCodes.get(code));
         }
@@ -217,10 +265,12 @@ public class MetricReader {
      *      ERROR_THRESHOLD (metricData[3]) is the threshold at which an Error notification will be saved in the report
      *      WARNING_THRESHOLD (metricData[4])) is the threshold at which a Warning notification will be saved in the report
      */
-    public static void SetMetricThresholds(String[] metricData) {
+    private static void SetMetricThresholds(String[] metricData) {
         ProgramData.metrics.get(metricData[0]).thresholds = new float[] {
             Float.parseFloat(metricData[5]),
-            Float.parseFloat(metricData[6])
+            Float.parseFloat(metricData[6]),
+            Float.parseFloat(metricData[7]),
+            Float.parseFloat(metricData[8])
         };
     }
 }

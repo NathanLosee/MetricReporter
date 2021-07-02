@@ -1,0 +1,1 @@
+java -cp MetricReporter.jar;./lib/* com.MetricReporter.MetricReporter "Focus" "07/02/2021-10:50" "60" "Baseline" "Test 317 | Release 21.14 | Build 2 | Focus 3.88.0-03 | Baseline Test 3" "true" "Test 312 | Release 21.13 | Build 2 | Focus 3.87.0-05 | Baseline Test 2"

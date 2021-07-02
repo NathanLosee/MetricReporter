@@ -6,6 +6,27 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch GetTest",
+            "request": "launch",
+            "mainClass": "GetTest",
+            "projectName": "MetricReporter_27649f13"
+        },
+        {
+            "type": "java",
+            "name": "Launch MetricReporter",
+            "request": "launch",
+            "mainClass": "com.MetricReporter.MetricReporter",
+            "projectName": "MetricReporter_27649f13"
+        },
+        {
+            "type": "java",
+            "name": "Launch GetTest",
+            "request": "launch",
+            "mainClass": "com.MetricReporter.GetTest",
+            "projectName": "MetricReporter_27649f13"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - ImageTest",
             "request": "launch",
             "mainClass": "com.MetricReporter.ImageTest",

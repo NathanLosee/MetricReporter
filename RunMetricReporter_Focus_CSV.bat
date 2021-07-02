@@ -1,1 +1,0 @@
-java -cp MetricReporter.jar;./lib/* com.MetricReporter.MetricReporter "Focus" "09/24/2020-15:20" "60" "CSV" "Test 175-Release 20.14-Build 2-Focus 3.69.0-09-Baseline 3" "true"

@@ -1,0 +1,696 @@
+<ac:structured-macro ac:name="details" ac:schema-version="1" ac:macro-id="865dfce7-e3b0-4fe1-ac51-0c3524d46e1c">
+	<ac:parameter ac:name="hidden">true</ac:parameter>
+	<ac:rich-text-body>
+		<p>{hiddenValues}</p>
+	</ac:rich-text-body>
+</ac:structured-macro>
+<p>Test Duration: {date}</p>
+<p><strong>SCENARIO:</strong></p>
+<p>Network is Unavailable</p>
+<p><strong>DESCRIPTION:</strong></p>
+<p>This scenario tests the effects of network loss on the Focus application and environment. This will be simulated by disconnecting the network cable from the Focus 186 Box. The network cable will be disconnected for 40 minutes, then reconnected for 40 minutes.</p>
+<p><strong>TIMELINE:</strong></p>
+<p>{timeSegment1}: Steady State</p>
+<p>{timeSegment2}: Network is Unavailable</p>
+<p>{timeSegment3}: Network is Available, healing</p>
+<p>Total Duration: 1 hour, 40 minutes</p>
+<p><strong>OBSERVATIONS:</strong></p>
+<ul>
+	<li>Due to the nature of this test, AppD metrics are not available for the Server during the portion of the test where network loss was simulated.</li>
+	<li>Orders were not able to be placed during the time Network connectivity was lost.</li>
+	<li>The environment returned to normal very quickly after reconnected to the Network.</li>
+	<li>Overall Results of Chaos test was successful, and achieved results were as expected.</li>
+</ul>
+<p><strong>SUMMARY:</strong></p>
+<ul>
+	<li><p>Test Status: GREEN</p></li>
+	<li><p>Observed system and response time metrics are within acceptable limits.</p></li>
+	<li><p>Details of the metrics are provided below.</p></li>
+</ul>
+<table data-layout="default">
+	<colgroup>
+		<col style="width: 280.0px;" />
+		<col style="width: 80.0px;" />
+		<col style="width: 80.0px;" />
+		<col style="width: 80.0px;" />
+		<col style="width: 80.0px;" />
+		<col style="width: 80.0px;" />
+		<col style="width: 80.0px;" />
+		<col style="width: 80.0px;" />
+		<col style="width: 80.0px;" />
+		<col style="width: 80.0px;" />
+		<col style="width: 80.0px;" />
+		<col style="width: 80.0px;" />
+		<col style="width: 80.0px;" />
+	</colgroup>
+	<tbody>
+		<tr>
+			<td data-highlight-colour="#000000"><span style="color: rgb(255, 255, 255);" data-mce-style="color: #ffffff;"><strong>ANALYSIS LEGEND</strong></span></td>
+			<td data-highlight-colour="#bf2600"><p /></td>
+			<td><p>VeryHigh</p></td>
+			<td data-highlight-colour="#ffc400"><p /></td>
+			<td><p>High</p></td>
+			<td data-highlight-colour="#ffffff"><p /></td>
+			<td><p>Normal</p></td>
+			<td data-highlight-colour="#006644"><p /></td>
+			<td><p>Low</p></td>
+			<td data-highlight-colour="#0747a6"><p /></td>
+			<td><p>VeryLow</p></td>
+			<td data-highlight-colour="#000000" colspan="2"><p /></td>
+		</tr>
+		<tr>
+			<td data-highlight-colour="#4c9aff" rowspan="2"><p><strong>METRIC</strong></p></td>
+			<td data-highlight-colour="#deebff" colspan="3"><p><strong>SERVER</strong></p></td>
+			<td data-highlight-colour="#b3d4ff" colspan="3"><p><strong>GDD</strong></p></td>
+			<td data-highlight-colour="#998dd9" colspan="6" rowspan="31"><p /></td>
+		</tr>
+		<tr>
+			<td data-highlight-colour="#deebff"><p><strong>New</strong></p></td>
+			<td data-highlight-colour="#deebff"><p><strong>Diff</strong></p></td>
+			<td data-highlight-colour="#deebff"><p><strong>Analysis</strong></p></td>
+			<td data-highlight-colour="#b3d4ff"><p><strong>New</strong></p></td>
+			<td data-highlight-colour="#b3d4ff"><p><strong>Diff</strong></p></td>
+			<td data-highlight-colour="#b3d4ff"><p><strong>Analysis</strong></p></td>
+		</tr>
+		<tr>
+			<td data-highlight-colour="#4c9aff" colspan="7"><p><strong>HARDWARE</strong></p></td>
+		</tr>
+		<tr>
+			<td data-highlight-colour="#79e2f2"><p><strong>CPU Used AVG (%)</strong></p></td>
+			<td id="serverOverallCPU_test" data-highlight-colour="#e6fcff"><p>{serverOverallCPU_test}</p></td>
+			<td id="serverOverallCPU_diff" data-highlight-colour="#e6fcff"><p>{serverOverallCPU_diff}</p></td>
+			<td id="serverOverallCPU_anls" data-highlight-colour="{serverOverallCPU_anls}"><p /></td>
+			<td id="gddOverallCPU_test" data-highlight-colour="#b3f5ff"><p>{gddOverallCPU_test}</p></td>
+			<td id="gddOverallCPU_diff" data-highlight-colour="#b3f5ff"><p>{gddOverallCPU_diff}</p></td>
+			<td id="gddOverallCPU_anls" data-highlight-colour="{gddOverallCPU_anls}"><p /></td>
+		</tr>
+		<tr>
+			<td data-highlight-colour="#79e2f2"><p><strong>Java CPU AVG (%)</strong></p></td>
+			<td id="serverJavaCPU_test" data-highlight-colour="#e6fcff"><p>{serverJavaCPU_test}</p></td>
+			<td id="serverJavaCPU_diff" data-highlight-colour="#e6fcff"><p>{serverJavaCPU_diff}</p></td>
+			<td id="serverJavaCPU_anls" data-highlight-colour="{serverJavaCPU_anls}"><p /></td>
+			<td id="gddJavaCPU_test" data-highlight-colour="#b3f5ff"><p>{gddJavaCPU_test}</p></td>
+			<td id="gddJavaCPU_diff" data-highlight-colour="#b3f5ff"><p>{gddJavaCPU_diff}</p></td>
+			<td id="gddJavaCPU_anls" data-highlight-colour="{gddJavaCPU_anls}"><p /></td>
+		</tr>
+		<tr>
+			<td data-highlight-colour="#79e2f2"><p><strong>Memory Used AVG (%)</strong></p></td>
+			<td id="serverMemory_test" data-highlight-colour="#e6fcff"><p>{serverMemory_test}</p></td>
+			<td id="serverMemory_diff" data-highlight-colour="#e6fcff"><p>{serverMemory_diff}</p></td>
+			<td id="serverMemory_anls" data-highlight-colour="{serverMemory_anls}"><p /></td>
+			<td id="gddMemory_test" data-highlight-colour="#b3f5ff"><p>{gddMemory_test}</p></td>
+			<td id="gddMemory_diff" data-highlight-colour="#b3f5ff"><p>{gddMemory_diff}</p></td>
+			<td id="gddMemory_anls" data-highlight-colour="{gddMemory_anls}"><p /></td>
+		</tr>
+		<tr>
+			<td data-highlight-colour="#79e2f2"><p><strong>Disk Read AVG op/s</strong></p></td>
+			<td id="serverDiskReadOps_test" data-highlight-colour="#e6fcff"><p>{serverDiskReadOps_test}</p></td>
+			<td id="serverDiskReadOps_diff" data-highlight-colour="#e6fcff"><p>{serverDiskReadOps_diff}</p></td>
+			<td id="serverDiskReadOps_anls" data-highlight-colour="{serverDiskReadOps_anls}"><p /></td>
+			<td id="gddDiskReadOps_test" data-highlight-colour="#b3f5ff"><p>{gddDiskReadOps_test}</p></td>
+			<td id="gddDiskReadOps_diff" data-highlight-colour="#b3f5ff"><p>{gddDiskReadOps_diff}</p></td>
+			<td id="gddDiskReadOps_anls" data-highlight-colour="{gddDiskReadOps_anls}"><p /></td>
+		</tr>
+		<tr>
+			<td data-highlight-colour="#79e2f2"><p><strong>Disk Read AVG kb/s</strong></p></td>
+			<td id="serverDiskReadKbs_test" data-highlight-colour="#e6fcff"><p>{serverDiskReadKbs_test}</p></td>
+			<td id="serverDiskReadKbs_diff" data-highlight-colour="#e6fcff"><p>{serverDiskReadKbs_diff}</p></td>
+			<td id="serverDiskReadKbs_anls" data-highlight-colour="{serverDiskReadKbs_anls}"><p /></td>
+			<td id="gddDiskReadKbs_test" data-highlight-colour="#b3f5ff"><p>{gddDiskReadKbs_test}</p></td>
+			<td id="gddDiskReadKbs_diff" data-highlight-colour="#b3f5ff"><p>{gddDiskReadKbs_diff}</p></td>
+			<td id="gddDiskReadKbs_anls" data-highlight-colour="{gddDiskReadKbs_anls}"><p /></td>
+		</tr>
+		<tr>
+			<td data-highlight-colour="#79e2f2"><p><strong>Disk Write AVG op/s</strong></p></td>
+			<td id="serverDiskWriteOps_test" data-highlight-colour="#e6fcff"><p>{serverDiskWriteOps_test}</p></td>
+			<td id="serverDiskWriteOps_diff" data-highlight-colour="#e6fcff"><p>{serverDiskWriteOps_diff}</p></td>
+			<td id="serverDiskWriteOps_anls" data-highlight-colour="{serverDiskWriteOps_anls}"><p /></td>
+			<td id="gddDiskWriteOps_test" data-highlight-colour="#b3f5ff"><p>{gddDiskWriteOps_test}</p></td>
+			<td id="gddDiskWriteOps_diff" data-highlight-colour="#b3f5ff"><p>{gddDiskWriteOps_diff}</p></td>
+			<td id="gddDiskWriteOps_anls" data-highlight-colour="{gddDiskWriteOps_anls}"><p /></td>
+		</tr>
+		<tr>
+			<td data-highlight-colour="#79e2f2"><p><strong>Disk Write AVG kb/s</strong></p></td>
+			<td id="serverDiskWriteKbs_test" data-highlight-colour="#e6fcff"><p>{serverDiskWriteKbs_test}</p></td>
+			<td id="serverDiskWriteKbs_diff" data-highlight-colour="#e6fcff"><p>{serverDiskWriteKbs_diff}</p></td>
+			<td id="serverDiskWriteKbs_anls" data-highlight-colour="{serverDiskWriteKbs_anls}"><p /></td>
+			<td id="gddDiskWriteKbs_test" data-highlight-colour="#b3f5ff"><p>{gddDiskWriteKbs_test}</p></td>
+			<td id="gddDiskWriteKbs_diff" data-highlight-colour="#b3f5ff"><p>{gddDiskWriteKbs_diff}</p></td>
+			<td id="gddDiskWriteKbs_anls" data-highlight-colour="{gddDiskWriteKbs_anls}"><p /></td>
+		</tr>
+		<tr>
+			<td data-highlight-colour="#4c9aff" colspan="7"><p><strong>JVM</strong></p></td>
+		</tr>
+		<tr>
+			<td data-highlight-colour="#79e2f2"><p><strong>Heap MAX (GB)</strong></p></td>
+			<td data-highlight-colour="#e6fcff" colspan="3"><p>8</p></td>
+			<td data-highlight-colour="#b3f5ff" colspan="3"><p>1</p></td>
+		</tr>
+		<tr>
+			<td data-highlight-colour="#79e2f2"><p><strong>Heap Used AVG (%)</strong></p></td>
+			<td id="serverHeap_test" data-highlight-colour="#e6fcff"><p>{serverHeap_test}</p></td>
+			<td id="serverHeap_diff" data-highlight-colour="#e6fcff"><p>{serverHeap_diff}</p></td>
+			<td id="serverHeap_anls" data-highlight-colour="{serverHeap_anls}"><p /></td>
+			<td id="gddHeap_test" data-highlight-colour="#b3f5ff"><p>{gddHeap_test}</p></td>
+			<td id="gddHeap_diff" data-highlight-colour="#b3f5ff"><p>{gddHeap_diff}</p></td>
+			<td id="gddHeap_anls" data-highlight-colour="{gddHeap_anls}"><p /></td>
+		</tr>
+		<tr>
+			<td data-highlight-colour="#79e2f2"><p><strong>Possible Threads MAX</strong></p></td>
+			<td data-highlight-colour="#e6fcff" colspan="3"><p>2000</p></td>
+			<td data-highlight-colour="#b3f5ff" colspan="3"><p>8000</p></td>
+		</tr>
+		<tr>
+			<td data-highlight-colour="#79e2f2"><p><strong>Active Threads AVG</strong></p></td>
+			<td id="serverThreads_test" data-highlight-colour="#e6fcff"><p>{serverThreads_test}</p></td>
+			<td id="serverThreads_diff" data-highlight-colour="#e6fcff"><p>{serverThreads_diff}</p></td>
+			<td id="serverThreads_anls" data-highlight-colour="{serverThreads_anls}"><p /></td>
+			<td id="gddThreads_test" data-highlight-colour="#b3f5ff"><p>{gddThreads_test}</p></td>
+			<td id="gddThreads_diff" data-highlight-colour="#b3f5ff"><p>{gddThreads_diff}</p></td>
+			<td id="gddThreads_anls" data-highlight-colour="{gddThreads_anls}"><p /></td>
+		</tr>
+		<tr>
+			<td data-highlight-colour="#79e2f2"><p><strong>Major GC (total)</strong></p></td>
+			<td id="serverMajorGC_test" data-highlight-colour="#e6fcff"><p>{serverMajorGC_test}</p></td>
+			<td id="serverMajorGC_diff" data-highlight-colour="#e6fcff"><p>{serverMajorGC_diff}</p></td>
+			<td id="serverMajorGC_anls" data-highlight-colour="{serverMajorGC_anls}"><p /></td>
+			<td id="gddMajorGC_test" data-highlight-colour="#b3f5ff"><p>{gddMajorGC_test}</p></td>
+			<td id="gddMajorGC_diff" data-highlight-colour="#b3f5ff"><p>{gddMajorGC_diff}</p></td>
+			<td id="gddMajorGC_anls" data-highlight-colour="{gddMajorGC_anls}"><p /></td>
+		</tr>
+		<tr>
+			<td data-highlight-colour="#79e2f2"><p><strong>Minor GC AVG (no./min)</strong></p></td>
+			<td id="serverMinorGC_test" data-highlight-colour="#e6fcff"><p>{serverMinorGC_test}</p></td>
+			<td id="serverMinorGC_diff" data-highlight-colour="#e6fcff"><p>{serverMinorGC_diff}</p></td>
+			<td id="serverMinorGC_anls" data-highlight-colour="{serverMinorGC_anls}"><p /></td>
+			<td id="gddMinorGC_test" data-highlight-colour="#b3f5ff"><p>{gddMinorGC_test}</p></td>
+			<td id="gddMinorGC_diff" data-highlight-colour="#b3f5ff"><p>{gddMinorGC_diff}</p></td>
+			<td id="gddMinorGC_anls" data-highlight-colour="{gddMinorGC_anls}"><p /></td>
+		</tr>
+		<tr>
+			<td data-highlight-colour="#79e2f2"><p><strong>GC CPU Time AVG (ms/min)</strong></p></td>
+			<td id="serverGCTime_test" data-highlight-colour="#e6fcff"><p>{serverGCTime_test}</p></td>
+			<td id="serverGCTime_diff" data-highlight-colour="#e6fcff"><p>{serverGCTime_diff}</p></td>
+			<td id="serverGCTime_anls" data-highlight-colour="{serverGCTime_anls}"><p /></td>
+			<td id="gddGCTime_test" data-highlight-colour="#b3f5ff"><p>{gddGCTime_test}</p></td>
+			<td id="gddGCTime_diff" data-highlight-colour="#b3f5ff"><p>{gddGCTime_diff}</p></td>
+			<td id="gddGCTime_anls" data-highlight-colour="{gddGCTime_anls}"><p /></td>
+		</tr>
+		<tr>
+			<td data-highlight-colour="#79e2f2"><p><strong>GC CPU Time AVG (%)</strong></p></td>
+			<td id="serverGCTimePerc_test" data-highlight-colour="#e6fcff"><p>{serverGCTimePerc_test}</p></td>
+			<td id="serverGCTimePerc_diff" data-highlight-colour="#e6fcff"><p>{serverGCTimePerc_diff}</p></td>
+			<td id="serverGCTimePerc_anls" data-highlight-colour="{serverGCTimePerc_anls}"><p /></td>
+			<td id="gddGCTimePerc_test" data-highlight-colour="#b3f5ff"><p>{gddGCTimePerc_test}</p></td>
+			<td id="gddGCTimePerc_diff" data-highlight-colour="#b3f5ff"><p>{gddGCTimePerc_diff}</p></td>
+			<td id="gddGCTimePerc_anls" data-highlight-colour="{gddGCTimePerc_anls}"><p /></td>
+		</tr>
+		<tr>
+			<td data-highlight-colour="#998dd9" colspan="4"><p /></td>
+			<td data-highlight-colour="#998dd9" colspan="3" rowspan="12"><p /></td>
+		</tr>
+		<tr>
+			<td data-highlight-colour="#4c9aff" colspan="4"><p><strong>TRANSACTIONS - OVERALL</strong></p></td>
+		</tr>
+		<tr>
+			<td data-highlight-colour="#4c9aff"><p><strong>METRIC</strong></p></td>
+			<td data-highlight-colour="#deebff"><p><strong>New</strong></p></td>
+			<td data-highlight-colour="#deebff"><p><strong>Diff</strong></p></td>
+			<td data-highlight-colour="#deebff"><p><strong>Analysis</strong></p></td>
+		</tr>
+		<tr>
+			<td data-highlight-colour="#79e2f2"><p><strong>Calls AVG (no./min)</strong></p></td>
+			<td id="serverTransCalls_test" data-highlight-colour="#e6fcff"><p>{serverTransCalls_test}</p></td>
+			<td id="serverTransCalls_diff" data-highlight-colour="#e6fcff"><p>{serverTransCalls_diff}</p></td>
+			<td id="serverTransCalls_anls" data-highlight-colour="{serverTransCalls_anls}"><p /></td>
+		</tr>
+		<tr>
+			<td data-highlight-colour="#79e2f2"><p><strong>Errors AVG (no./min)</strong></p></td>
+			<td id="serverTransErrors_test" data-highlight-colour="#e6fcff"><p>{serverTransErrors_test}</p></td>
+			<td id="serverTransErrors_diff" data-highlight-colour="#e6fcff"><p>{serverTransErrors_diff}</p></td>
+			<td id="serverTransErrors_anls" data-highlight-colour="{serverTransErrors_anls}"><p /></td>
+		</tr>
+		<tr>
+			<td data-highlight-colour="#79e2f2"><p><strong>Errors AVG (%)</strong></p></td>
+			<td id="serverTransErrorPerc_test" data-highlight-colour="#e6fcff"><p>{serverTransErrorPerc_test}</p></td>
+			<td id="serverTransErrorPerc_diff" data-highlight-colour="#e6fcff"><p>{serverTransErrorPerc_diff}</p></td>
+			<td id="serverTransErrorPerc_anls" data-highlight-colour="{serverTransErrorPerc_anls}"><p /></td>
+		</tr>
+		<tr>
+			<td data-highlight-colour="#998dd9" colspan="4"><p /></td>
+		</tr>
+		<tr>
+			<td data-highlight-colour="#4c9aff" colspan="4"><p><strong>DATABASE</strong></p></td>
+		</tr>
+		<tr>
+			<td data-highlight-colour="#4c9aff"><p><strong>METRIC</strong></p></td>
+			<td data-highlight-colour="#deebff"><p><strong>New</strong></p></td>
+			<td data-highlight-colour="#deebff"><p><strong>Diff</strong></p></td>
+			<td data-highlight-colour="#deebff"><p><strong>Analysis</strong></p></td>
+		</tr>
+		<tr>
+			<td data-highlight-colour="#79e2f2"><p><strong>Calls AVG (no./min)</strong></p></td>
+			<td id="databaseCalls_test" data-highlight-colour="#e6fcff"><p>{databaseCalls_test}</p></td>
+			<td id="databaseCalls_diff" data-highlight-colour="#e6fcff"><p>{databaseCalls_diff}</p></td>
+			<td id="databaseCalls_anls" data-highlight-colour="{databaseCalls_anls}"><p /></td>
+		</tr>
+		<tr>
+			<td data-highlight-colour="#79e2f2"><p><strong>Response Time AVG (ms)</strong></p></td>
+			<td id="databaseResponseTime_test" data-highlight-colour="#e6fcff"><p>{databaseResponseTime_test}</p></td>
+			<td id="databaseResponseTime_diff" data-highlight-colour="#e6fcff"><p>{databaseResponseTime_diff}</p></td>
+			<td id="databaseResponseTime_anls" data-highlight-colour="{databaseResponseTime_anls}"><p /></td>
+		</tr>
+		<tr>
+			<td data-highlight-colour="#998dd9" colspan="4"><p /></td>
+		</tr>
+		<tr>
+			<td data-highlight-colour="#4c9aff"><p><strong>TRANSACTIONS</strong></p></td>
+			<td data-highlight-colour="#deebff" colspan="3"><p><strong>Response Time AVG (ms)</strong></p></td>
+			<td data-highlight-colour="#b3d4ff" colspan="3"><p><strong>Calls AVG (no./min)</strong></p></td>
+			<td data-highlight-colour="#deebff" colspan="3"><p><strong>Errors AVG (no./min)</strong></p></td>
+			<td data-highlight-colour="#b3d4ff" colspan="3"><p><strong>Errors AVG (%)</strong></p></td>
+		</tr>
+		<tr>
+			<td data-highlight-colour="#4c9aff"><p><strong>Name</strong></p></td>
+			<td data-highlight-colour="#deebff"><p><strong>New</strong></p></td>
+			<td data-highlight-colour="#deebff"><p><strong>Diff</strong></p></td>
+			<td data-highlight-colour="#deebff"><p><strong>Analysis</strong></p></td>
+			<td data-highlight-colour="#b3d4ff"><p><strong>New</strong></p></td>
+			<td data-highlight-colour="#b3d4ff"><p><strong>Diff</strong></p></td>
+			<td data-highlight-colour="#b3d4ff"><p><strong>Analysis</strong></p></td>
+			<td data-highlight-colour="#deebff"><p><strong>New</strong></p></td>
+			<td data-highlight-colour="#deebff"><p><strong>Diff</strong></p></td>
+			<td data-highlight-colour="#deebff"><p><strong>Analysis</strong></p></td>
+			<td data-highlight-colour="#b3d4ff"><p><strong>New</strong></p></td>
+			<td data-highlight-colour="#b3d4ff"><p><strong>Diff</strong></p></td>
+			<td data-highlight-colour="#b3d4ff"><p><strong>Analysis</strong></p></td>
+		</tr>
+		<tr>
+			<td data-highlight-colour="#79e2f2"><p><strong>Common</strong></p></td>
+			<td id="commonResponseTime_test" data-highlight-colour="#e6fcff"><p>{commonResponseTime_test}</p></td>
+			<td id="commonResponseTime_diff" data-highlight-colour="#e6fcff"><p>{commonResponseTime_diff}</p></td>
+			<td id="commonResponseTime_anls" data-highlight-colour="{commonResponseTime_anls}"><p /></td>
+			<td id="commonCalls_test" data-highlight-colour="#b3f5ff"><p>{commonCalls_test}</p></td>
+			<td id="commonCalls_diff" data-highlight-colour="#b3f5ff"><p>{commonCalls_diff}</p></td>
+			<td id="commonCalls_anls" data-highlight-colour="{commonCalls_anls}"><p /></td>
+			<td id="commonErrors_test" data-highlight-colour="#e6fcff"><p>{commonErrors_test}</p></td>
+			<td id="commonErrors_diff" data-highlight-colour="#e6fcff"><p>{commonErrors_diff}</p></td>
+			<td id="commonErrors_anls" data-highlight-colour="{commonErrors_anls}"><p /></td>
+			<td id="commonErrorPerc_test" data-highlight-colour="#b3f5ff"><p>{commonErrorPerc_test}</p></td>
+			<td id="commonErrorPerc_diff" data-highlight-colour="#b3f5ff"><p>{commonErrorPerc_diff}</p></td>
+			<td id="commonErrorPerc_anls" data-highlight-colour="{commonErrorPerc_anls}"><p /></td>
+		</tr>
+		<tr>
+			<td data-highlight-colour="#79e2f2"><p><strong>CorporateServices</strong></p></td>
+			<td id="corpServicesResponseTime_test" data-highlight-colour="#e6fcff"><p>{corpServicesResponseTime_test}</p></td>
+			<td id="corpServicesResponseTime_diff" data-highlight-colour="#e6fcff"><p>{corpServicesResponseTime_diff}</p></td>
+			<td id="corpServicesResponseTime_anls" data-highlight-colour="{corpServicesResponseTime_anls}"><p /></td>
+			<td id="corpServicesCalls_test" data-highlight-colour="#b3f5ff"><p>{corpServicesCalls_test}</p></td>
+			<td id="corpServicesCalls_diff" data-highlight-colour="#b3f5ff"><p>{corpServicesCalls_diff}</p></td>
+			<td id="corpServicesCalls_anls" data-highlight-colour="{corpServicesCalls_anls}"><p /></td>
+			<td id="corpServicesErrors_test" data-highlight-colour="#e6fcff"><p>{corpServicesErrors_test}</p></td>
+			<td id="corpServicesErrors_diff" data-highlight-colour="#e6fcff"><p>{corpServicesErrors_diff}</p></td>
+			<td id="corpServicesErrors_anls" data-highlight-colour="{corpServicesErrors_anls}"><p /></td>
+			<td id="corpServicesErrorPerc_test" data-highlight-colour="#b3f5ff"><p>{corpServicesErrorPerc_test}</p></td>
+			<td id="corpServicesErrorPerc_diff" data-highlight-colour="#b3f5ff"><p>{corpServicesErrorPerc_diff}</p></td>
+			<td id="corpServicesErrorPerc_anls" data-highlight-colour="{corpServicesErrorPerc_anls}"><p /></td>
+		</tr>
+		<tr>
+			<td data-highlight-colour="#79e2f2"><p><strong>CurbsideService</strong></p></td>
+			<td id="curbsideResponseTime_test" data-highlight-colour="#e6fcff"><p>{curbsideResponseTime_test}</p></td>
+			<td id="curbsideResponseTime_diff" data-highlight-colour="#e6fcff"><p>{curbsideResponseTime_diff}</p></td>
+			<td id="curbsideResponseTime_anls" data-highlight-colour="{curbsideResponseTime_anls}"><p /></td>
+			<td id="curbsideCalls_test" data-highlight-colour="#b3f5ff"><p>{curbsideCalls_test}</p></td>
+			<td id="curbsideCalls_diff" data-highlight-colour="#b3f5ff"><p>{curbsideCalls_diff}</p></td>
+			<td id="curbsideCalls_anls" data-highlight-colour="{curbsideCalls_anls}"><p /></td>
+			<td id="curbsideErrors_test" data-highlight-colour="#e6fcff"><p>{curbsideErrors_test}</p></td>
+			<td id="curbsideErrors_diff" data-highlight-colour="#e6fcff"><p>{curbsideErrors_diff}</p></td>
+			<td id="curbsideErrors_anls" data-highlight-colour="{curbsideErrors_anls}"><p /></td>
+			<td id="curbsideErrorPerc_test" data-highlight-colour="#b3f5ff"><p>{curbsideErrorPerc_test}</p></td>
+			<td id="curbsideErrorPerc_diff" data-highlight-colour="#b3f5ff"><p>{curbsideErrorPerc_diff}</p></td>
+			<td id="curbsideErrorPerc_anls" data-highlight-colour="{curbsideErrorPerc_anls}"><p /></td>
+		</tr>
+		<tr>
+			<td data-highlight-colour="#79e2f2"><p><strong>Dragontail</strong></p></td>
+			<td id="dragontailResponseTime_test" data-highlight-colour="#e6fcff"><p>{dragontailResponseTime_test}</p></td>
+			<td id="dragontailResponseTime_diff" data-highlight-colour="#e6fcff"><p>{dragontailResponseTime_diff}</p></td>
+			<td id="dragontailResponseTime_anls" data-highlight-colour="{dragontailResponseTime_anls}"><p /></td>
+			<td id="dragontailCalls_test" data-highlight-colour="#b3f5ff"><p>{dragontailCalls_test}</p></td>
+			<td id="dragontailCalls_diff" data-highlight-colour="#b3f5ff"><p>{dragontailCalls_diff}</p></td>
+			<td id="dragontailCalls_anls" data-highlight-colour="{dragontailCalls_anls}"><p /></td>
+			<td id="dragontailErrors_test" data-highlight-colour="#e6fcff"><p>{dragontailErrors_test}</p></td>
+			<td id="dragontailErrors_diff" data-highlight-colour="#e6fcff"><p>{dragontailErrors_diff}</p></td>
+			<td id="dragontailErrors_anls" data-highlight-colour="{dragontailErrors_anls}"><p /></td>
+			<td id="dragontailErrorPerc_test" data-highlight-colour="#b3f5ff"><p>{dragontailErrorPerc_test}</p></td>
+			<td id="dragontailErrorPerc_diff" data-highlight-colour="#b3f5ff"><p>{dragontailErrorPerc_diff}</p></td>
+			<td id="dragontailErrorPerc_anls" data-highlight-colour="{dragontailErrorPerc_anls}"><p /></td>
+		</tr>
+		<tr>
+			<td data-highlight-colour="#79e2f2"><p><strong>Makeline</strong></p></td>
+			<td id="makelineResponseTime_test" data-highlight-colour="#e6fcff"><p>{makelineResponseTime_test}</p></td>
+			<td id="makelineResponseTime_diff" data-highlight-colour="#e6fcff"><p>{makelineResponseTime_diff}</p></td>
+			<td id="makelineResponseTime_anls" data-highlight-colour="{makelineResponseTime_anls}"><p /></td>
+			<td id="makelineCalls_test" data-highlight-colour="#b3f5ff"><p>{makelineCalls_test}</p></td>
+			<td id="makelineCalls_diff" data-highlight-colour="#b3f5ff"><p>{makelineCalls_diff}</p></td>
+			<td id="makelineCalls_anls" data-highlight-colour="{makelineCalls_anls}"><p /></td>
+			<td id="makelineErrors_test" data-highlight-colour="#e6fcff"><p>{makelineErrors_test}</p></td>
+			<td id="makelineErrors_diff" data-highlight-colour="#e6fcff"><p>{makelineErrors_diff}</p></td>
+			<td id="makelineErrors_anls" data-highlight-colour="{makelineErrors_anls}"><p /></td>
+			<td id="makelineErrorPerc_test" data-highlight-colour="#b3f5ff"><p>{makelineErrorPerc_test}</p></td>
+			<td id="makelineErrorPerc_diff" data-highlight-colour="#b3f5ff"><p>{makelineErrorPerc_diff}</p></td>
+			<td id="makelineErrorPerc_anls" data-highlight-colour="{makelineErrorPerc_anls}"><p /></td>
+		</tr>
+		<tr>
+			<td data-highlight-colour="#79e2f2"><p><strong>Mapping</strong></p></td>
+			<td id="mappingResponseTime_test" data-highlight-colour="#e6fcff"><p>{mappingResponseTime_test}</p></td>
+			<td id="mappingResponseTime_diff" data-highlight-colour="#e6fcff"><p>{mappingResponseTime_diff}</p></td>
+			<td id="mappingResponseTime_anls" data-highlight-colour="{mappingResponseTime_anls}"><p /></td>
+			<td id="mappingCalls_test" data-highlight-colour="#b3f5ff"><p>{mappingCalls_test}</p></td>
+			<td id="mappingCalls_diff" data-highlight-colour="#b3f5ff"><p>{mappingCalls_diff}</p></td>
+			<td id="mappingCalls_anls" data-highlight-colour="{mappingCalls_anls}"><p /></td>
+			<td id="mappingErrors_test" data-highlight-colour="#e6fcff"><p>{mappingErrors_test}</p></td>
+			<td id="mappingErrors_diff" data-highlight-colour="#e6fcff"><p>{mappingErrors_diff}</p></td>
+			<td id="mappingErrors_anls" data-highlight-colour="{mappingErrors_anls}"><p /></td>
+			<td id="mappingErrorPerc_test" data-highlight-colour="#b3f5ff"><p>{mappingErrorPerc_test}</p></td>
+			<td id="mappingErrorPerc_diff" data-highlight-colour="#b3f5ff"><p>{mappingErrorPerc_diff}</p></td>
+			<td id="mappingErrorPerc_anls" data-highlight-colour="{mappingErrorPerc_anls}"><p /></td>
+		</tr>
+		<tr>
+			<td data-highlight-colour="#79e2f2"><p><strong>Misc</strong></p></td>
+			<td id="miscResponseTime_test" data-highlight-colour="#e6fcff"><p>{miscResponseTime_test}</p></td>
+			<td id="miscResponseTime_diff" data-highlight-colour="#e6fcff"><p>{miscResponseTime_diff}</p></td>
+			<td id="miscResponseTime_anls" data-highlight-colour="{miscResponseTime_anls}"><p /></td>
+			<td id="miscCalls_test" data-highlight-colour="#b3f5ff"><p>{miscCalls_test}</p></td>
+			<td id="miscCalls_diff" data-highlight-colour="#b3f5ff"><p>{miscCalls_diff}</p></td>
+			<td id="miscCalls_anls" data-highlight-colour="{miscCalls_anls}"><p /></td>
+			<td id="miscErrors_test" data-highlight-colour="#e6fcff"><p>{miscErrors_test}</p></td>
+			<td id="miscErrors_diff" data-highlight-colour="#e6fcff"><p>{miscErrors_diff}</p></td>
+			<td id="miscErrors_anls" data-highlight-colour="{miscErrors_anls}"><p /></td>
+			<td id="miscErrorPerc_test" data-highlight-colour="#b3f5ff"><p>{miscErrorPerc_test}</p></td>
+			<td id="miscErrorPerc_diff" data-highlight-colour="#b3f5ff"><p>{miscErrorPerc_diff}</p></td>
+			<td id="miscErrorPerc_anls" data-highlight-colour="{miscErrorPerc_anls}"><p /></td>
+		</tr>
+		<tr>
+			<td data-highlight-colour="#79e2f2"><p><strong>Orderentry</strong></p></td>
+			<td id="orderentryResponseTime_test" data-highlight-colour="#e6fcff"><p>{orderentryResponseTime_test}</p></td>
+			<td id="orderentryResponseTime_diff" data-highlight-colour="#e6fcff"><p>{orderentryResponseTime_diff}</p></td>
+			<td id="orderentryResponseTime_anls" data-highlight-colour="{orderentryResponseTime_anls}"><p /></td>
+			<td id="orderentryCalls_test" data-highlight-colour="#b3f5ff"><p>{orderentryCalls_test}</p></td>
+			<td id="orderentryCalls_diff" data-highlight-colour="#b3f5ff"><p>{orderentryCalls_diff}</p></td>
+			<td id="orderentryCalls_anls" data-highlight-colour="{orderentryCalls_anls}"><p /></td>
+			<td id="orderentryErrors_test" data-highlight-colour="#e6fcff"><p>{orderentryErrors_test}</p></td>
+			<td id="orderentryErrors_diff" data-highlight-colour="#e6fcff"><p>{orderentryErrors_diff}</p></td>
+			<td id="orderentryErrors_anls" data-highlight-colour="{orderentryErrors_anls}"><p /></td>
+			<td id="orderentryErrorPerc_test" data-highlight-colour="#b3f5ff"><p>{orderentryErrorPerc_test}</p></td>
+			<td id="orderentryErrorPerc_diff" data-highlight-colour="#b3f5ff"><p>{orderentryErrorPerc_diff}</p></td>
+			<td id="orderentryErrorPerc_anls" data-highlight-colour="{orderentryErrorPerc_anls}"><p /></td>
+		</tr>
+		<tr>
+			<td data-highlight-colour="#79e2f2"><p><strong>Orderentry/browseorder</strong></p></td>
+			<td id="orderentryBrowseResponseTime_test" data-highlight-colour="#e6fcff"><p>{orderentryBrowseResponseTime_test}</p></td>
+			<td id="orderentryBrowseResponseTime_diff" data-highlight-colour="#e6fcff"><p>{orderentryBrowseResponseTime_diff}</p></td>
+			<td id="orderentryBrowseResponseTime_anls" data-highlight-colour="{orderentryBrowseResponseTime_anls}"><p /></td>
+			<td id="orderentryBrowseCalls_test" data-highlight-colour="#b3f5ff"><p>{orderentryBrowseCalls_test}</p></td>
+			<td id="orderentryBrowseCalls_diff" data-highlight-colour="#b3f5ff"><p>{orderentryBrowseCalls_diff}</p></td>
+			<td id="orderentryBrowseCalls_anls" data-highlight-colour="{orderentryBrowseCalls_anls}"><p /></td>
+			<td id="orderentryBrowseErrors_test" data-highlight-colour="#e6fcff"><p>{orderentryBrowseErrors_test}</p></td>
+			<td id="orderentryBrowseErrors_diff" data-highlight-colour="#e6fcff"><p>{orderentryBrowseErrors_diff}</p></td>
+			<td id="orderentryBrowseErrors_anls" data-highlight-colour="{orderentryBrowseErrors_anls}"><p /></td>
+			<td id="orderentryBrowseErrorPerc_test" data-highlight-colour="#b3f5ff"><p>{orderentryBrowseErrorPerc_test}</p></td>
+			<td id="orderentryBrowseErrorPerc_diff" data-highlight-colour="#b3f5ff"><p>{orderentryBrowseErrorPerc_diff}</p></td>
+			<td id="orderentryBrowseErrorPerc_anls" data-highlight-colour="{orderentryBrowseErrorPerc_anls}"><p /></td>
+		</tr>
+		<tr>
+			<td data-highlight-colour="#79e2f2"><p><strong>Orderentry/customer</strong></p></td>
+			<td id="orderentryCustomerResponseTime_test" data-highlight-colour="#e6fcff"><p>{orderentryCustomerResponseTime_test}</p></td>
+			<td id="orderentryCustomerResponseTime_diff" data-highlight-colour="#e6fcff"><p>{orderentryCustomerResponseTime_diff}</p></td>
+			<td id="orderentryCustomerResponseTime_anls" data-highlight-colour="{orderentryCustomerResponseTime_anls}"><p /></td>
+			<td id="orderentryCustomerCalls_test" data-highlight-colour="#b3f5ff"><p>{orderentryCustomerCalls_test}</p></td>
+			<td id="orderentryCustomerCalls_diff" data-highlight-colour="#b3f5ff"><p>{orderentryCustomerCalls_diff}</p></td>
+			<td id="orderentryCustomerCalls_anls" data-highlight-colour="{orderentryCustomerCalls_anls}"><p /></td>
+			<td id="orderentryCustomerErrors_test" data-highlight-colour="#e6fcff"><p>{orderentryCustomerErrors_test}</p></td>
+			<td id="orderentryCustomerErrors_diff" data-highlight-colour="#e6fcff"><p>{orderentryCustomerErrors_diff}</p></td>
+			<td id="orderentryCustomerErrors_anls" data-highlight-colour="{orderentryCustomerErrors_anls}"><p /></td>
+			<td id="orderentryCustomerErrorPerc_test" data-highlight-colour="#b3f5ff"><p>{orderentryCustomerErrorPerc_test}</p></td>
+			<td id="orderentryCustomerErrorPerc_diff" data-highlight-colour="#b3f5ff"><p>{orderentryCustomerErrorPerc_diff}</p></td>
+			<td id="orderentryCustomerErrorPerc_anls" data-highlight-colour="{orderentryCustomerErrorPerc_anls}"><p /></td>
+		</tr>
+		<tr>
+			<td data-highlight-colour="#79e2f2"><p><strong>Orderentry/loyalty</strong></p></td>
+			<td id="orderentryLoyaltyResponseTime_test" data-highlight-colour="#e6fcff"><p>{orderentryLoyaltyResponseTime_test}</p></td>
+			<td id="orderentryLoyaltyResponseTime_diff" data-highlight-colour="#e6fcff"><p>{orderentryLoyaltyResponseTime_diff}</p></td>
+			<td id="orderentryLoyaltyResponseTime_anls" data-highlight-colour="{orderentryLoyaltyResponseTime_anls}"><p /></td>
+			<td id="orderentryLoyaltyCalls_test" data-highlight-colour="#b3f5ff"><p>{orderentryLoyaltyCalls_test}</p></td>
+			<td id="orderentryLoyaltyCalls_diff" data-highlight-colour="#b3f5ff"><p>{orderentryLoyaltyCalls_diff}</p></td>
+			<td id="orderentryLoyaltyCalls_anls" data-highlight-colour="{orderentryLoyaltyCalls_anls}"><p /></td>
+			<td id="orderentryLoyaltyErrors_test" data-highlight-colour="#e6fcff"><p>{orderentryLoyaltyErrors_test}</p></td>
+			<td id="orderentryLoyaltyErrors_diff" data-highlight-colour="#e6fcff"><p>{orderentryLoyaltyErrors_diff}</p></td>
+			<td id="orderentryLoyaltyErrors_anls" data-highlight-colour="{orderentryLoyaltyErrors_anls}"><p /></td>
+			<td id="orderentryLoyaltyErrorPerc_test" data-highlight-colour="#b3f5ff"><p>{orderentryLoyaltyErrorPerc_test}</p></td>
+			<td id="orderentryLoyaltyErrorPerc_diff" data-highlight-colour="#b3f5ff"><p>{orderentryLoyaltyErrorPerc_diff}</p></td>
+			<td id="orderentryLoyaltyErrorPerc_anls" data-highlight-colour="{orderentryLoyaltyErrorPerc_anls}"><p /></td>
+		</tr>
+		<tr>
+			<td data-highlight-colour="#79e2f2"><p><strong>Orderentry/payment</strong></p></td>
+			<td id="orderentryPaymentResponseTime_test" data-highlight-colour="#e6fcff"><p>{orderentryPaymentResponseTime_test}</p></td>
+			<td id="orderentryPaymentResponseTime_diff" data-highlight-colour="#e6fcff"><p>{orderentryPaymentResponseTime_diff}</p></td>
+			<td id="orderentryPaymentResponseTime_anls" data-highlight-colour="{orderentryPaymentResponseTime_anls}"><p /></td>
+			<td id="orderentryPaymentCalls_test" data-highlight-colour="#b3f5ff"><p>{orderentryPaymentCalls_test}</p></td>
+			<td id="orderentryPaymentCalls_diff" data-highlight-colour="#b3f5ff"><p>{orderentryPaymentCalls_diff}</p></td>
+			<td id="orderentryPaymentCalls_anls" data-highlight-colour="{orderentryPaymentCalls_anls}"><p /></td>
+			<td id="orderentryPaymentErrors_test" data-highlight-colour="#e6fcff"><p>{orderentryPaymentErrors_test}</p></td>
+			<td id="orderentryPaymentErrors_diff" data-highlight-colour="#e6fcff"><p>{orderentryPaymentErrors_diff}</p></td>
+			<td id="orderentryPaymentErrors_anls" data-highlight-colour="{orderentryPaymentErrors_anls}"><p /></td>
+			<td id="orderentryPaymentErrorPerc_test" data-highlight-colour="#b3f5ff"><p>{orderentryPaymentErrorPerc_test}</p></td>
+			<td id="orderentryPaymentErrorPerc_diff" data-highlight-colour="#b3f5ff"><p>{orderentryPaymentErrorPerc_diff}</p></td>
+			<td id="orderentryPaymentErrorPerc_anls" data-highlight-colour="{orderentryPaymentErrorPerc_anls}"><p /></td>
+		</tr>
+		<tr>
+			<td data-highlight-colour="#79e2f2"><p><strong>Orderentry/product</strong></p></td>
+			<td id="orderentryProductResponseTime_test" data-highlight-colour="#e6fcff"><p>{orderentryProductResponseTime_test}</p></td>
+			<td id="orderentryProductResponseTime_diff" data-highlight-colour="#e6fcff"><p>{orderentryProductResponseTime_diff}</p></td>
+			<td id="orderentryProductResponseTime_anls" data-highlight-colour="{orderentryProductResponseTime_anls}"><p /></td>
+			<td id="orderentryProductCalls_test" data-highlight-colour="#b3f5ff"><p>{orderentryProductCalls_test}</p></td>
+			<td id="orderentryProductCalls_diff" data-highlight-colour="#b3f5ff"><p>{orderentryProductCalls_diff}</p></td>
+			<td id="orderentryProductCalls_anls" data-highlight-colour="{orderentryProductCalls_anls}"><p /></td>
+			<td id="orderentryProductErrors_test" data-highlight-colour="#e6fcff"><p>{orderentryProductErrors_test}</p></td>
+			<td id="orderentryProductErrors_diff" data-highlight-colour="#e6fcff"><p>{orderentryProductErrors_diff}</p></td>
+			<td id="orderentryProductErrors_anls" data-highlight-colour="{orderentryProductErrors_anls}"><p /></td>
+			<td id="orderentryProductErrorPerc_test" data-highlight-colour="#b3f5ff"><p>{orderentryProductErrorPerc_test}</p></td>
+			<td id="orderentryProductErrorPerc_diff" data-highlight-colour="#b3f5ff"><p>{orderentryProductErrorPerc_diff}</p></td>
+			<td id="orderentryProductErrorPerc_anls" data-highlight-colour="{orderentryProductErrorPerc_anls}"><p /></td>
+		</tr>
+		<tr>
+			<td data-highlight-colour="#79e2f2"><p><strong>ProductModifications/ProductBuilders</strong></p></td>
+			<td id="productModResponseTime_test" data-highlight-colour="#e6fcff"><p>{productModResponseTime_test}</p></td>
+			<td id="productModResponseTime_diff" data-highlight-colour="#e6fcff"><p>{productModResponseTime_diff}</p></td>
+			<td id="productModResponseTime_anls" data-highlight-colour="{productModResponseTime_anls}"><p /></td>
+			<td id="productModCalls_test" data-highlight-colour="#b3f5ff"><p>{productModCalls_test}</p></td>
+			<td id="productModCalls_diff" data-highlight-colour="#b3f5ff"><p>{productModCalls_diff}</p></td>
+			<td id="productModCalls_anls" data-highlight-colour="{productModCalls_anls}"><p /></td>
+			<td id="productModErrors_test" data-highlight-colour="#e6fcff"><p>{productModErrors_test}</p></td>
+			<td id="productModErrors_diff" data-highlight-colour="#e6fcff"><p>{productModErrors_diff}</p></td>
+			<td id="productModErrors_anls" data-highlight-colour="{productModErrors_anls}"><p /></td>
+			<td id="productModErrorPerc_test" data-highlight-colour="#b3f5ff"><p>{productModErrorPerc_test}</p></td>
+			<td id="productModErrorPerc_diff" data-highlight-colour="#b3f5ff"><p>{productModErrorPerc_diff}</p></td>
+			<td id="productModErrorPerc_anls" data-highlight-colour="{productModErrorPerc_anls}"><p /></td>
+		</tr>
+		<tr>
+			<td data-highlight-colour="#79e2f2"><p><strong>ProfitDispatchServices</strong></p></td>
+			<td id="profitDispatchResponseTime_test" data-highlight-colour="#e6fcff"><p>{profitDispatchResponseTime_test}</p></td>
+			<td id="profitDispatchResponseTime_diff" data-highlight-colour="#e6fcff"><p>{profitDispatchResponseTime_diff}</p></td>
+			<td id="profitDispatchResponseTime_anls" data-highlight-colour="{profitDispatchResponseTime_anls}"><p /></td>
+			<td id="profitDispatchCalls_test" data-highlight-colour="#b3f5ff"><p>{profitDispatchCalls_test}</p></td>
+			<td id="profitDispatchCalls_diff" data-highlight-colour="#b3f5ff"><p>{profitDispatchCalls_diff}</p></td>
+			<td id="profitDispatchCalls_anls" data-highlight-colour="{profitDispatchCalls_anls}"><p /></td>
+			<td id="profitDispatchErrors_test" data-highlight-colour="#e6fcff"><p>{profitDispatchErrors_test}</p></td>
+			<td id="profitDispatchErrors_diff" data-highlight-colour="#e6fcff"><p>{profitDispatchErrors_diff}</p></td>
+			<td id="profitDispatchErrors_anls" data-highlight-colour="{profitDispatchErrors_anls}"><p /></td>
+			<td id="profitDispatchErrorPerc_test" data-highlight-colour="#b3f5ff"><p>{profitDispatchErrorPerc_test}</p></td>
+			<td id="profitDispatchErrorPerc_diff" data-highlight-colour="#b3f5ff"><p>{profitDispatchErrorPerc_diff}</p></td>
+			<td id="profitDispatchErrorPerc_anls" data-highlight-colour="{profitDispatchErrorPerc_anls}"><p /></td>
+		</tr>
+		<tr>
+			<td data-highlight-colour="#79e2f2"><p><strong>System</strong></p></td>
+			<td id="systemResponseTime_test" data-highlight-colour="#e6fcff"><p>{systemResponseTime_test}</p></td>
+			<td id="systemResponseTime_diff" data-highlight-colour="#e6fcff"><p>{systemResponseTime_diff}</p></td>
+			<td id="systemResponseTime_anls" data-highlight-colour="{systemResponseTime_anls}"><p /></td>
+			<td id="systemCalls_test" data-highlight-colour="#b3f5ff"><p>{systemCalls_test}</p></td>
+			<td id="systemCalls_diff" data-highlight-colour="#b3f5ff"><p>{systemCalls_diff}</p></td>
+			<td id="systemCalls_anls" data-highlight-colour="{systemCalls_anls}"><p /></td>
+			<td id="systemErrors_test" data-highlight-colour="#e6fcff"><p>{systemErrors_test}</p></td>
+			<td id="systemErrors_diff" data-highlight-colour="#e6fcff"><p>{systemErrors_diff}</p></td>
+			<td id="systemErrors_anls" data-highlight-colour="{systemErrors_anls}"><p /></td>
+			<td id="systemErrorPerc_test" data-highlight-colour="#b3f5ff"><p>{systemErrorPerc_test}</p></td>
+			<td id="systemErrorPerc_diff" data-highlight-colour="#b3f5ff"><p>{systemErrorPerc_diff}</p></td>
+			<td id="systemErrorPerc_anls" data-highlight-colour="{systemErrorPerc_anls}"><p /></td>
+		</tr>
+		<tr>
+			<td data-highlight-colour="#79e2f2"><p><strong>TimeClock</strong></p></td>
+			<td id="timeclockResponseTime_test" data-highlight-colour="#e6fcff"><p>{timeclockResponseTime_test}</p></td>
+			<td id="timeclockResponseTime_diff" data-highlight-colour="#e6fcff"><p>{timeclockResponseTime_diff}</p></td>
+			<td id="timeclockResponseTime_anls" data-highlight-colour="{timeclockResponseTime_anls}"><p /></td>
+			<td id="timeclockCalls_test" data-highlight-colour="#b3f5ff"><p>{timeclockCalls_test}</p></td>
+			<td id="timeclockCalls_diff" data-highlight-colour="#b3f5ff"><p>{timeclockCalls_diff}</p></td>
+			<td id="timeclockCalls_anls" data-highlight-colour="{timeclockCalls_anls}"><p /></td>
+			<td id="timeclockErrors_test" data-highlight-colour="#e6fcff"><p>{timeclockErrors_test}</p></td>
+			<td id="timeclockErrors_diff" data-highlight-colour="#e6fcff"><p>{timeclockErrors_diff}</p></td>
+			<td id="timeclockErrors_anls" data-highlight-colour="{timeclockErrors_anls}"><p /></td>
+			<td id="timeclockErrorPerc_test" data-highlight-colour="#b3f5ff"><p>{timeclockErrorPerc_test}</p></td>
+			<td id="timeclockErrorPerc_diff" data-highlight-colour="#b3f5ff"><p>{timeclockErrorPerc_diff}</p></td>
+			<td id="timeclockErrorPerc_anls" data-highlight-colour="{timeclockErrorPerc_anls}"><p /></td>
+		</tr>
+		<tr>
+			<td data-highlight-colour="#4c9aff" colspan="13"><p><strong>REMOTE SERVICES</strong></p></td>
+		</tr>
+		<tr>
+			<td data-highlight-colour="#79e2f2"><p><strong>SERVER -&gt; LOYALTY_STAGE</strong></p></td>
+			<td id="remoteLoyaltyResponseTime_test" data-highlight-colour="#e6fcff"><p>{remoteLoyaltyResponseTime_test}</p></td>
+			<td id="remoteLoyaltyResponseTime_diff" data-highlight-colour="#e6fcff"><p>{remoteLoyaltyResponseTime_diff}</p></td>
+			<td id="remoteLoyaltyResponseTime_anls" data-highlight-colour="{remoteLoyaltyResponseTime_anls}"><p /></td>
+			<td id="remoteLoyaltyCalls_test" data-highlight-colour="#b3f5ff"><p>{remoteLoyaltyCalls_test}</p></td>
+			<td id="remoteLoyaltyCalls_diff" data-highlight-colour="#b3f5ff"><p>{remoteLoyaltyCalls_diff}</p></td>
+			<td id="remoteLoyaltyCalls_anls" data-highlight-colour="{remoteLoyaltyCalls_anls}"><p /></td>
+			<td id="remoteLoyaltyErrors_test" data-highlight-colour="#e6fcff"><p>{remoteLoyaltyErrors_test}</p></td>
+			<td id="remoteLoyaltyErrors_diff" data-highlight-colour="#e6fcff"><p>{remoteLoyaltyErrors_diff}</p></td>
+			<td id="remoteLoyaltyErrors_anls" data-highlight-colour="{remoteLoyaltyErrors_anls}"><p /></td>
+			<td id="remoteLoyaltyErrorPerc_test" data-highlight-colour="#b3f5ff"><p>{remoteLoyaltyErrorPerc_test}</p></td>
+			<td id="remoteLoyaltyErrorPerc_diff" data-highlight-colour="#b3f5ff"><p>{remoteLoyaltyErrorPerc_diff}</p></td>
+			<td id="remoteLoyaltyErrorPerc_anls" data-highlight-colour="{remoteLoyaltyErrorPerc_anls}"><p /></td>
+		</tr>
+		<tr>
+			<td data-highlight-colour="#79e2f2"><p><strong>SERVER -&gt; MAPPING_STAGE</strong></p></td>
+			<td id="remoteMappingResponseTime_test" data-highlight-colour="#e6fcff"><p>{remoteMappingResponseTime_test}</p></td>
+			<td id="remoteMappingResponseTime_diff" data-highlight-colour="#e6fcff"><p>{remoteMappingResponseTime_diff}</p></td>
+			<td id="remoteMappingResponseTime_anls" data-highlight-colour="{remoteMappingResponseTime_anls}"><p /></td>
+			<td id="remoteMappingCalls_test" data-highlight-colour="#b3f5ff"><p>{remoteMappingCalls_test}</p></td>
+			<td id="remoteMappingCalls_diff" data-highlight-colour="#b3f5ff"><p>{remoteMappingCalls_diff}</p></td>
+			<td id="remoteMappingCalls_anls" data-highlight-colour="{remoteMappingCalls_anls}"><p /></td>
+			<td id="remoteMappingErrors_test" data-highlight-colour="#e6fcff"><p>{remoteMappingErrors_test}</p></td>
+			<td id="remoteMappingErrors_diff" data-highlight-colour="#e6fcff"><p>{remoteMappingErrors_diff}</p></td>
+			<td id="remoteMappingErrors_anls" data-highlight-colour="{remoteMappingErrors_anls}"><p /></td>
+			<td id="remoteMappingErrorPerc_test" data-highlight-colour="#b3f5ff"><p>{remoteMappingErrorPerc_test}</p></td>
+			<td id="remoteMappingErrorPerc_diff" data-highlight-colour="#b3f5ff"><p>{remoteMappingErrorPerc_diff}</p></td>
+			<td id="remoteMappingErrorPerc_anls" data-highlight-colour="{remoteMappingErrorPerc_anls}"><p /></td>
+		</tr>
+		<tr>
+			<td data-highlight-colour="#79e2f2"><p><strong>SERVER -&gt; PROFANITY_QA</strong></p></td>
+			<td id="remoteProfanityResponseTime_test" data-highlight-colour="#e6fcff"><p>{remoteProfanityResponseTime_test}</p></td>
+			<td id="remoteProfanityResponseTime_diff" data-highlight-colour="#e6fcff"><p>{remoteProfanityResponseTime_diff}</p></td>
+			<td id="remoteProfanityResponseTime_anls" data-highlight-colour="{remoteProfanityResponseTime_anls}"><p /></td>
+			<td id="remoteProfanityCalls_test" data-highlight-colour="#b3f5ff"><p>{remoteProfanityCalls_test}</p></td>
+			<td id="remoteProfanityCalls_diff" data-highlight-colour="#b3f5ff"><p>{remoteProfanityCalls_diff}</p></td>
+			<td id="remoteProfanityCalls_anls" data-highlight-colour="{remoteProfanityCalls_anls}"><p /></td>
+			<td id="remoteProfanityErrors_test" data-highlight-colour="#e6fcff"><p>{remoteProfanityErrors_test}</p></td>
+			<td id="remoteProfanityErrors_diff" data-highlight-colour="#e6fcff"><p>{remoteProfanityErrors_diff}</p></td>
+			<td id="remoteProfanityErrors_anls" data-highlight-colour="{remoteProfanityErrors_anls}"><p /></td>
+			<td id="remoteProfanityErrorPerc_test" data-highlight-colour="#b3f5ff"><p>{remoteProfanityErrorPerc_test}</p></td>
+			<td id="remoteProfanityErrorPerc_diff" data-highlight-colour="#b3f5ff"><p>{remoteProfanityErrorPerc_diff}</p></td>
+			<td id="remoteProfanityErrorPerc_anls" data-highlight-colour="{remoteProfanityErrorPerc_anls}"><p /></td>
+		</tr>
+	</tbody>
+</table>
+<ac:structured-macro ac:name="chart" ac:schema-version="1" data-layout="default" >
+	<ac:parameter ac:name="timeSeries">true</ac:parameter>
+	<ac:parameter ac:name="borderColor">black</ac:parameter>
+	<ac:parameter ac:name="dateFormat">HH:mm</ac:parameter>
+	<ac:parameter ac:name="timePeriod">Minute</ac:parameter>
+	<ac:parameter ac:name="width">1000</ac:parameter>
+	<ac:parameter ac:name="title">SERVER - CPU %Busy</ac:parameter>
+	<ac:parameter ac:name="type">xyArea</ac:parameter>
+	<ac:rich-text-body>
+		<table data-layout="default">
+			<tbody>
+				<tr>
+					<th><p><strong>SERVER - CPU %Busy</strong></p></th>
+					<th><p><strong>{timelapse}</strong></p></th>
+				</tr>
+				<tr>
+					<td><p>Overall</p></td>
+					<td><p>{serverOverallCPULapse}</p></td>
+				</tr>
+				<tr>
+					<td><p>Java</p></td>
+					<td><p>{serverJavaCPULapse}</p></td>
+				</tr>
+			</tbody>
+		</table>
+	</ac:rich-text-body>
+</ac:structured-macro>
+<ac:structured-macro ac:name="chart" ac:schema-version="1" data-layout="default" >
+	<ac:parameter ac:name="timeSeries">true</ac:parameter>
+	<ac:parameter ac:name="borderColor">black</ac:parameter>
+	<ac:parameter ac:name="dateFormat">HH:mm</ac:parameter>
+	<ac:parameter ac:name="timePeriod">Minute</ac:parameter>
+	<ac:parameter ac:name="width">1000</ac:parameter>
+	<ac:parameter ac:name="title">GDD - CPU %Busy</ac:parameter>
+	<ac:parameter ac:name="type">xyArea</ac:parameter>
+	<ac:rich-text-body>
+		<table data-layout="default">
+			<tbody>
+				<tr>
+					<th><p><strong>GDD - CPU %Busy</strong></p></th>
+					<th><p><strong>{timelapse}</strong></p></th>
+				</tr>
+				<tr>
+					<td><p>Overall</p></td>
+					<td><p>{gddOverallCPULapse}</p></td>
+				</tr>
+				<tr>
+					<td><p>Java</p></td>
+					<td><p>{gddJavaCPULapse}</p></td>
+				</tr>
+			</tbody>
+		</table>
+	</ac:rich-text-body>
+</ac:structured-macro>
+<ac:structured-macro ac:name="chart" ac:schema-version="1" data-layout="default" >
+	<ac:parameter ac:name="timeSeries">true</ac:parameter>
+	<ac:parameter ac:name="borderColor">black</ac:parameter>
+	<ac:parameter ac:name="dateFormat">HH:mm</ac:parameter>
+	<ac:parameter ac:name="timePeriod">Minute</ac:parameter>
+	<ac:parameter ac:name="width">1000</ac:parameter>
+	<ac:parameter ac:name="title">SERVER - Active Threads</ac:parameter>
+	<ac:parameter ac:name="type">xyArea</ac:parameter>
+	<ac:rich-text-body>
+		<table data-layout="default">
+			<tbody>
+				<tr>
+					<th><p><strong>SERVER - Active Threads</strong></p></th>
+					<th><p><strong>{timelapse}</strong></p></th>
+				</tr>
+				<tr>
+					<td><p>Thread Count</p></td>
+					<td><p>{serverThreadLapse}</p></td>
+				</tr>
+			</tbody>
+		</table>
+	</ac:rich-text-body>
+</ac:structured-macro>
+<ac:structured-macro ac:name="chart" ac:schema-version="1" data-layout="default" >
+	<ac:parameter ac:name="timeSeries">true</ac:parameter>
+	<ac:parameter ac:name="borderColor">black</ac:parameter>
+	<ac:parameter ac:name="dateFormat">HH:mm</ac:parameter>
+	<ac:parameter ac:name="timePeriod">Minute</ac:parameter>
+	<ac:parameter ac:name="width">1000</ac:parameter>
+	<ac:parameter ac:name="title">GDD - Active Threads</ac:parameter>
+	<ac:parameter ac:name="type">xyArea</ac:parameter>
+	<ac:rich-text-body>
+		<table data-layout="default">
+			<tbody>
+				<tr>
+					<th><p><strong>GDD - Active Threads</strong></p></th>
+					<th><p><strong>{timelapse}</strong></p></th>
+				</tr>
+				<tr>
+					<td><p>Thread Count</p></td>
+					<td><p>{gddThreadLapse}</p></td>
+				</tr>
+			</tbody>
+		</table>
+	</ac:rich-text-body>
+</ac:structured-macro>
+<p>No DB data for this test due to an issue with the AppDynamics Database Agent on the performance box.</p>
+<p />
+<p>{title} = LEFT SIDE</p>
+<p>{baseline}	= RIGHT SIDE</p>
