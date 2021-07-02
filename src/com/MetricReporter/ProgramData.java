@@ -20,6 +20,5 @@ public class ProgramData {
     public static String metricPropertiesFile = "/res/metrics.properties";
     public static Properties metricProperties = new Properties();
 
-    // We use a LinkedHashMap for the metrics to preserve ordering, using the metric names as the keys
-    public static LinkedHashMap<String, Metric> metrics;
+    public static HashMap<String, Metric> metrics;
 }

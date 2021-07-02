@@ -9,7 +9,7 @@ import com.mashape.unirest.http.*;
 import org.json.*;
 
 /*
-The purpose of this program is to get the metrics from AppD by hitting the REST APIs.Saves about 1 hour per test report preparation.
+The purpose of this program is to get the metrics from AppD by hitting the REST APIs. Saves about 1 hour per test report preparation.
 Per day basis, ~ 2 hours is saved.
 The code was first pushed to github on  24-July-2020.
 */
@@ -22,8 +22,8 @@ public class MetricWriter {
         PrintResults();
     }
 
-    /* 
-     * Read the report format set in the CSV/HTML file
+    /*
+     * Read the report format set in the HTML file
      */
     public static void ReadReportFormat() throws Exception {
         String resource = "/res/Configs/" + ProgramData.config + "/Formats/" + ProgramData.testType + ".html";
@@ -64,7 +64,7 @@ public class MetricWriter {
                 ReplaceMetricDiffAnalysis(metricName, metric);
             }
         });
-        
+
         ReplaceHiddenValues(hiddenValues);
     }
 
@@ -91,38 +91,16 @@ public class MetricWriter {
      * Replaces the time segment placeholders in the report with appropriate times
      */
     public static void ReplaceTimeSegments() {
-        if (exportString.contains("{timeSegment1}")) {
-            String timeSegment1 = ProgramData.startDT.toString().substring(11, 16) + " - "
-                + ProgramData.startDT.plusMinutes(20).toString().substring(11, 16)
-                + " (20 min)";
-            exportString = exportString.replace("{timeSegment1}", timeSegment1);
-        }
-        if (exportString.contains("{timeSegment2}")) {
-            String timeSegment2 = ProgramData.startDT.plusMinutes(20).toString().substring(11, 16) + " - "
-                + ProgramData.startDT.plusMinutes(60).toString().substring(11, 16)
-                + " (40 min)";
-            exportString = exportString.replace("{timeSegment2}", timeSegment2);
-        }
-        if (exportString.contains("{timeSegment3}")) {
-            String timeSegment3 = ProgramData.startDT.plusMinutes(60).toString().substring(11, 16) + " - "
-                + ProgramData.startDT.plusMinutes(100).toString().substring(11, 16)
-                + " (40 min)";
-            exportString = exportString.replace("{timeSegment3}", timeSegment3);
-        }
-        if (exportString.contains("{timeSegment4}")) {
-            String timeSegment4 = ProgramData.startDT.plusMinutes(100).toString().substring(11, 16) + " - "
-                + ProgramData.startDT.plusMinutes(140).toString().substring(11, 16)
-                + " (40 min)";
-            exportString = exportString.replace("{timeSegment4}", timeSegment4);
-        }
-        if (exportString.contains("{timeSegment5}")) {
-            String timeSegment5 = ProgramData.startDT.plusMinutes(140).toString().substring(11, 16) + " - "
-                + ProgramData.startDT.plusMinutes(180).toString().substring(11, 16)
-                + " (40 min)";
-            exportString = exportString.replace("{timeSegment5}", timeSegment5);
+        for (int i = 0; i < 5; i++) {
+            if (exportString.contains("{timeSegment" + (i + 1) + "}")) {
+                String timeSegment = ProgramData.startDT.plusMinutes(i > 0 ? 20 + (i * 40) : 0).toString().substring(11,
+                        16) + " - " + ProgramData.startDT.plusMinutes(20 + (i * 40)).toString().substring(11, 16) + " ("
+                        + (i > 0 ? 40 : 20) + " min)";
+                exportString = exportString.replace("{timeSegment" + (i + 1) + "}", timeSegment);
+            }
         }
     }
-    
+
     /*
      * Replaces the timelapse placeholder in the report with the test minutes
      */
@@ -141,7 +119,6 @@ public class MetricWriter {
             exportString = exportString.replaceFirst(pattern.pattern(), replacement);
         }
     }
-    
 
     /*
      * Replaces the lapse placeholder in the report with the data for the metric
@@ -162,7 +139,8 @@ public class MetricWriter {
     }
 
     /*
-     * Replaces the next metric placeholder in the report with the metric's test value
+     * Replaces the next metric placeholder in the report with the metric's test
+     * value
      */
     public static void ReplaceMetricTestValue(String metricName, Metric metric, StringBuilder hiddenValues) {
         if (exportString.contains("{" + metricName + "_test}")) {
@@ -171,9 +149,10 @@ public class MetricWriter {
             hiddenValues.append(metricName + ":" + valueString + ";");
         }
     }
-    
+
     /*
-     * Replaces the next metric placeholder in the report with the metric's diff value
+     * Replaces the next metric placeholder in the report with the metric's diff
+     * value
      */
     public static void ReplaceMetricDiffValue(String metricName, Metric metric) {
         if (exportString.contains("{" + metricName + "_diff}")) {
@@ -186,9 +165,10 @@ public class MetricWriter {
             exportString = exportString.replace("{" + metricName + "_diff}", valueString);
         }
     }
-    
+
     /*
-     * Replaces the next metric placeholder in the report with the metric's diff analysis
+     * Replaces the next metric placeholder in the report with the metric's diff
+     * analysis
      */
     public static void ReplaceMetricDiffAnalysis(String metricName, Metric metric) {
         if (exportString.contains("{" + metricName + "_anls}")) {
@@ -196,7 +176,7 @@ public class MetricWriter {
             if (Float.isNaN(metric.values[2])) {
                 valueString = "---";
             } else {
-                if(metric.values[2] > metric.thresholds[3]) {
+                if (metric.values[2] > metric.thresholds[3]) {
                     valueString = "#bf2600";
                 } else if (metric.values[2] > metric.thresholds[2]) {
                     valueString = "#ffc400";
@@ -208,7 +188,7 @@ public class MetricWriter {
                     valueString = "#ffffff";
                 }
             }
-            exportString = exportString.replace("{"+metricName+"_anls}", valueString);
+            exportString = exportString.replace("{" + metricName + "_anls}", valueString);
         }
     }
 
@@ -227,13 +207,10 @@ public class MetricWriter {
         String password = ProgramData.metricProperties.getProperty("atlaToken");
         String authCode = Base64.getEncoder().encodeToString((username + ":" + password).getBytes());
 
-        HttpResponse<JsonNode> response =  Unirest.get("https://pjolodevkb.atlassian.net/wiki/rest/api/content")
-            .queryString("type", "page")
-            .queryString("title", ProgramData.exportName)
-            .queryString("expand", "version")
-            .header("Content-Type", "application/json")
-            .header("Authorization", "Basic " + authCode)
-            .asJson();
+        HttpResponse<JsonNode> response = Unirest.get("https://pjolodevkb.atlassian.net/wiki/rest/api/content")
+                .queryString("type", "page").queryString("title", ProgramData.exportName)
+                .queryString("expand", "version").header("Content-Type", "application/json")
+                .header("Authorization", "Basic " + authCode).asJson();
         JSONArray results = response.getBody().getObject().getJSONArray("results");
         if (results.length() > 0) {
             System.out.println("Page already exists.");
@@ -243,8 +220,7 @@ public class MetricWriter {
                 int versionNum = results.getJSONObject(0).getJSONObject("version").getInt("number");
                 ReplaceConfluencePage(authCode, existingID, versionNum);
             }
-        }
-        else {
+        } else {
             System.out.println("Page does not exist, creating.");
             CreateNewConfluencePage(authCode);
         }
@@ -264,12 +240,10 @@ public class MetricWriter {
         body.put("storage", storage);
         pageContent.put("body", body);
 
-        HttpResponse<String> response = Unirest.put("https://pjolodevkb.atlassian.net/wiki/rest/api/content/{contentID}")
-                .routeParam("contentID", existingID)
-                .header("Content-Type", "application/json")
-                .header("Authorization", "Basic " + authCode)
-                .body(pageContent)
-                .asString();
+        HttpResponse<String> response = Unirest
+                .put("https://pjolodevkb.atlassian.net/wiki/rest/api/content/{contentID}")
+                .routeParam("contentID", existingID).header("Content-Type", "application/json")
+                .header("Authorization", "Basic " + authCode).body(pageContent).asString();
         if (response.getStatus() > 299) {
             System.out.println(response.getBody().toString());
         }
@@ -302,10 +276,8 @@ public class MetricWriter {
         pageContent.put("body", body);
 
         HttpResponse<JsonNode> response = Unirest.post("https://pjolodevkb.atlassian.net/wiki/rest/api/content")
-                .header("Content-Type", "application/json")
-                .header("Authorization", "Basic " + authCode)
-                .body(pageContent)
-                .asJson();
+                .header("Content-Type", "application/json").header("Authorization", "Basic " + authCode)
+                .body(pageContent).asJson();
         if (response.getStatus() > 299) {
             System.out.println(response.getBody().toString());
         }
